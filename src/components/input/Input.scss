@@ -1,0 +1,28 @@
+.input {
+  min-width: 146px;
+  padding: 7px 10px;
+
+  //Todo create variables
+  background: #DBDBDB;
+
+  border-radius: 14px;
+
+  border: none;
+  outline: none;
+}
+
+.input--white {
+  background-color: white;
+
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+}
+
+.input--right-rounded {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.input--left-rounded {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}

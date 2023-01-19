@@ -1,22 +1,22 @@
 import React from "react";
-import classNames from "classnames";
+import cn from "classnames";
 
 import './Button.scss';
 
-type PropTypes = {
-    buttonTypes: Array<string>;
-    children?: JSX.Element | string;
+interface Props {
+    buttonTypes?: Array<string>;
+    children?: React.ReactNode;
+    onClick?: () => void;
 }
 
-/* @ts-ignore */
-//Todo (Add handler )This is just layout
-export const Button: React.FC<PropTypes> = (props) => {
 
-    const buttonClasses = props.buttonTypes.map(btnType => `button--${btnType}`);
+export const Button: React.FC<Props> = ({buttonTypes, children, onClick}) => {
+
+    const buttonClasses = buttonTypes?.map((btnType: string) => `button--${btnType}`);
 
     return (
-        <button className={classNames('button', buttonClasses)}>
-            {props.children}
+        <button className={cn('button', buttonClasses)} onClick={onClick}>
+            {children}
         </button>
     )
 };
