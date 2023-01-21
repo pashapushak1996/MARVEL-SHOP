@@ -3,18 +3,15 @@ import cn from "classnames";
 
 import './Input.scss';
 
-interface Props {
+interface IInputProps {
     children?: React.ReactNode;
     inputVariants?: Array<string>;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     value?: string;
 }
 
-export const Input: React.FC<Props> = ({
-                                           inputVariants,
-                                           value,
-                                           onChange
-                                       }) => {
+export const Input: React.FC<IInputProps> = (props) => {
+    const {inputVariants, value, onChange} = props;
 
     const inputClasses = inputVariants?.map((inputClass: string) => `input--${inputClass}`);
 
@@ -24,5 +21,5 @@ export const Input: React.FC<Props> = ({
             value={value}
             onChange={onChange}
             className={cn('input', inputClasses)}/>
-    )
+    );
 };

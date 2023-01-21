@@ -3,14 +3,14 @@ import cn from "classnames";
 
 import './Button.scss';
 
-interface Props {
+interface IButtonProps {
     buttonTypes?: Array<string>;
     children?: React.ReactNode;
     onClick?: () => void;
 }
 
-
-export const Button: React.FC<Props> = ({buttonTypes, children, onClick}) => {
+export const Button: React.FC<IButtonProps> = (props) => {
+    const {buttonTypes, children, onClick} = props;
 
     const buttonClasses = buttonTypes?.map((btnType: string) => `button--${btnType}`);
 
@@ -18,5 +18,5 @@ export const Button: React.FC<Props> = ({buttonTypes, children, onClick}) => {
         <button className={cn('button', buttonClasses)} onClick={onClick}>
             {children}
         </button>
-    )
+    );
 };

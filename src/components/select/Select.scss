@@ -1,0 +1,17 @@
+@forward "../input/Input.scss";
+
+.select {
+  @extend .input;
+
+  background-image: url('../../assets/icons/shevron.svg');
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: 96% 50%;
+
+  padding-inline-end: 30px;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+}
