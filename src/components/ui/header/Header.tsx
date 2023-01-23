@@ -2,7 +2,7 @@ import React from 'react';
 
 import './Header.scss';
 
-import logoSrc from '../../assets/icons/logo.svg';
+import logoSrc from '../../../assets/icons/logo.svg';
 
 
 export const Header: React.FC = () => {
