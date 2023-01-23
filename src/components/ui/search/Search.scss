@@ -1,0 +1,12 @@
+.search {
+  display: flex;
+  align-items: center;
+
+  &__input {
+    min-width: 206px;
+  }
+
+  &__button {
+    transform: translateX(-100%);
+  }
+}

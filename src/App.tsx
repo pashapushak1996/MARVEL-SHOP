@@ -1,12 +1,12 @@
 import React from 'react';
 
 import './App.scss';
-import { Container } from './components/layout/container/Container';
+import { Search } from './components/ui/search';
 
 const App = () => {
   return (
     <div className='App'>
-      <Container></Container>
+      <Search />
     </div>
   );
 };

@@ -8,6 +8,7 @@ interface IInputProps {
   inputVariants?: Array<string>;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   value?: string;
+  placeholder?: string;
 }
 
 export const Input: React.FC<IInputProps> = (props) => {
