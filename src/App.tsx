@@ -1,12 +1,13 @@
 import React from 'react';
 
+import { Hero } from './components/ui/hero';
+
 import './App.scss';
-import { Search } from './components/ui/search';
 
 const App = () => {
   return (
     <div className='App'>
-      <Search />
+      <Hero />
     </div>
   );
 };
