@@ -1,0 +1,35 @@
+.hero-welcome {
+  max-width: 374px;
+
+  color: #FFFFFF;
+  &__title {
+    margin-bottom: 25px;
+
+    line-height: 56.25px;
+    font-size: 48px;
+    font-weight: 700;
+  }
+
+  &__description {
+    margin-bottom: 25px;
+
+    font-size: 14px;
+    line-height: 16.41px;
+  }
+
+  &__search {
+    margin-bottom: 47px;
+  }
+
+  &__quote {
+    margin-bottom: 5px;
+
+    font-style: italic;
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  &__quote-author {
+    font-size: 14px;
+  }
+}

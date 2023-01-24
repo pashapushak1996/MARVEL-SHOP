@@ -12,7 +12,7 @@ interface IInputProps {
 }
 
 export const Input: React.FC<IInputProps> = (props) => {
-  const { inputVariants, value, onChange } = props;
+  const { inputVariants, value, onChange, placeholder } = props;
 
   const inputClasses = inputVariants?.map((inputClass: string) => `input--${inputClass}`);
 
@@ -21,6 +21,7 @@ export const Input: React.FC<IInputProps> = (props) => {
       type={'text'}
       value={value}
       onChange={onChange}
-      className={cn('input', inputClasses)} />
+      className={cn('input', inputClasses)}
+      placeholder={placeholder} />
   );
 };
