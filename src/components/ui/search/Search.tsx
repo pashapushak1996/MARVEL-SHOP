@@ -6,6 +6,7 @@ import { Button } from '../button';
 import './Search.scss';
 
 import searchIcon from '../../../assets/icons/search-icon.svg';
+import { Icon } from '../icon';
 
 interface ISearchProps {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -27,7 +28,10 @@ export const Search: React.FC<ISearchProps> = (props) => {
       </div>
       <div className='search__button'>
         <Button buttonTypes={['rounded']} onClick={onClick}>
-          <img src={searchIcon} alt='search' width={20} height={20} />
+          <Icon iconSrc={searchIcon}
+                width={20}
+                height={20}
+                iconAlt={'search icon'} />
         </Button>
       </div>
     </div>
