@@ -2,19 +2,13 @@ import React from 'react';
 
 import { Button } from '../components/ui/button';
 
-import icon from '../../src/assets/icons/search-icon.svg';
+import iconSrc from '../assets/icons/search-icon.svg';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 export default {
   title: 'Components/Button',
   component: Button,
-  argTypes: {
-    icon: {
-      options: [icon],
-      control: { type: 'select' },
-    },
-  },
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args) => <Button{...args} />;
@@ -34,6 +28,7 @@ export const Rounded = Template.bind({});
 
 Rounded.args = {
   modifiers: ['rounded'],
+  icon: iconSrc,
 };
 
 export const ButtonStretched = Template.bind({});
