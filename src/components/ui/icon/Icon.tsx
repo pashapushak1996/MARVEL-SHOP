@@ -4,7 +4,7 @@ import './Icon.scss';
 
 interface IICon {
   iconSrc: string;
-  iconAlt: string;
+  iconAlt?: string;
   width: number;
   height: number;
 }

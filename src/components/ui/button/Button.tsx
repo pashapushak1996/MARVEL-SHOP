@@ -1,21 +1,26 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 import cn from 'classnames';
 
 import './Button.scss';
+import { Icon } from '../icon';
 
-interface IButtonProps {
-  buttonTypes?: Array<string>;
-  children?: React.ReactNode;
-  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+interface IButtonProps extends HTMLAttributes<HTMLButtonElement> {
+  /** There are modifiers which can be added according to BEM as (button--$modifier) */
+  modifiers?: Array<string>;
+
+  /** This is a path to the icon */
+  icon?: string;
 }
 
-export const Button: React.FC<IButtonProps> = (props) => {
-  const { buttonTypes, children, onClick } = props;
+export const Button: React.FC<IButtonProps> = ({ modifiers, children, icon, ...props }) => {
 
-  const buttonClasses = buttonTypes?.map((btnType: string) => `button--${btnType}`);
+  const buttonClasses = modifiers?.map((btnType: string) => `button--${btnType}`);
 
   return (
-    <button className={cn('button', buttonClasses)} onClick={onClick}>
+    <button className={cn('button', buttonClasses)} {...props}>
+      {icon && <Icon iconSrc={icon}
+                     width={20}
+                     height={20} />}
       {children}
     </button>
   );
