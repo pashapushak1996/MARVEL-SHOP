@@ -1,17 +1,40 @@
 @forward "../input/Input.scss";
 
 .select {
-  @extend .input;
+  &__control {
+    //Todo create variables
+    background: #DBDBDB !important;
 
-  background-image: url('../../../assets/icons/shevron.svg');
-  background-size: auto;
-  background-repeat: no-repeat;
-  background-position: 96% 50%;
+    border-radius: 14px !important;
 
-  padding-inline-end: 30px;
+    min-height: 28px !important;
 
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -o-appearance: none;
+    border: none !important;
+    outline: none !important;
+  }
+
+  &__control--is-focused {
+    box-shadow: 0 0 0 1px #707070 !important;
+    outline: none !important;
+  }
+
+  &__indicator {
+    padding: 4px !important;
+  }
+
+  &__value-container {
+    padding: 0px 8px !important;
+  }
+
+  &__menu-list {
+    background: #DBDBDB;
+  }
+
+  &__option--is-focused {
+    background: lighten(#518cca, 27%) !important;
+  }
+
+  &__option--is-selected {
+    background: #518cca !important;
+  }
 }

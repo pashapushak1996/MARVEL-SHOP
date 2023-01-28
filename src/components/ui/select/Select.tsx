@@ -1,36 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ReactSelect from 'react-select';
 
 import './Select.scss';
 
-
 export interface ISelectOption {
-  label: string;
-  value: string | number;
+  value: string | number,
+  label: string
 }
 
+
 interface ISelectProps {
-  name?: string;
-  value?: ISelectOption;
-  onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  /** This is placeholder for select */
   placeholder: string;
+
+  /** This is selected option object */
+  value: ISelectOption;
+
+  /** This is Array of options objects*/
   options: Array<ISelectOption>;
+
+  /** OnChange handler which receive option object as argument*/
+  onChange: (value: ISelectOption | null) => void;
 }
 
 export const Select: React.FC<ISelectProps> = (props) => {
-  const {
-    name,
-    onChange,
-    options,
-    placeholder,
-  } = props;
+  const { value, options, onChange, placeholder } = props;
+
+  // Todo create custom hook in order to change value
+
+  const [selectedOption, setSelectedOption] = useState<ISelectOption>(value);
+
+  const handleSelectChange = (option: ISelectOption | null) => {
+    if (option) {
+      setSelectedOption(option);
+    }
+
+    onChange(option);
+  };
 
   return (
-    <select name={name} onChange={onChange} className='select'>
-      <option value={''}>{placeholder}</option>
-      {options.map((option, index) => {
-        return <option key={index} value={option.value}>{option.label}</option>;
-      })
-      }
-    </select>
+    <ReactSelect value={selectedOption}
+                 options={options}
+                 classNamePrefix={'select'}
+                 placeholder={placeholder}
+                 onChange={handleSelectChange} />
   );
 };
