@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReactSelect from 'react-select';
 
 import './Select.scss';
@@ -10,11 +10,8 @@ export interface ISelectOption {
 
 
 interface ISelectProps {
-  /** This is placeholder for select */
-  placeholder: string;
-
   /** This is selected option object */
-  value: ISelectOption;
+  selectedOption: ISelectOption;
 
   /** This is Array of options objects*/
   options: Array<ISelectOption>;
@@ -24,25 +21,12 @@ interface ISelectProps {
 }
 
 export const Select: React.FC<ISelectProps> = (props) => {
-  const { value, options, onChange, placeholder } = props;
-
-  // Todo create custom hook in order to change value
-
-  const [selectedOption, setSelectedOption] = useState<ISelectOption>(value);
-
-  const handleSelectChange = (option: ISelectOption | null) => {
-    if (option) {
-      setSelectedOption(option);
-    }
-
-    onChange(option);
-  };
+  const { selectedOption, options, onChange } = props;
 
   return (
     <ReactSelect value={selectedOption}
                  options={options}
                  classNamePrefix={'select'}
-                 placeholder={placeholder}
-                 onChange={handleSelectChange} />
+                 onChange={onChange} />
   );
 };
