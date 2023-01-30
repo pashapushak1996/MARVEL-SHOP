@@ -7,7 +7,7 @@
   padding: 5px;
 
   background: #EE171F;
-  border-radius: 11.5px;
+  border-radius: 15px;
 
   text-align: center;
   color: white;
@@ -18,6 +18,22 @@
   border: none;
 
   cursor: pointer;
+
+  &:hover {
+    background-color: darken(#EE171F, 5%);
+  }
+
+  &:active {
+    background-color: darken(#EE171F, 10%);
+  }
+}
+
+.button--disabled {
+  background-color: lighten(#EE171F, 20%);
+
+  &:hover {
+    background-color: lighten(#EE171F, 20%);
+  }
 }
 
 .button--stretched {
@@ -27,11 +43,40 @@
 .button--white {
   background-color: #FFFFFF;
   color: hsla(0, 0%, 0%, 1);
+
+  &:hover {
+    background-color: darken(#FFFFFF, 5%);
+  }
+
+  &:active {
+    background-color: darken(#FFFFFF, 10%);
+  }
 }
 
-.button--link a {
-  color: inherit;
+.button--link {
+  position: relative;
   text-decoration: none;
+}
+
+.button--link-with-icon {
+  padding: 5px 15px;
+
+  .button__icon {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 45px;
+  }
+
+  .button__text {
+    padding-left: 10px;
+  }
 }
 
 .button--rounded {

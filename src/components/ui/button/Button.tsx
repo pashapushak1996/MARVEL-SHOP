@@ -1,27 +1,51 @@
-import React, { HTMLAttributes } from 'react';
-import cn from 'classnames';
+import React from 'react';
 
 import './Button.scss';
-import { Icon } from '../icon';
 
-interface IButtonProps extends HTMLAttributes<HTMLButtonElement> {
+import { Icon } from '../icon';
+import { Link } from '../link';
+
+interface IButtonProps {
   /** There are modifiers which can be added according to BEM as (button--$modifier) */
   modifiers?: Array<string>;
 
   /** This is a path to the icon */
   icon?: string;
+
+  /** This is a children which will be added into button*/
+
+  children?: React.ReactNode;
+
+  /** This is the reference path for button link */
+
+  to?: string;
+
+  /** This is disabled button state */
+  disabled?: boolean;
 }
 
-export const Button: React.FC<IButtonProps> = ({ modifiers, children, icon, ...props }) => {
+export const Button: React.FC<IButtonProps> = ({
+                                                 children,
+                                                 icon,
+                                                 modifiers = [],
+                                                 disabled,
+                                                 ...props
+                                               }) => {
 
-  const buttonClasses = modifiers?.map((btnType: string) => `button--${btnType}`);
+  if (disabled) {
+    modifiers.push('disabled');
+  }
 
   return (
-    <button className={cn('button', buttonClasses)} {...props}>
-      {icon && <Icon iconSrc={icon}
-                     width={20}
-                     height={20} />}
-      {children}
-    </button>
+    <Link {...props} modifiers={modifiers} as='button'>
+      {icon && <div className='button__icon'>
+        <Icon iconSrc={icon}
+              width={20}
+              height={20} />
+      </div>}
+      <div className='button__text'>
+        {children}
+      </div>
+    </Link>
   );
 };

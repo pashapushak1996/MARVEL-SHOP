@@ -31,10 +31,32 @@ Rounded.args = {
   icon: iconSrc,
 };
 
-export const ButtonStretched = Template.bind({});
+export const Stretched = Template.bind({});
 
-ButtonStretched.args = {
+Stretched.args = {
   ...Primary.args,
   modifiers: ['stretched'],
 };
 
+export const Link = Template.bind({});
+
+Link.args = {
+  ...Primary.args,
+  modifiers: ['link'],
+  to: 'home',
+};
+
+export const LinkWithIcon = Template.bind({});
+
+LinkWithIcon.args = {
+  ...Link.args,
+  icon: iconSrc,
+  modifiers: ['link', 'link-with-icon'],
+};
+
+export const Disabled = Template.bind({});
+
+Disabled.args = {
+  ...Primary.args,
+  disabled: true,
+};

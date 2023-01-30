@@ -27,7 +27,7 @@ export const Search: React.FC<ISearchProps> = (props) => {
                placeholder={placeholder} />
       </div>
       <div className='search__button'>
-        <Button buttonTypes={['rounded']} onClick={onClick}>
+        <Button modifiers={['rounded']} onClick={onClick}>
           <Icon iconSrc={searchIcon}
                 width={20}
                 height={20}
