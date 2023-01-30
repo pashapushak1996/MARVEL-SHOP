@@ -22,6 +22,10 @@ interface IButtonProps {
 
   /** This is disabled button state */
   disabled?: boolean;
+
+  /** This is onClick handler */
+
+  onClick?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
 }
 
 export const Button: React.FC<IButtonProps> = ({

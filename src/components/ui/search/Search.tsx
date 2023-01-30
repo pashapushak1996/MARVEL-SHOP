@@ -10,7 +10,7 @@ import { Icon } from '../icon';
 
 interface ISearchProps {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  onClick?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
   value?: string;
   placeholder: string;
 }
