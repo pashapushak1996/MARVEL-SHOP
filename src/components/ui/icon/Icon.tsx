@@ -7,6 +7,7 @@ interface IICon {
   iconAlt?: string;
   width: number;
   height: number;
+  onClick?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
 }
 
 export const Icon: React.FC<IICon> = (props) => {
@@ -15,7 +16,14 @@ export const Icon: React.FC<IICon> = (props) => {
     iconAlt,
     width,
     height,
+    onClick,
   } = props;
 
-  return <img className='icon' src={iconSrc} width={width} height={height} alt={iconAlt} />;
+  return <img
+    onClick={onClick}
+    className='icon'
+    src={iconSrc}
+    width={width}
+    height={height}
+    alt={iconAlt} />;
 };
