@@ -1,0 +1,1 @@
+export { ComicsCard } from './ComicsCard';
