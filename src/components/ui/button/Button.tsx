@@ -26,6 +26,10 @@ interface IButtonProps {
   /** This is onClick handler */
 
   onClick?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
+
+  /** This is icon width */
+
+  iconSize?: number;
 }
 
 export const Button: React.FC<IButtonProps> = ({
@@ -33,6 +37,7 @@ export const Button: React.FC<IButtonProps> = ({
                                                  icon,
                                                  modifiers = [],
                                                  disabled,
+                                                 iconSize,
                                                  ...props
                                                }) => {
 
@@ -40,12 +45,14 @@ export const Button: React.FC<IButtonProps> = ({
     modifiers.push('disabled');
   }
 
+  const isIconExist = icon && iconSize;
+
   return (
     <Link {...props} modifiers={modifiers} as='button'>
-      {icon && <div className='button__icon'>
+      {isIconExist && <div className='button__icon'>
         <Icon iconSrc={icon}
-              width={20}
-              height={20} />
+              width={iconSize}
+              height={iconSize} />
       </div>}
       <div className='button__text'>
         {children}
