@@ -54,7 +54,7 @@ export const ComicsCard: React.FC<IComicsCardProps> = ({ comics }) => {
         </div>
       </div>
       <div className='comics-card__overlay'>
-        <Typography size={12} className={'comics-card__description'}>{description}</Typography>
+        <Typography size={12} className='comics-card__description'>{description}</Typography>
       </div>
     </div>
   );
