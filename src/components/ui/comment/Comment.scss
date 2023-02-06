@@ -1,0 +1,28 @@
+.comment {
+  padding: 10px;
+
+  border: 1px solid #DBDBDB;
+  border-radius: 10px;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-bottom: 10px;
+  }
+
+  &__rating {
+    transform: translateY(-1px);
+  }
+
+  &__time{
+    font-size: 12px;
+
+    color: #9A9A9A;
+  }
+
+  &__body {
+    padding: 0px 12px;
+  }
+}
