@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { Address } from '../components/ui/address';
+import { Address } from '../components/ui';
 
 export default {
   title: 'Components/Address',
