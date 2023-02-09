@@ -34,8 +34,11 @@ export const Slider: React.FC<ISliderProps> = ({ items }) => {
     >
       {items.map((item) =>
         <SwiperSlide key={item.id}>
-          <SliderCard imgSrc={item.cover} title={item.title}
-                      description={item.description} />
+          <SliderCard
+            id={item.id}
+            imgSrc={item.cover}
+            title={item.title}
+            description={item.description} />
         </SwiperSlide>)}
     </Swiper>
   );

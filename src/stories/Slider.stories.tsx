@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Slider } from '../components/ui/slider';
+import { Slider } from '../components/ui';
 import { IComics } from '../models';
 
 const comicsExample: IComics = {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from '../../layout/container/Container';
+import { Container } from '../../layout';
 
 import './Hero.scss';
 

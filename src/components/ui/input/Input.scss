@@ -1,5 +1,7 @@
 .input {
-  min-width: 146px;
+  max-width: 100%;
+  width: 100%;
+
   padding: 7px 10px;
 
   //Todo create variables
@@ -25,10 +27,6 @@
 .input--left-rounded {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
-}
-
-.input--full-width {
-  width: 100%;
 }
 
 .input--right-padding {
