@@ -1,0 +1,20 @@
+.swiper-wrapper {
+  align-items: center;
+  padding-bottom: 40px;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+
+.swiper-pagination-bullet {
+  background: #CD6F6E;
+
+  &-active {
+    background: #C01918;
+  }
+}

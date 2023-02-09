@@ -15,3 +15,7 @@ export * from './profile-info';
 export * from './search';
 export * from './select';
 export * from './typography';
+export * from './editor';
+export * from './footer';
+export * from './slider-card';
+export * from './slider';

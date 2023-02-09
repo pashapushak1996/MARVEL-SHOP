@@ -18,7 +18,8 @@
     "react-dom": "^18.2.0",
     "react-draft-wysiwyg": "^1.15.0",
     "react-select": "^5.7.0",
-    "react-simple-star-rating": "^5.1.7"
+    "react-simple-star-rating": "^5.1.7",
+    "swiper": "^9.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
