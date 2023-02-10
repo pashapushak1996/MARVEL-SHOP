@@ -1,0 +1,42 @@
+.sign-up {
+
+
+  &__title {
+    margin-bottom: 8px;
+
+    text-align: center;
+  }
+
+  &__question {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    margin-bottom: 8px;
+
+    text-align: center;
+  }
+
+  &__form {
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+
+    width: 100%;
+  }
+
+  &__rounded-inputs {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  &__terms {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    font-size: 12px;
+  }
+}

@@ -20,3 +20,4 @@ export * from './footer';
 export * from './slider-card';
 export * from './slider';
 export * from './modal';
+export * from './checkbox';
