@@ -10,9 +10,6 @@ export const parameters = {
 
 import React from 'react';
 
-/* It will add bootstrap classes to storybook */
-import 'bootstrap/dist/css/bootstrap.css';
-
 /* It will reset storybook components styles  */
 import '../src/theme/reset.css';
 
