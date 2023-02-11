@@ -7,7 +7,8 @@ import './Address.scss';
 import { Icon } from '../icon';
 import { Typography } from '../typography';
 import { DeliveryAddress } from './DeliveryAddress';
-import { IDeliveryAddress } from '../../../models/IDeliveryAddress';
+import { IDeliveryAddress } from '../../../models';
+import { Box } from '../box';
 
 
 export interface IAddressProps {
@@ -35,19 +36,21 @@ export const Address: React.FC<IAddressProps> = ({
                                                  }) => {
 
   return (
-    <div className='address'>
-      <div className='address__header'>
-        <div className='address__username'>
-          <Typography size={12}>{userName}</Typography>
+    <Box borderRadius={35}>
+      <div className='address'>
+        <div className='address__header'>
+          <div className='address__username'>
+            <Typography size={12}>{userName}</Typography>
+          </div>
+          <div className='address__icon'>
+            <Icon onClick={onClick} iconSrc={iconSrc} height={18} width={18} iconAlt='address icon' />
+          </div>
         </div>
-        <div className='address__icon'>
-          <Icon onClick={onClick} iconSrc={iconSrc} height={18} width={18} iconAlt='address icon' />
+        <div className='address__body'>
+          <DeliveryAddress userLocation={userLocation} userPhone={userPhone} />
         </div>
       </div>
-      <div className='address__body'>
-        <DeliveryAddress userLocation={userLocation} userPhone={userPhone} />
-      </div>
-    </div>
+    </Box>
   );
 };
 
