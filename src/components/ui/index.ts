@@ -22,3 +22,4 @@ export * from './slider';
 export * from './modal';
 export * from './checkbox';
 export * from './nav-menu';
+export * from './login-button';

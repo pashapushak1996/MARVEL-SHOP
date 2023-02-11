@@ -6,7 +6,7 @@ import './NavMenu.scss';
 
 interface INavMenuProps {
   /** Items which will be rendered like ul list */
-  items: Array<{ label: string, isActive: boolean }>;
+  items: Array<{ label: string, isActive: boolean, route: string }>;
 }
 
 export const NavMenu: React.FC<INavMenuProps> = ({ items }) => {
@@ -16,7 +16,7 @@ export const NavMenu: React.FC<INavMenuProps> = ({ items }) => {
 
     return <li key={item.label + index} className='nav-menu__list-item'>
       <div className={navLinkClassNames}>
-        <Link>{item.label}</Link>
+        <Link to={item.route}>{item.label}</Link>
       </div>
     </li>;
   });
