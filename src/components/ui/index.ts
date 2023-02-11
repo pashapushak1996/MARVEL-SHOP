@@ -17,7 +17,7 @@ export * from './select';
 export * from './typography';
 export * from './editor';
 export * from './footer';
-export * from './slider-card';
+export * from './slider/slider-card';
 export * from './slider';
 export * from './modal';
 export * from './checkbox';

@@ -14,7 +14,7 @@ import SwiperCore, {
 SwiperCore.use([Pagination]);
 
 import { IComics } from '../../../models';
-import { SliderCard } from '../slider-card';
+import { SliderCard } from './slider-card';
 
 
 interface ISliderProps {

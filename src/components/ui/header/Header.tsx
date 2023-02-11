@@ -6,9 +6,9 @@ import logoSrc from '../../../assets/icons/logo.svg';
 import { NavMenu } from '../nav-menu';
 
 
-const navMenuItems = [{ label: 'News', route: '#' }, { label: 'Characters', route: '#' }, {
+const navMenuItems = [{ label: 'News', isActive: false }, { label: 'Characters', isActive: true }, {
   label: 'Series',
-  route: '#',
+  isActive: false,
 }];
 
 export const Header: React.FC = () => {

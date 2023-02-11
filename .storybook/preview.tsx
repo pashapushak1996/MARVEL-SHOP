@@ -13,6 +13,8 @@ import React from 'react';
 /* It will reset storybook components styles  */
 import '../src/theme/reset.css';
 
+import '../src/index.scss';
+
 export const decorators = [
   (Story: any) => {
     return (
