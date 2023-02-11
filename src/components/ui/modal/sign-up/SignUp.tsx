@@ -12,10 +12,10 @@ export const SignUp = () => {
   return (
     <div className='sign-up'>
       <Typography className='sign-up__title'
-                  size={36}>Signup</Typography>
+                  size={36} variant={'h3'}>Signup</Typography>
       <div className='sign-up__question'>
         Already have an account?
-        <div className='sing-in__link'>
+        <div className='sing-up__link'>
           <Link to={'#'}>Sign in</Link>
         </div>
       </div>

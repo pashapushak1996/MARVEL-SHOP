@@ -3,6 +3,7 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Modal } from '../components/ui';
 import { SignUp } from '../components/ui/modal/sign-up';
+import { SignIn } from '../components/ui/modal/sign-in';
 
 export default {
   title: 'Components/Modal',
@@ -24,4 +25,11 @@ SignUpModal.args = {
   isOpen: true,
   children: <SignUp />,
   imgSrc: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fassets.entrepreneur.com%2Fcontent%2F3x2%2F1300%2F20160809061411-Avengers.jpeg&f=1&nofb=1&ipt=bedc4c68e9b6a69d3ae894a086a548faa8b40a7e7c77b05f97836134055ea3bd&ipo=images',
+};
+
+export const SignInModal = Base.bind({});
+
+SignInModal.args = {
+  ...SignUpModal.args,
+  children: <SignIn />,
 };
