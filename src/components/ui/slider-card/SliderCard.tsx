@@ -34,9 +34,9 @@ export const SliderCard: React.FC<ISliderCardProps> = ({
       <div className='slider-card__body'>
         <Typography className='slider-card__title'
                     variant='h3'
-                    size={24}>{title}</Typography>
+                    size={24} color={'#FFFFFF'}>{title}</Typography>
         <Typography className='slider-card__description'
-                    size={14}>{description}</Typography>
+                    size={14} color={'#FFFFFF'}>{description}</Typography>
         <Button modifiers={['link']} to={`/${id}`} onClick={onClickDetails}>See details</Button>
       </div>
     </div>);

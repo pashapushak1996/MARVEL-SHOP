@@ -1,0 +1,30 @@
+.nav-menu {
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 40px
+  }
+
+  &__list-item {
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .link {
+    text-decoration: none;
+    color: white;
+  }
+
+  .link:hover {
+    color: lighten(#EE171F, 15%);
+  }
+
+  .link:active {
+    color: lighten(#EE171F, 10%);
+  }
+}
+
+.nav-menu__link--is-active > .link {
+  color: lighten(#EE171F, 10%);
+}
