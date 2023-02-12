@@ -1,0 +1,23 @@
+.vertical-links {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  flex-direction: column;
+
+  &__title {
+    margin-bottom: 15px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .link {
+    font-weight: 400;
+
+    font-size: 12px;
+  }
+}

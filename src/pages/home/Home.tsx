@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { CalendarCard, CharacterCard, ComicsCard, Footer, Header, Hero } from '../../components/ui';
-import { Grid } from '../../components/layout';
+import { Container, Grid } from '../../components/layout';
 import { Section } from './section';
 
 import './Home.scss';
@@ -60,7 +60,9 @@ export const Home = () => {
           )}
         </Grid>
       </Section>
-      <Footer />
+      <Container>
+        <Footer />
+      </Container>
     </div>
   );
 };
