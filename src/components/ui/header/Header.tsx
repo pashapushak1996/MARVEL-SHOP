@@ -5,6 +5,7 @@ import './Header.scss';
 import logoSrc from '../../../assets/icons/logo.svg';
 import { NavMenu } from '../nav-menu';
 import { LoginButton } from '../login-button';
+import { Logo } from '../logo';
 
 
 const navMenuItems = [{
@@ -25,7 +26,7 @@ export const Header: React.FC = () => {
   return (
     <header className='header'>
       <div className='header__logo'>
-        <img src={logoSrc} alt='logo' />
+        <Logo width={150} />
       </div>
       <div className='header__menu'>
         <NavMenu items={navMenuItems} />

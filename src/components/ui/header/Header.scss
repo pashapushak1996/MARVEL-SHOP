@@ -18,19 +18,20 @@
     display: flex;
     justify-content: flex-start;
 
-    max-width: 200px;
     height: 42px;
   }
 
   &__menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+    flex: 1;
   }
 
   &__controls {
     display: flex;
     justify-content: flex-end;
-
-    max-width: 200px;
   }
 }
 
