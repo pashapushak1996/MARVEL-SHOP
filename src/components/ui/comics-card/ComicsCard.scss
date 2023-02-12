@@ -1,6 +1,4 @@
 .comics-card {
-  width: 232px;
-
   position: relative;
 
   /*---Card cover---*/
@@ -67,7 +65,20 @@
   &__price {
     color: #EE171F;
 
-    transition: margin 200ms ease;
+    transition: transform 200ms ease;
+  }
+
+  &__button {
+    opacity: 0;
+
+    height: 0;
+
+    transform: translateY(-26px);
+    transition: all 300ms ease;
+  }
+
+  &__button--is-visible {
+    opacity: 1;
   }
 
   /*---Card overlay---*/
@@ -124,7 +135,7 @@
     }
 
     &__price {
-      margin-bottom: 10px;
+      transform: translateY(-36px);
     }
   }
 }

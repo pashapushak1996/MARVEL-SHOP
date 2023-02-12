@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import cn from 'classnames';
 
-import './ComicsCard.scss';
-
 import { Typography } from '../typography';
 import { Button } from '../button';
+import { Icon } from '../icon';
+
+import './ComicsCard.scss';
+
 import { IComics } from '../../../models';
 import starIcon from '../../../assets/icons/star-icon.svg';
-import { Icon } from '../icon';
 
 interface IComicsCardProps {
   comics: IComics;
@@ -19,13 +20,15 @@ export const ComicsCard: React.FC<IComicsCardProps> = ({ comics }) => {
   const [isMouseEnter, setIsMouseEnter] = useState<boolean>(false);
 
   const handleMouseMove = () => {
-    setTimeout(() => {
       setIsMouseEnter(isMouseEnter => !isMouseEnter);
-    }, 100);
   };
 
   const className = cn('comics-card', {
     ['comics-card--is-hovered']: isMouseEnter,
+  });
+
+  const buttonClassName = cn('comics-card__button', {
+    ['comics-card__button--is-visible']: isMouseEnter,
   });
 
   return (
@@ -48,8 +51,8 @@ export const ComicsCard: React.FC<IComicsCardProps> = ({ comics }) => {
           <div className='comics-card__price'>
             ${price}
           </div>
-          <div className='comics-card__button'>
-            {isMouseEnter && <Button>See details</Button>}
+          <div className={buttonClassName}>
+            <Button>See details</Button>
           </div>
         </div>
       </div>
