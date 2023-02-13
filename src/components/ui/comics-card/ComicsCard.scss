@@ -69,9 +69,10 @@
   }
 
   &__button {
-    opacity: 0;
-
+    width: max-content;
     height: 0;
+
+    opacity: 0;
 
     transform: translateY(-26px);
     transition: all 300ms ease;

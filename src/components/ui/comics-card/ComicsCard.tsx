@@ -15,12 +15,20 @@ interface IComicsCardProps {
 }
 
 export const ComicsCard: React.FC<IComicsCardProps> = ({ comics }) => {
-  const { title, company, price, rating, description, cover } = comics;
+  const {
+    rating,
+    description,
+    cover,
+    price,
+    title,
+  } = comics;
+
+  const priceBlockContent = price ? ('$' + price) : 'Sold';
 
   const [isMouseEnter, setIsMouseEnter] = useState<boolean>(false);
 
   const handleMouseMove = () => {
-      setIsMouseEnter(isMouseEnter => !isMouseEnter);
+    setIsMouseEnter(isMouseEnter => !isMouseEnter);
   };
 
   const className = cn('comics-card', {
@@ -45,11 +53,10 @@ export const ComicsCard: React.FC<IComicsCardProps> = ({ comics }) => {
       <div className='comics-card__info'>
         <div className='comics-card__info-left'>
           <Typography className='comics-card__title' variant={'h5'}>{title}</Typography>
-          <Typography className='comics-card__company'>{company}</Typography>
         </div>
         <div className='comics-card__info-right'>
           <div className='comics-card__price'>
-            ${price}
+            {priceBlockContent}
           </div>
           <div className={buttonClassName}>
             <Button>See details</Button>

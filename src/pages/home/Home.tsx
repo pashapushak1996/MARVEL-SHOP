@@ -17,8 +17,8 @@ export const Home = () => {
       <Section title={'Latest releases'} paddingBlock={40}>
         <Grid
           spacing={'lg'}
-          alignItems={'flex-start'}
           justifyContent={'flex-start'}
+          alignItems={'stretch'}
           container>
           {arrayOfComics.map(comics =>
             <Grid key={comics.id}

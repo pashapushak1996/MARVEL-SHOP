@@ -4,13 +4,13 @@ import { Logo } from '../logo';
 import { Typography } from '../typography';
 import { Icon } from '../icon';
 import { VerticalLinks } from './vertical-links';
+import { Link } from '../link';
 
 import './Footer.scss';
 
 import instagramIcon from '../../../assets/icons/instagram-icon.svg';
 import facebookIcon from '../../../assets/icons/facebook-icon.svg';
 import twitterIcon from '../../../assets/icons/twitter-icon.svg';
-import { Link } from '../link';
 
 
 export const Footer: React.FC = () => {
@@ -35,7 +35,9 @@ export const Footer: React.FC = () => {
           <Logo width={233} />
         </div>
         <div className='footer__copyright-text'>
-          <Typography size={12} weight={500} color={'#7C7C7C'}>Copyright 2022 Super-Heroes Shop</Typography>
+          <Typography size={12}
+                      weight={500}
+                      color={'#7C7C7C'}>Copyright 2022 Super-Heroes Shop</Typography>
         </div>
         <div className='footer__icons'>
           {iconsToRender}
