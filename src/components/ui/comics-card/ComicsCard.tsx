@@ -7,23 +7,31 @@ import { Icon } from '../icon';
 
 import './ComicsCard.scss';
 
-import { IComics } from '../../../models';
+import { IComics, IComicsResponse } from '../../../models';
 import starIcon from '../../../assets/icons/star-icon.svg';
+import { buildImagePath } from '../../../helpers';
+import { ImageSizesEnum } from '../../../constants/imageSizes.enum';
 
 interface IComicsCardProps {
-  comics: IComics;
+  comics: IComicsResponse;
 }
 
 export const ComicsCard: React.FC<IComicsCardProps> = ({ comics }) => {
+  /** Todo optimize component (I have to separate this component like)*/
   const {
     rating,
     description,
-    cover,
-    price,
+    thumbnail,
+    prices,
     title,
   } = comics;
 
-  const priceBlockContent = price ? ('$' + price) : 'Sold';
+
+
+  const cover =
+    buildImagePath(thumbnail.path,ImageSizesEnum.XLARGE_SIZE,thumbnail.extension);
+
+  const priceBlockContent = prices[0].price ? ('$' + prices[0].price) : 'Sold';
 
   const [isMouseEnter, setIsMouseEnter] = useState<boolean>(false);
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { CalendarCard, CharacterCard, ComicsCard, Footer, Header, Hero } from '../../components/ui';
 import { Container, Grid } from '../../components/layout';
@@ -7,9 +7,23 @@ import { Section } from './section';
 import './Home.scss';
 
 import modalImage from '../../assets/ModalImage.png';
-import { arrayOfComics, charactersArray } from '../../examples';
+import { charactersArray } from '../../examples';
+import { comicsService } from '../../services/comics.service';
+
+import { IComicsResponse } from '../../models';
 
 export const Home = () => {
+  const [comics, setComics] = useState([]);
+
+  useEffect(() => {
+    const fetch = async () => {
+      const comicsFromServer = await comicsService.getAllComics(20, true);
+
+      setComics(comicsFromServer);
+    };
+
+    fetch();
+  }, []);
   return (
     <div className='home'>
       <Header />
@@ -20,7 +34,7 @@ export const Home = () => {
           justifyContent={'flex-start'}
           alignItems={'stretch'}
           container>
-          {arrayOfComics.map(comics =>
+          {comics.map((comics: IComicsResponse) =>
             <Grid key={comics.id}
                   sm={6}
                   md={4}
