@@ -6,39 +6,7 @@
   &__cover {
     position: relative;
 
-    min-height: 352px;
-
-    overflow: hidden;
-
-    border-radius: 35px;
-  }
-
-  &__cover-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-  }
-
-  /*---Card rating---*/
-
-  &__rating {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    gap: 4px;
-
-    padding: 9px 11px;
-
-    background: #FFFFFF;
-
-    border-top-right-radius: 20px;
+    height: 352px;
   }
 
   /*---Card info---*/
@@ -78,10 +46,6 @@
     transition: all 300ms ease;
   }
 
-  &__button--is-visible {
-    opacity: 1;
-  }
-
   /*---Card overlay---*/
 
   &__overlay {
@@ -107,8 +71,7 @@
   }
 }
 
-.comics-card.comics-card--is-hovered {
-  /** TODO find the way to optimize scss code*/
+.comics-card:hover {
 
   .comics-card {
     &__overlay {
@@ -137,6 +100,10 @@
 
     &__price {
       transform: translateY(-36px);
+    }
+
+    &__button {
+      opacity: 1;
     }
   }
 }
