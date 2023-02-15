@@ -23,6 +23,8 @@ export const ComicsCard: React.FC<IComicsCardProps> = ({ comics }) => {
     title,
   } = comics;
 
+  console.log(description);
+
   const cover =
     buildImagePath(thumbnail.path, ImageSizesEnum.XLARGE_SIZE, thumbnail.extension);
 
