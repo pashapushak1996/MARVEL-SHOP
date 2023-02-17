@@ -1,13 +1,50 @@
 import { API_KEY, API_PRIVATE_KEY, BASE_URL } from '../constants/api.constant';
 import { getHash } from '../services/cryptoMd5.service';
+import { IComic, IComicsResponse } from '../models';
+import { ImageSizesEnum } from '../constants/imageSizes.enum';
+
+import moment from 'moment';
+
+
+/** Function which create image url */
 
 const buildImagePath = (path: string, size: string, extension: string) => {
   return `${path}/${size}.${extension}`;
 };
 
-const generateUrl = (endpoint: string, limit?: number, randomOffset?: boolean): string => {
+/** Function which transforms comicObject */
 
-  const url = `${BASE_URL}/v1/public/${endpoint}`;
+const normalizeComic = (comic: IComicsResponse): IComic => {
+  const { pageCount, thumbnail, prices, title, id, description, dates } = comic;
+
+  const onSaleDate = dates.find(obj => obj.type === 'onsaleDate');
+
+  let date = '';
+
+  if (onSaleDate) {
+    date = moment(onSaleDate.date).format('D/M/Y');
+  }
+
+
+  const cover =
+    buildImagePath(thumbnail.path, ImageSizesEnum.XLARGE_SIZE, thumbnail.extension);
+
+  const price = prices[0] ? prices[0].price : null;
+
+  return ({ pages: pageCount, price, cover, title, id, description, date });
+};
+
+/** Function which creates url which can be used in fetch or axios */
+
+const generateUrl = (endpoint: string,
+                     id?: number | string | null,
+                     limit?: number,
+                     randomOffset?: boolean): string => {
+
+  const itemId = id !== null ? `/${id}` : '';
+
+  const url = `${BASE_URL}/v1/public/${endpoint}${itemId}`;
+
 
   const ts = Date.now().toString();
 
@@ -28,4 +65,4 @@ const generateUrl = (endpoint: string, limit?: number, randomOffset?: boolean): 
   return urlWithApiKey;
 };
 
-export { buildImagePath, generateUrl };
+export { buildImagePath, generateUrl, normalizeComic };

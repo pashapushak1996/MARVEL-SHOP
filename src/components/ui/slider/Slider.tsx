@@ -13,13 +13,13 @@ import SwiperCore, {
 
 SwiperCore.use([Pagination]);
 
-import { IComics } from '../../../models';
+import { IComic } from '../../../models';
 import { SliderCard } from './slider-card';
 
 
 interface ISliderProps {
   /** It will be rendered like a Slide Item */
-  items: Array<IComics>;
+  items: Array<IComic>;
 
   /** It's a function which will be called when button is clicked */
   onClickDetails?: (event: React.MouseEvent) => void;

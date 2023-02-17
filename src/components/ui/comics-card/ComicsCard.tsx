@@ -1,34 +1,26 @@
-import React, { useState } from 'react';
-import cn from 'classnames';
+import React from 'react';
 
 import { Typography } from '../typography';
 import { Button } from '../button';
 
 import './ComicsCard.scss';
 
-import { IComicsResponse } from '../../../models';
-import { buildImagePath } from '../../../helpers';
-import { ImageSizesEnum } from '../../../constants/imageSizes.enum';
+import { IComic } from '../../../models';
 import { CardCover } from '../card-cover';
 
 interface IComicsCardProps {
-  comics: IComicsResponse;
+  comics: IComic;
 }
 
 export const ComicsCard: React.FC<IComicsCardProps> = ({ comics }) => {
   const {
     description,
-    thumbnail,
-    prices,
+    price,
+    cover,
     title,
   } = comics;
 
-  console.log(description);
-
-  const cover =
-    buildImagePath(thumbnail.path, ImageSizesEnum.XLARGE_SIZE, thumbnail.extension);
-
-  const priceBlockContent = prices[0].price ? ('$' + prices[0].price) : 'Sold';
+  const priceBlockContent = price ? ('$' + price) : 'Sold';
 
 
   return (
