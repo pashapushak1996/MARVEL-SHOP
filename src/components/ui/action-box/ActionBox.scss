@@ -1,0 +1,41 @@
+.action-box {
+
+
+  &__price {
+    margin-bottom: 14px;
+
+    color: #EE171F;
+  }
+
+  &__availability {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    margin-bottom: 30px;
+  }
+
+  &__availability-text {
+    font-weight: 500;
+    font-size: 12px;
+  }
+
+  &__availability-checkmark {
+    border-radius: 50%;
+
+    width: 7px;
+    height: 7px;
+
+    background-color: #EE171F;
+
+    transform: translateY(-1px);
+  }
+
+  &__availability-checkmark--is-available {
+    background-color: #12A320;
+  }
+
+  .button {
+    margin-bottom: 15px;
+  }
+}

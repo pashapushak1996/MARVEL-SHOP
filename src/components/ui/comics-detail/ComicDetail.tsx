@@ -20,6 +20,9 @@ interface ICardDetail {
 
   /** This is comic title */
   title: string;
+
+  /** This is comic price */
+  price: number | null;
 }
 
 export const ComicDetail: React.FC<ICardDetail> = ({
@@ -28,7 +31,9 @@ export const ComicDetail: React.FC<ICardDetail> = ({
                                                      description,
                                                      date,
                                                      pages,
+                                                     price,
                                                    }) => {
+
   return (
     <div className='comic-detail'>
       <div className='comic-detail__cover'>
@@ -43,10 +48,12 @@ export const ComicDetail: React.FC<ICardDetail> = ({
           <div className='comic-detail__info-item'>
             <strong>Pages:</strong>
             <strong>Date:</strong>
+            <strong>Price:</strong>
           </div>
           <div className='comic-detail__info-item'>
             <span>{pages}</span>
             <span>{date}</span>
+            <span>{price || 'Not available'}</span>
           </div>
         </div>
         <div className='comic-detail__description'>

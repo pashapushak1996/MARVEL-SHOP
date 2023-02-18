@@ -1,5 +1,5 @@
 export interface IComicsResponse {
-  id: string;
+  id: number;
   title: string;
   pageCount: number;
   prices: Array<{ type: string, price: number }>;
@@ -12,9 +12,9 @@ export interface IComicsResponse {
 }
 
 export interface IComic {
-  id: string;
+  id: number;
   title: string;
-  price: number | null;
+  price: number;
   description: string;
   cover: string;
   pages: number;

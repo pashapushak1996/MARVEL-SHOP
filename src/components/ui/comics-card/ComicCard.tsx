@@ -2,23 +2,23 @@ import React from 'react';
 
 import { Typography } from '../typography';
 import { Button } from '../button';
-
-import './ComicsCard.scss';
-
-import { IComic } from '../../../models';
 import { CardCover } from '../card-cover';
 
-interface IComicsCardProps {
-  comics: IComic;
+import './ComicCard.scss';
+
+import { IComic } from '../../../models';
+
+interface IComicCardProps {
+  comic: IComic;
 }
 
-export const ComicsCard: React.FC<IComicsCardProps> = ({ comics }) => {
+export const ComicCard: React.FC<IComicCardProps> = ({ comic }) => {
   const {
     description,
     price,
     cover,
     title,
-  } = comics;
+  } = comic;
 
   const priceBlockContent = price ? ('$' + price) : 'Sold';
 

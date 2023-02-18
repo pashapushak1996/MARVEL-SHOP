@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { CalendarCard, CharacterCard, ComicsCard, Footer, Header, Hero } from '../../components/ui';
+import { CalendarCard, CharacterCard, ComicCard, Footer, Header, Hero } from '../../components/ui';
 import { Container, Grid } from '../../components/layout';
 import { Section } from './section';
 
-import './Home.scss';
+import './HomePage.scss';
 
 import modalImage from '../../assets/ModalImage.png';
 import { charactersArray } from '../../examples';
@@ -15,7 +15,7 @@ interface IHomeProps {
   comics: Array<IComic>;
 }
 
-export const Home: React.FC<IHomeProps> = ({ comics }) => {
+export const HomePage: React.FC<IHomeProps> = ({ comics }) => {
   return (
     <div className='home'>
       <Header />
@@ -30,7 +30,7 @@ export const Home: React.FC<IHomeProps> = ({ comics }) => {
                   sm={6}
                   md={4}
                   lg={3} item>
-              <ComicsCard comics={comics} />
+              <ComicCard comics={comics} />
             </Grid>,
           )}
         </Grid>

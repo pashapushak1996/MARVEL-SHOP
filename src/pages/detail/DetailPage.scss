@@ -1,0 +1,27 @@
+.detail {
+  padding: 50px 0px;
+
+  &__panel {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 50px;
+  }
+
+  &__comic {
+  }
+
+  &__order-box {
+    max-width: 221px;
+  }
+
+  &__grid {
+
+  }
+
+  &__subtitle {
+    margin-bottom: 50px;
+
+    text-transform: uppercase;
+  }
+}

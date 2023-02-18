@@ -14,16 +14,22 @@ interface IBoxProps {
 
   /** This is padding left and right*/
   paddingInline?: number;
+
+  /** This is className which will be added into box */
+
+  className?: string;
 }
 
 export const Box: React.FC<IBoxProps> = ({
+                                           className,
                                            children,
                                            borderRadius,
                                            paddingInline,
                                            paddingBlock,
                                          }) => {
   return (
-    <div className='box' style={{ borderRadius, paddingInline, paddingBlock }}>
+    <div className={className ? `box ${className}` : 'box'}
+         style={{ borderRadius, paddingInline, paddingBlock }}>
       {children}
     </div>
   );
