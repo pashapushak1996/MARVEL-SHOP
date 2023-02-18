@@ -25,12 +25,12 @@ export const HomePage: React.FC<IHomeProps> = ({ comics }) => {
           spacing={'lg'}
           justifyContent={'flex-start'}
           container>
-          {comics.map((comics: IComic) =>
-            <Grid key={comics.id}
+          {comics.map((comic: IComic) =>
+            <Grid key={comic.id}
                   sm={6}
                   md={4}
                   lg={3} item>
-              <ComicCard comics={comics} />
+              <ComicCard comic={comic} />
             </Grid>,
           )}
         </Grid>

@@ -1,0 +1,1 @@
+export { ComicsListPage } from './ComicsListPage';
