@@ -5,9 +5,9 @@ import { IComic, IComicsResponse } from './models';
 import { comicsService } from './services/comics.service';
 import { normalizeComic } from './helpers';
 import { Container } from './components/layout';
-import { ComicsListPage } from './pages/comics-list';
 
 import './App.scss';
+import { HomePage } from './pages';
 
 const App = () => {
   const [comics, setComics] = useState([]);
@@ -26,13 +26,7 @@ const App = () => {
 
   return (
     <div className='App'>
-      <Header />
-      <Container>
-        <ComicsListPage comics={comics} />
-      </Container>
-      <Container>
-        <Footer />
-      </Container>
+        <HomePage comics={comics} />
     </div>
   );
 };

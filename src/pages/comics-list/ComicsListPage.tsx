@@ -1,3 +1,7 @@
+// @ts-nocheck
+
+// TODO but you have to solve it
+
 import React from 'react';
 import { Grid } from '../../components/layout';
 import { ComicCard, Select, Typography } from '../../components/ui';
@@ -9,9 +13,11 @@ interface IComicsListPageProps {
   comics: Array<IComic>;
 }
 
+
 export const ComicsListPage: React.FC<IComicsListPageProps> = ({ comics }) => {
 
   /* Todo create filter and sort functionality */
+
 
   const comicCardComponents = comics.map((comic: IComic) => <Grid key={comic.id} xs={6} md={3} lg={3} item>
     <ComicCard comic={comic} />
