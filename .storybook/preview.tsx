@@ -15,6 +15,8 @@ import '../src/theme/reset.css';
 
 import '../src/index.scss';
 
+import './global.css';
+
 export const decorators = [
   (Story: any) => {
     return (

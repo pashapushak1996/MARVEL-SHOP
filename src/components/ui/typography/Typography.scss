@@ -1,15 +1,43 @@
-h1 {
+.heading-xl {
   font-size: 48px;
+
+  font-weight: 700;
 }
 
-h2 {
+.heading-lg {
   font-size: 36px;
+
+  font-weight: 700;
 }
 
-h3 {
+.heading-md {
   font-size: 24px;
+
+  font-weight: 500;
 }
 
-p {
+.heading-sm {
+  font-size: 18px;
+
+  font-weight: 700;
+}
+
+.body-md {
   font-size: 14px;
+}
+
+.body-sm {
+  font-size: 12px;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.semi-bold {
+  font-weight: 500;
+}
+
+.normal {
+  font-weight: 400;
 }
