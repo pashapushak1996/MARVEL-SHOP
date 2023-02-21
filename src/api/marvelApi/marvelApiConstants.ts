@@ -1,0 +1,4 @@
+const MARVEL_BASE_URL = 'https://gateway.marvel.com/v1/public';
+const MARVEL_API_PRIVATE_KEY = '6617568ac2d69c05fe1e8b990e09e092005b48ca';
+const MARVEL_API_KEY = '5e0b04f128de18551f141be40b7005bd';
+export { MARVEL_BASE_URL, MARVEL_API_PRIVATE_KEY, MARVEL_API_KEY };

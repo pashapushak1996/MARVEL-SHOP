@@ -30,7 +30,10 @@ export const ComicCard: React.FC<IComicCardProps> = ({ comic }) => {
       </div>
       <div className='comics-card__info'>
         <div className='comics-card__info-left'>
-          <Typography className='comics-card__title' variant='h5'>{title}</Typography>
+          <div className='comics-card__title'>
+            <Typography variant={'body-md'} weight={'semi-bold'} as={'h5'}>{title}</Typography>
+          </div>
+
         </div>
         <div className='comics-card__info-right'>
           <div className='comics-card__price'>
@@ -42,7 +45,9 @@ export const ComicCard: React.FC<IComicCardProps> = ({ comic }) => {
         </div>
       </div>
       <div className='comics-card__overlay'>
-        <Typography size={12} className='comics-card__description'>{description}</Typography>
+        <div className='comics-card__description'>
+          <Typography variant={'body-sm'}>{description}</Typography>
+        </div>
       </div>
     </div>
   );

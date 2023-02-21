@@ -7,5 +7,5 @@ import './theme/reset.css';
 ReactDOM
   .createRoot(document.getElementById('root') as HTMLElement)
   .render(
-    <App />,
+      <App />,
   );

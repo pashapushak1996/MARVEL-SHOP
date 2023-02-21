@@ -1,32 +1,18 @@
-import React, { useEffect, useState } from 'react';
-
-import { Footer, Header } from './components/ui';
-import { IComic, IComicsResponse } from './models';
-import { comicsService } from './services/comics.service';
-import { normalizeComic } from './helpers';
-import { Container } from './components/layout';
+import React, { useEffect } from 'react';
 
 import './App.scss';
-import { HomePage } from './pages';
+import { getAllComics, getComicById } from './api/marvelApi/marvel.api';
 
 const App = () => {
-  const [comics, setComics] = useState([]);
 
-  const fetchComics = async () => {
-    const comicsFromAPI = await comicsService.getAllComics(12, true);
-
-    const normalizedComics = comicsFromAPI.map((comic: IComicsResponse): IComic => normalizeComic(comic));
-
-    setComics(normalizedComics);
-  };
 
   useEffect(() => {
-    fetchComics();
+    getAllComics({ limit: 10, offset: 30 }).then(res => console.log(res));
+    getComicById(25856).then(res => console.log(res));
   }, []);
 
   return (
     <div className='App'>
-        <HomePage comics={comics} />
     </div>
   );
 };
