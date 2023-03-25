@@ -10,25 +10,23 @@
     flex-wrap: wrap;
   }
 
-  &__list-item {
+  &__link {
     font-weight: 600;
     font-size: 14px;
-  }
-
-  .link {
     text-decoration: none;
     color: white;
   }
 
-  .link:hover {
+  &__link:hover {
     color: lighten(#EE171F, 15%);
   }
 
-  .link:active {
+  &__link:active {
+    color: lighten(#EE171F, 10%);
+  }
+
+  &__link--is-active{
     color: lighten(#EE171F, 10%);
   }
 }
 
-.nav-menu__link--is-active > .link {
-  color: lighten(#EE171F, 10%);
-}

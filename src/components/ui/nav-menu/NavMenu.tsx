@@ -1,30 +1,29 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+
+import './NavMenu.scss';
 import cn from 'classnames';
 
-import { Link } from '../../shared';
-import './NavMenu.scss';
-
-interface INavMenuProps {
-  /** Items which will be rendered like ul list */
-  items: Array<{ label: string, isActive: boolean, route: string }>;
+interface INavLink {
+  isActive: boolean;
+  isPending: boolean;
 }
 
-export const NavMenu: React.FC<INavMenuProps> = ({ items }) => {
-  const menuListItems = items.map((item, index) => {
-    const navLinkClassNames =
-      cn('nav-menu__link', { ['nav-menu__link--is-active']: item.isActive });
+export const NavMenu: React.FC = () => {
 
-    return <li key={item.label + index} className='nav-menu__list-item'>
-      <div className={navLinkClassNames}>
-        <Link to={item.route}>{item.label}</Link>
-      </div>
-    </li>;
-  });
+  const className = (navLinkState: INavLink): string => {
+    return cn(
+      'nav-menu__link',
+      { 'nav-menu__link--is-active': navLinkState.isActive }
+    );
+  };
 
   return (
     <nav className='nav-menu'>
       <ul className='nav-menu__list'>
-        {menuListItems}
+        <NavLink to={'/comics'} className={className}>Comics</NavLink>
+        <NavLink to={'/characters'} className={className}>Characters</NavLink>
+        <NavLink to={'/series'} className={className}>Series</NavLink>
       </ul>
     </nav>
   );
