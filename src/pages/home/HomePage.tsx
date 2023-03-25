@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { CalendarCard, CharacterCard, ComicCard, Hero } from '../../components/ui';
 import { Grid } from '../../components/layout';
@@ -9,19 +9,11 @@ import modalImage from '../../assets/ModalImage.png';
 import { charactersArray } from '../../examples';
 
 import { IComic } from '../../types';
-import { useAppDispatch, useAppSelector } from '../../hooks/rtk.hooks';
-import { fetchComics } from '../../features/comics/comics.thunk';
 import { HomeSection } from './home-section/HomeSection';
+import { useComics } from '../../hooks/useComics';
 
 export const HomePage: React.FC = () => {
-  const dispatch = useAppDispatch();
-  const comics = useAppSelector((state) => state.comics.comics);
-  const loading = useAppSelector((state) => state.comics.loading);
-
-  useEffect(() => {
-    dispatch(fetchComics());
-  }, [dispatch]);
-
+  const { comics } = useComics();
 
   return (
     <div className='home'>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { ComicDetail } from '../../components/ui/comics-detail';
 import { IComic } from '../../types';
@@ -8,25 +8,18 @@ import './DetailPage.scss';
 
 import { Container, Grid } from '../../components/layout';
 import { ComicCard } from '../../components/ui';
-import { Typography } from '../../components/shared';
-import { useAppDispatch, useAppSelector } from '../../hooks/rtk.hooks';
-import { fetchComics } from '../../features/comics/comics.thunk';
+import { Loader, Typography } from '../../components/shared';
+import { useComics } from '../../hooks/useComics';
 
 export const DetailPage: React.FC = () => {
-  const dispatch = useAppDispatch();
-  const comics = useAppSelector((state) => state.comics.comics);
-  const loading = useAppSelector((state) => state.comics.loading);
-
-  useEffect(() => {
-    dispatch(fetchComics());
-  }, [dispatch]);
+  const { comics, loading } = useComics();
 
   const comicCardComponents = comics.map((comic: IComic) => <Grid key={comic.id} xs={6} md={3} lg={3} item>
     <ComicCard comic={comic} />
   </Grid>);
 
   if (loading === 'idle') {
-    return <div>Wait</div>;
+    return <Loader />;
   }
 
   return (

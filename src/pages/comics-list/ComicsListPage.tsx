@@ -1,16 +1,17 @@
 // @ts-nocheck
 import React from 'react';
 
-import { Grid } from '../../components/layout';
+import { Container, Grid } from '../../components/layout';
 import { ComicCard } from '../../components/ui';
 import { Select, Typography } from '../../components/shared';
+import { useComics } from '../../hooks/useComics';
 import { IComic } from '../../types';
 
 import './ComicsListPage.scss';
-import { useAppSelector } from '../../hooks/rtk.hooks';
+
 
 export const ComicsListPage: React.FC = () => {
-  const comics = useAppSelector((state) => state.comics.comics);
+  const { comics } = useComics();
 
   const comicCardComponents =
     comics.map((comic: IComic) =>
@@ -19,33 +20,35 @@ export const ComicsListPage: React.FC = () => {
       </Grid>);
 
   return (
-    <div className='comics-list'>
-      <div className='comics-list__header'>
-        <div className='comics-list__panel'>
-          <div className='comics-list__panel-title'>
-            <Typography as='h4' variant='body-sm' weight='semi-bold'>Filter by</Typography>
+    <Container>
+      <div className='comics-list'>
+        <div className='comics-list__header'>
+          <div className='comics-list__panel'>
+            <div className='comics-list__panel-title'>
+              <Typography as='h4' variant='body-sm' weight='semi-bold'>Filter by</Typography>
+            </div>
+            <div className='comics-list__grid'>
+              <Select />
+              <Select />
+              <Select />
+              <Select />
+            </div>
           </div>
-          <div className='comics-list__grid'>
-            <Select />
-            <Select />
-            <Select />
-            <Select />
+          <div className='comics-list__panel'>
+            <div className='comics-list__panel-title'>
+              <Typography as='h4' variant='body-sm' weight='semi-bold'>Sort by</Typography>
+            </div>
+            <div className='comics-list__grid'>
+              <Select />
+            </div>
           </div>
         </div>
-        <div className='comics-list__panel'>
-          <div className='comics-list__panel-title'>
-            <Typography as='h4' variant='body-sm' weight='semi-bold'>Sort by</Typography>
-          </div>
-          <div className='comics-list__grid'>
-            <Select />
-          </div>
-        </div>
+        <Grid spacing={'md'}
+              justifyContent={'flex-start'}
+              container>
+          {comicCardComponents}
+        </Grid>
       </div>
-      <Grid spacing={'md'}
-            justifyContent={'flex-start'}
-            container>
-        {comicCardComponents}
-      </Grid>
-    </div>
+    </Container>
   );
 };
