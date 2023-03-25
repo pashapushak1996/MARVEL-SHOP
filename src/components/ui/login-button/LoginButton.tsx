@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '../button';
+import { Button } from '../../shared';
 import iconSrc from '../../../assets/icons/spiderman-icon.svg';
 
 import './LoginButton.scss';

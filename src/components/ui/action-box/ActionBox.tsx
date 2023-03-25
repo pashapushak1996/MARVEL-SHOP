@@ -1,9 +1,8 @@
 import React from 'react';
-import { Box } from '../box';
+import cn from 'classnames';
 
 import './ActionBox.scss';
-import { Button, Typography } from '../index';
-import cn from 'classnames';
+import { Button, Typography, Box } from '../../shared';
 
 interface IOrderBoxProps {
   /** Price of item*/
@@ -37,9 +36,9 @@ export const ActionBox: React.FC<IOrderBoxProps> = ({
          paddingBlock={13}
          paddingInline={13}
          borderRadius={10}>
-      <Typography className='action-box__price'
-                  size={24}
-                  weight={500}>${price}</Typography>
+      <div className='action-box__price'>
+        <Typography as={'p'} variant={'heading-md'}>${price}</Typography>
+      </div>
       <div className='action-box__availability'>
         <div className={checkmarkClassName}></div>
         <div className='action-box__availability-text'>{availabilityContent}</div>

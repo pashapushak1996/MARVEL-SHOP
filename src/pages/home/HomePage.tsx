@@ -1,26 +1,24 @@
 import React from 'react';
 
-import { CalendarCard, CharacterCard, ComicCard, Footer, Header, Hero } from '../../components/ui';
-import { Container, Grid } from '../../components/layout';
-import { Section } from './section';
+import { CalendarCard, CharacterCard, ComicCard, Header, Hero } from '../../components/ui';
+import { Grid } from '../../components/layout';
 
 import './HomePage.scss';
 
 import modalImage from '../../assets/ModalImage.png';
 import { charactersArray } from '../../examples';
 
-import { IComic } from '../../models';
+import { IComic } from '../../types';
+import { useAppSelector } from '../../hooks/rtk.hooks';
 
-interface IHomeProps {
-  comics: Array<IComic>;
-}
+export const HomePage: React.FC = () => {
+  const comics = useAppSelector((state) => state.comics.comics);
 
-export const HomePage: React.FC<IHomeProps> = ({ comics }) => {
   return (
     <div className='home'>
       <Header />
-      <Hero />
-      <Section title={'Latest releases'} paddingBlock={40}>
+      <Hero comics={comics.slice(0, 4)} />
+      <div className='home__section'>
         <Grid
           spacing={'lg'}
           justifyContent={'flex-start'}
@@ -34,8 +32,8 @@ export const HomePage: React.FC<IHomeProps> = ({ comics }) => {
             </Grid>,
           )}
         </Grid>
-      </Section>
-      <Section paddingBlock={10}>
+      </div>
+      <div className='home__section'>
         <Grid
           spacing={'lg'}
           alignItems={'flex-start'}
@@ -50,8 +48,8 @@ export const HomePage: React.FC<IHomeProps> = ({ comics }) => {
             </Grid>,
           )}
         </Grid>
-      </Section>
-      <Section title={'Characters'} paddingBlock={50}>
+      </div>
+      <div className='home__section'>
         <Grid
           spacing={'md'}
           alignItems={'center'}
@@ -64,10 +62,7 @@ export const HomePage: React.FC<IHomeProps> = ({ comics }) => {
             </Grid>,
           )}
         </Grid>
-      </Section>
-      <Container>
-        <Footer />
-      </Container>
+      </div>
     </div>
   );
 };

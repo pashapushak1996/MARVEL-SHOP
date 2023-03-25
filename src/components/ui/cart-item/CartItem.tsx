@@ -1,6 +1,5 @@
 import React from 'react';
-import { Box } from '../box';
-import { Typography } from '../index';
+import { Box, Typography } from '../../shared';
 
 import './CartItem.scss';
 

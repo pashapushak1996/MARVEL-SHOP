@@ -1,36 +1,30 @@
 // @ts-nocheck
-
-// TODO but you have to solve it
-
 import React from 'react';
+
 import { Grid } from '../../components/layout';
-import { ComicCard, Select, Typography } from '../../components/ui';
-import { IComic } from '../../models';
+import { ComicCard } from '../../components/ui';
+import { Select, Typography } from '../../components/shared';
+import { IComic } from '../../types';
 
 import './ComicsListPage.scss';
+import { useAppSelector } from '../../hooks/rtk.hooks';
 
-interface IComicsListPageProps {
-  comics: Array<IComic>;
-}
+export const ComicsListPage: React.FC = () => {
+  const comics = useAppSelector((state) => state.comics.comics);
 
-
-export const ComicsListPage: React.FC<IComicsListPageProps> = ({ comics }) => {
-
-  /* Todo create filter and sort functionality */
-
-
-  const comicCardComponents = comics.map((comic: IComic) => <Grid key={comic.id} xs={6} md={3} lg={3} item>
-    <ComicCard comic={comic} />
-  </Grid>);
+  const comicCardComponents =
+    comics.map((comic: IComic) =>
+      <Grid key={comic.id} xs={6} md={3} lg={3} item>
+        <ComicCard comic={comic} />
+      </Grid>);
 
   return (
     <div className='comics-list'>
       <div className='comics-list__header'>
         <div className='comics-list__panel'>
-          <Typography className='comics-list__panel-title'
-                      variant='h4'
-                      size={12}
-                      weight={500}>Filter by</Typography>
+          <div className='comics-list__panel-title'>
+            <Typography as='h4' variant='body-sm' weight='semi-bold'>Filter by</Typography>
+          </div>
           <div className='comics-list__grid'>
             <Select />
             <Select />
@@ -39,10 +33,9 @@ export const ComicsListPage: React.FC<IComicsListPageProps> = ({ comics }) => {
           </div>
         </div>
         <div className='comics-list__panel'>
-          <Typography className='comics-list__panel-title'
-                      variant='h4'
-                      size={12}
-                      weight={500}>Sort by</Typography>
+          <div className='comics-list__panel-title'>
+            <Typography as='h4' variant='body-sm' weight='semi-bold'>Sort by</Typography>
+          </div>
           <div className='comics-list__grid'>
             <Select />
           </div>

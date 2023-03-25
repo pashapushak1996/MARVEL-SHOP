@@ -1,10 +1,7 @@
 import React from 'react';
 
-import { Logo } from '../logo';
-import { Typography } from '../typography';
-import { Icon } from '../icon';
+import { Logo, Link, Typography, Icon } from '../../shared';
 import { VerticalLinks } from './vertical-links';
-import { Link } from '../link';
 
 import './Footer.scss';
 
@@ -35,9 +32,7 @@ export const Footer: React.FC = () => {
           <Logo width={233} />
         </div>
         <div className='footer__copyright-text'>
-          <Typography size={12}
-                      weight={500}
-                      color={'#7C7C7C'}>Copyright 2022 Super-Heroes Shop</Typography>
+          <Typography variant={'body-sm'} weight={'semi-bold'}>Copyright 2022 Super-Heroes Shop</Typography>
         </div>
         <div className='footer__icons'>
           {iconsToRender}

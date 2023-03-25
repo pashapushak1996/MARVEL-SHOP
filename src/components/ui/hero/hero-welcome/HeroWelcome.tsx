@@ -3,7 +3,7 @@ import React from 'react';
 import { Search } from '../../search';
 
 import './HeroWelcome.scss';
-import { Typography } from '../../typography';
+import { Typography } from '../../../shared';
 
 interface IHeroWelcomeProps {
   title: string;
@@ -28,23 +28,21 @@ export const HeroWelcome: React.FC<IHeroWelcomeProps> = (props) => {
 
   return (
     <div className='hero-welcome'>
-      <Typography className='hero-welcome__title'
-                  size={48}
-                  weight={900}
-                  variant={'h1'}>{title}</Typography>
-      <Typography className='hero-welcome__description' size={14}>{description}</Typography>
+      <div className='hero-welcome__title'>
+        <Typography as={'h1'} variant={'heading-xl'}>{title}</Typography>
+      </div>
+      <div className='hero-welcome__description'>
+        <Typography as={'p'} variant={'body-md'}>{description}</Typography>
+      </div>
       <div className='hero-welcome__search'>
         <Search placeholder='Find comics'
                 value={searchValue}
                 onChange={onInput}
                 onClick={onClickSearch} />
       </div>
-      <Typography className='hero-welcome__quote'
-                  size={24}
-                  weight={500}
-      >
-        {quote}
-      </Typography>
+      <div className='hero-welcome__quote'>
+        <Typography as={'h4'} variant={'heading-md'}>{quote}</Typography>
+      </div>
       <span className='hero-welcome__quote-author'>
           {quoteAuthor}
       </span>

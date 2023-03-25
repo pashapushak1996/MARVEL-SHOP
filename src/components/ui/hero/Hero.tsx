@@ -5,10 +5,10 @@ import './Hero.scss';
 import { HeroWelcome } from './hero-welcome';
 import { Slider } from '../slider';
 
-import { heroContentExample, arrayOfComics } from '../../../examples';
+import { heroContentExample } from '../../../examples';
 
 
-export const Hero: React.FC = () => {
+export const Hero: React.FC = ({ comics }) => {
   return (
     <div className='hero'>
       <Container>
@@ -19,7 +19,7 @@ export const Hero: React.FC = () => {
                        quoteAuthor={heroContentExample.quoteAuthor} />
         </div>
         <div className='hero__right-side'>
-          <Slider items={arrayOfComics} />
+          <Slider items={comics} />
         </div>
       </Container>
     </div>

@@ -1,6 +1,5 @@
 import React from 'react';
-import { Typography } from '../../typography';
-import { Button } from '../../button';
+import { Button, Typography } from '../../../shared';
 
 import './SliderCard.scss';
 

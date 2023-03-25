@@ -1,9 +1,10 @@
 import React from 'react';
-import { Typography } from '../typography';
+
+import { Typography } from '../../shared';
+import { CardCover } from '../card-cover';
 
 import './ComicDetail.scss';
 
-import { CardCover } from '../card-cover';
 
 interface ICardDetail {
   /** This is description of comic */
@@ -40,10 +41,10 @@ export const ComicDetail: React.FC<ICardDetail> = ({
         <CardCover coverImage={cover} />
       </div>
       <div className='comic-detail__content'>
-        <Typography className='comic-detail__title'
-                    size={36}
-                    weight={500}
-                    variant={'h2'}>{title}</Typography>
+        <div className='comic-detail__title'>
+          <Typography as={'h2'} variant={'heading-lg'}>{title}</Typography>
+        </div>
+
         <div className='comic-detail__info'>
           <div className='comic-detail__info-item'>
             <strong>Pages:</strong>
@@ -57,14 +58,15 @@ export const ComicDetail: React.FC<ICardDetail> = ({
           </div>
         </div>
         <div className='comic-detail__description'>
-          <Typography className='comic-detail__description-title'
-                      size={16}
-                      weight={500}
-                      variant={'h6'}>Description</Typography>
-          <Typography className='comic-detail__description-text'
-                      size={12}>
-            {description || 'There isn`t any description'}
-          </Typography>
+          <div className='comic-detail__description-title'>
+            <Typography
+              as={'h6'}
+              variant={'body-md'}
+              weight={'semi-bold'}>Description</Typography>
+          </div>
+          <div className='comic-detail__description-text'>
+            <Typography variant={'body-sm'}>{description || 'There isn`t any description'}</Typography>
+          </div>
         </div>
       </div>
     </div>

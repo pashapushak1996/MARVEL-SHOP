@@ -1,9 +1,8 @@
 import React from 'react';
 
-import { Typography } from '../typography';
-import { Button } from '../button';
+import { Button, Typography } from '../../shared';
 import { Avatar } from '../avatar';
-import { IUser } from '../../../models';
+import { IUser } from '../../../types';
 
 import './ProfileInfo.scss';
 

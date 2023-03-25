@@ -1,6 +1,6 @@
 import React from 'react';
-import { Typography } from '../../typography';
-import { Link } from '../../link';
+
+import { Typography, Link } from '../../../shared';
 
 import './VerticalLinks.scss';
 
@@ -27,9 +27,9 @@ export const VerticalLinks: React.FC<IVerticalLinksProps> = ({ listTitle, itemsL
 
   return (
     <div className='vertical-links'>
-      <Typography className='vertical-links__title'
-                  size={12}
-                  weight={500}>{listTitle}</Typography>
+      <div className='vertical-links__title'>
+        <Typography variant={'body-sm'} weight={'semi-bold'}>{listTitle}</Typography>
+      </div>
       <ul className='vertical-links__list'>
         {list}
       </ul>

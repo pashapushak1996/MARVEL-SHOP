@@ -1,12 +1,11 @@
 import React from 'react';
 
-import { Typography } from '../typography';
-import { Button } from '../button';
+import { Button, Typography } from '../../shared';
 import { CardCover } from '../card-cover';
 
 import './ComicCard.scss';
 
-import { IComic } from '../../../models';
+import { IComic } from '../../../types';
 
 interface IComicCardProps {
   comic: IComic;

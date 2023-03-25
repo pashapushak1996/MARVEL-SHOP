@@ -1,11 +1,10 @@
 import React from 'react';
 
-import './Header.scss';
-
-import logoSrc from '../../../assets/icons/logo.svg';
 import { NavMenu } from '../nav-menu';
 import { LoginButton } from '../login-button';
-import { Logo } from '../logo';
+import { Logo } from '../../shared';
+
+import './Header.scss';
 
 
 const navMenuItems = [{

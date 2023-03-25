@@ -1,4 +1,4 @@
-import { ICharacter, IComic, IComicsResponse } from './models';
+import { ICharacter, IComic, IComicsResponse } from './types';
 import characterImage from './assets/character-image.png';
 
 const comicsExample: IComic = {
@@ -11,7 +11,7 @@ const comicsExample: IComic = {
   date: '',
 };
 
-const comicsResponseExample: IComicsResponse = {
+export const comicsResponseExample: IComicsResponse = {
   'id': 59548,
   'title': 'Old Man Logan (2016) #8 (Albuquerque Mighty Men Variant)',
   'description': '',

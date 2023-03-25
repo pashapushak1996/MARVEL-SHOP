@@ -13,7 +13,7 @@ import SwiperCore, {
 
 SwiperCore.use([Pagination]);
 
-import { IComic } from '../../../models';
+import { IComic } from '../../../types';
 import { SliderCard } from './slider-card';
 
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { Link } from '../link';
+import { Link } from '../../shared';
 import './NavMenu.scss';
 
 interface INavMenuProps {

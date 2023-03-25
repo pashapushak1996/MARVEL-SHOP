@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Slider } from '../components/ui';
-import { IComics } from '../models';
+import { IComics } from '../types';
 
 const comicsExample: IComics = {
   id: '1',

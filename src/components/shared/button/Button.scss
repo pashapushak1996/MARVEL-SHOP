@@ -32,6 +32,8 @@
   }
 }
 
+/*--- Disabled ---*/
+
 .button--disabled {
   background-color: lighten(#EE171F, 20%);
 
@@ -40,9 +42,13 @@
   }
 }
 
+/*--- Stretched ---*/
+
 .button--stretched {
   width: 100%;
 }
+
+/*--- White ---*/
 
 .button--white {
   background-color: #FFFFFF;
@@ -57,9 +63,13 @@
   }
 }
 
+/*--- Link ---*/
+
 .button--link {
   position: relative;
 }
+
+/*--- Link with icon ---*/
 
 .button--link-with-icon {
   padding: 5px 15px;
@@ -81,6 +91,8 @@
     padding-left: 10px;
   }
 }
+
+/*--- Rounded ---*/
 
 .button--rounded {
   border-radius: 50%;

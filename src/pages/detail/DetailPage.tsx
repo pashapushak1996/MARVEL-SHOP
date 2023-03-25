@@ -1,11 +1,14 @@
 import React from 'react';
+
 import { ComicDetail } from '../../components/ui/comics-detail';
-import { IComic } from '../../models';
+import { IComic } from '../../types';
 import { ActionBox } from '../../components/ui/action-box';
 
 import './DetailPage.scss';
+
 import { Grid } from '../../components/layout';
-import { ComicCard, Typography } from '../../components/ui';
+import { ComicCard } from '../../components/ui';
+import { Typography } from '../../components/shared';
 
 interface IDetailProps {
   comic: IComic;
@@ -13,6 +16,7 @@ interface IDetailProps {
 }
 
 export const DetailPage: React.FC<IDetailProps> = ({ comic, comics }) => {
+  console.log(comic);
 
   const comicCardComponents = comics.map((comic: IComic) => <Grid key={comic.id} xs={6} md={3} lg={3} item>
     <ComicCard comic={comic} />
@@ -29,7 +33,9 @@ export const DetailPage: React.FC<IDetailProps> = ({ comic, comics }) => {
         </div>
       </div>
       <div className='detail__grid'>
-        <Typography className='detail__subtitle' variant={'h3'} size={24} weight={500}>More Comics</Typography>
+        <div className='detail__subtitle'>
+          <Typography as={'h3'} variant={'heading-lg'}>More Comics</Typography>
+        </div>
         <Grid spacing={'md'}
               justifyContent={'flex-start'}
               container>

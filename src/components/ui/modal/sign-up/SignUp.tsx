@@ -1,11 +1,6 @@
 import React from 'react';
-import { Typography } from '../../typography';
-import { Link } from '../../link';
-import { Input } from '../../input';
-import { Button } from '../../button';
-
+import { Button, Checkbox, Input, Link, Typography } from '../../../shared';
 import './SignUp.scss';
-import { Checkbox } from '../../checkbox';
 
 export const SignUp = () => {
 

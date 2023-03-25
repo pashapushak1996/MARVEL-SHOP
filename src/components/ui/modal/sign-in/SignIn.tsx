@@ -1,15 +1,14 @@
 import React from 'react';
-import { Typography } from '../../typography';
-import { Link } from '../../link';
-import { Input } from '../../input';
-import { Button } from '../../button';
+import { Typography, Link, Input, Button } from '../../../shared';
 
 import './SignIn.scss';
 
 export const SignIn = () => {
   return (
     <div className='sign-in'>
-      <Typography className='sign-in__title' size={36} variant={'h3'}>Signin</Typography>
+      <div className='sign-in__title'>
+        <Typography variant={'heading-lg'} as={'h3'}>Signin</Typography>
+      </div>
       <div className='sign-in__question'>
         Already have an account?
         <div className='sing-in__link'>

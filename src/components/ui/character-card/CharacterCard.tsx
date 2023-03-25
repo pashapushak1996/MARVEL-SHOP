@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { ICharacter } from '../../../models';
-import { Typography } from '../typography';
+import { ICharacter } from '../../../types';
+import { Typography } from '../../shared';
 
 import './CharacterCard.scss';
 

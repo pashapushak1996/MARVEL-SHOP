@@ -1,14 +1,9 @@
-import { IComic, IComicsResponse } from '../models';
-import { ImageSizesEnum } from '../constants/imageSizes.enum';
-
 import moment from 'moment';
 
+import { IComic, IComicsResponse } from '../types';
+import { ImageSizesEnum } from '../constants/image-sizes.enum';
 
-/** Function which create image url */
-
-const buildImagePath = (path: string, size: string, extension: string) => {
-  return `${path}/${size}.${extension}`;
-};
+import { buildImagePath } from './marvel-api.helper';
 
 /** Function which transforms comicObject */
 
@@ -33,4 +28,4 @@ const normalizeComic = (comic: IComicsResponse): IComic => {
 };
 
 
-export { buildImagePath, normalizeComic };
+export { normalizeComic };

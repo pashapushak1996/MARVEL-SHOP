@@ -1,11 +1,10 @@
 import React from 'react';
 import cn from 'classnames';
 
-import './CalendarCard.scss';
+import { Button, Typography } from '../../shared';
 
 import iconSrc from '../../../assets/icons/arrow-top-right-icon.svg';
-import { Typography } from '../typography';
-import { Button } from '../button';
+import './CalendarCard.scss';
 
 type TypeCalendarCardVariants = 'red' | 'blue' | 'green';
 
