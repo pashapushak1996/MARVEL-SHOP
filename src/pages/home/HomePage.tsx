@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
-import { CalendarCard, CharacterCard, ComicCard, Header, Hero } from '../../components/ui';
-import { Container, Grid } from '../../components/layout';
+import { CalendarCard, CharacterCard, ComicCard, Hero } from '../../components/ui';
+import { Grid } from '../../components/layout';
 
 import './HomePage.scss';
 
@@ -11,6 +11,7 @@ import { charactersArray } from '../../examples';
 import { IComic } from '../../types';
 import { useAppDispatch, useAppSelector } from '../../hooks/rtk.hooks';
 import { fetchComics } from '../../features/comics/comics.thunk';
+import { HomeSection } from './home-section/HomeSection';
 
 export const HomePage: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -24,13 +25,15 @@ export const HomePage: React.FC = () => {
 
   return (
     <div className='home'>
-      <Hero comics={comics} />
-      <Container>
+      <div className='home__hero'>
+        <Hero comics={comics} />
+      </div>
+      <HomeSection title={'Latest releases'}>
         <Grid
           spacing={'lg'}
           justifyContent={'flex-start'}
           container>
-          {comics.map((comic: IComic) =>
+          {comics.slice(0, 4).map((comic: IComic) =>
             <Grid key={comic.id}
                   sm={6}
                   md={4}
@@ -39,12 +42,14 @@ export const HomePage: React.FC = () => {
             </Grid>,
           )}
         </Grid>
+      </HomeSection>
+      <HomeSection>
         <Grid
           spacing={'lg'}
           alignItems={'flex-start'}
           justifyContent={'flex-start'}
           container>
-          {[1, 2, 3, 4, 5].map(element =>
+          {[1, 2, 3].map(element =>
             <Grid key={element}
                   sm={2}
                   md={4}
@@ -53,6 +58,8 @@ export const HomePage: React.FC = () => {
             </Grid>,
           )}
         </Grid>
+      </HomeSection>
+      <HomeSection title={'Characters'}>
         <Grid
           spacing={'md'}
           alignItems={'center'}
@@ -65,7 +72,7 @@ export const HomePage: React.FC = () => {
             </Grid>,
           )}
         </Grid>
-      </Container>
+      </HomeSection>
     </div>
   );
 };

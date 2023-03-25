@@ -8,3 +8,4 @@ export * from './icon';
 export * from './logo';
 export * from './select';
 export * from './typography';
+export * from './loader';
