@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { CalendarCard, CharacterCard, ComicCard, Header, Hero } from '../../components/ui';
-import { Grid } from '../../components/layout';
+import { Container, Grid } from '../../components/layout';
 
 import './HomePage.scss';
 
@@ -9,16 +9,23 @@ import modalImage from '../../assets/ModalImage.png';
 import { charactersArray } from '../../examples';
 
 import { IComic } from '../../types';
-import { useAppSelector } from '../../hooks/rtk.hooks';
+import { useAppDispatch, useAppSelector } from '../../hooks/rtk.hooks';
+import { fetchComics } from '../../features/comics/comics.thunk';
 
 export const HomePage: React.FC = () => {
+  const dispatch = useAppDispatch();
   const comics = useAppSelector((state) => state.comics.comics);
+  const loading = useAppSelector((state) => state.comics.loading);
+
+  useEffect(() => {
+    dispatch(fetchComics());
+  }, [dispatch]);
+
 
   return (
     <div className='home'>
-      <Header />
-      <Hero comics={comics.slice(0, 4)} />
-      <div className='home__section'>
+      <Hero comics={comics} />
+      <Container>
         <Grid
           spacing={'lg'}
           justifyContent={'flex-start'}
@@ -32,8 +39,6 @@ export const HomePage: React.FC = () => {
             </Grid>,
           )}
         </Grid>
-      </div>
-      <div className='home__section'>
         <Grid
           spacing={'lg'}
           alignItems={'flex-start'}
@@ -48,8 +53,6 @@ export const HomePage: React.FC = () => {
             </Grid>,
           )}
         </Grid>
-      </div>
-      <div className='home__section'>
         <Grid
           spacing={'md'}
           alignItems={'center'}
@@ -62,7 +65,7 @@ export const HomePage: React.FC = () => {
             </Grid>,
           )}
         </Grid>
-      </div>
+      </Container>
     </div>
   );
 };

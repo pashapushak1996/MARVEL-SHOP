@@ -6,9 +6,14 @@ import { HeroWelcome } from './hero-welcome';
 import { Slider } from '../slider';
 
 import { heroContentExample } from '../../../examples';
+import { IComic } from '../../../types';
+
+interface IHeroProps {
+  comics: Array<IComic>;
+}
 
 
-export const Hero: React.FC = ({ comics }) => {
+export const Hero: React.FC<IHeroProps> = ({ comics }) => {
   return (
     <div className='hero'>
       <Container>
