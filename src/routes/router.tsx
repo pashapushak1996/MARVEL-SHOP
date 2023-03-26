@@ -3,8 +3,7 @@ import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
 import { Root } from './Root';
-import { DetailPage, HomePage } from '../pages';
-import { ComicsListPage } from '../pages/comics-list';
+import { CharactersListPage, ComicsListPage, DetailPage, HomePage } from '../pages';
 
 export const router = createBrowserRouter([
   {
@@ -14,6 +13,10 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <HomePage />,
+      },
+      {
+        path: '/characters',
+        element: <CharactersListPage />,
       },
       {
         path: '/comics',

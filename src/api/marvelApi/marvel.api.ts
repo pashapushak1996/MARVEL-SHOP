@@ -32,7 +32,7 @@ export const marvelApiInstance = axios.create({
 /** It's function which gets all comics
  @param {limit:number} params - limit is the quantity of comics
  @param {offset:number} params - offset is how many comics should be skip
- @returns {Array} results - It's array with one comic
+ @returns {Array} results - It's array with comics
  */
 
 
@@ -62,7 +62,7 @@ export const getComicById = async (id: number) => {
 };
 
 
-/** It's function which gets all characters
+/** It's function which gets all characters-list
  @param {limit:number} params - limit is the quantity of comics
  @param {offset:number} params - offset is how many comics should be skip
  @returns {Array} results - It's an array with one comic

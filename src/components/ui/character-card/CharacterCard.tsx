@@ -17,11 +17,9 @@ export const CharacterCard: React.FC<ICharacterCard> = ({ character }) => {
       <div className='character-card__cover'>
         <img className='character-card__cover-img' src={cover} alt='' />
       </div>
-      <Typography
-        className='character-card__name'
-        size={18}
-        variant='h5'
-        weight={700}>{name}</Typography>
+      <div className='character-card__name'>
+        <Typography as='h5' variant='heading-sm'>{name}</Typography>
+      </div>
     </div>
   );
 };

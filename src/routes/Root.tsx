@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 
 import { Footer, Header } from '../components/ui';
 import '../App.scss';
+import { Container } from '../components/layout';
 
 export const Root = () => {
   return (
@@ -14,7 +15,9 @@ export const Root = () => {
         <Outlet />
       </div>
       <div className='app__footer'>
-        <Footer />
+        <Container>
+          <Footer />
+        </Container>
       </div>
     </div>
   );
