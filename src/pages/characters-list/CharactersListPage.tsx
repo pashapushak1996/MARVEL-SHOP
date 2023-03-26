@@ -1,29 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Container, Grid } from '../../components/layout';
 import { CharacterCard } from '../../components/ui';
-import { getAllCharacters } from '../../api/marvelApi/marvel.api';
-import { normalizeCharacter } from '../../helpers/character.helper';
 
 import './CharactersListPage.scss';
-import { ICharacter, ICharacterResponse } from '../../types';
+import { ICharacter } from '../../types';
+import { useAppDispatch, useAppSelector } from '../../hooks/rtk.hooks';
+import { getCharacters } from '../../features/characters/characters.selector';
+import { fetchAllCharacters } from '../../features/characters/characters.thunk';
 
 export const CharactersListPage = () => {
-  const [characters, setCharacters] = useState([]);
+  const dispatch = useAppDispatch();
+
+  const characters = useAppSelector(getCharacters);
 
   useEffect(() => {
-    (async function() {
-        const charactersResponse = await getAllCharacters();
-
-        setCharacters(charactersResponse);
-      }()
-    );
-
+    dispatch(fetchAllCharacters());
   }, []);
 
+
   const characterCardElements =
-    characters.map((character: ICharacterResponse) =>
+    characters.map((character: ICharacter) =>
       <Grid key={character.id} item>
-        <CharacterCard character={normalizeCharacter(character)} />
+        <CharacterCard character={character} />
       </Grid>);
 
   return (

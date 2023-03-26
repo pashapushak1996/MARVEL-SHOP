@@ -1,6 +1,4 @@
 import { ICharacter, IComic, IComicsResponse } from './types';
-import characterImage from './assets/character-image.png';
-
 const comicsExample: IComic = {
   pages: 0,
   id: 1,
@@ -45,7 +43,7 @@ const character: ICharacter = {
   id: 2,
   name: 'Spiderman',
   description: 'asdsad',
-  cover: characterImage,
+  cover: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.dccomics.com%2Fsites%2Fdefault%2Ffiles%2Ffield%2Fimage%2FACSMBP_Cvr.jpg&f=1&nofb=1&ipt=4a2c259123f1815e5c9e84d82c140051d50b6779d2042ff7899cdc56321a1e35&ipo=images',
   comics: '',
 };
 

@@ -5,7 +5,6 @@ import { Grid } from '../../components/layout';
 
 import './HomePage.scss';
 
-import modalImage from '../../assets/ModalImage.png';
 import { charactersArray } from '../../examples';
 
 import { IComic } from '../../types';
@@ -46,7 +45,7 @@ export const HomePage: React.FC = () => {
                   sm={2}
                   md={4}
                   lg={4} item>
-              <CalendarCard cover={modalImage} title={'February 2022'} variant={'red'} />
+              <CalendarCard title={'February 2022'} variant={'red'} />
             </Grid>,
           )}
         </Grid>

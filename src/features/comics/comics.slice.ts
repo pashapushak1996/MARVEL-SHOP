@@ -31,7 +31,6 @@ const comicsSlice = createSlice({
 
         const normalizedComics = action.payload.map((comic: IComicsResponse): IComic => normalizeComic(comic));
 
-
         state.comics.push(...normalizedComics);
       });
 

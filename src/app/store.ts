@@ -1,11 +1,13 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit'
 
-import comicsReducer from '../features/comics/comics.slice';
+import comicsReducer from '../features/comics/comics.slice'
+import characterReducer from '../features/characters/characters.slice'
 
 
 export const store = configureStore({
   reducer: {
     comics: comicsReducer,
+    characters: characterReducer,
   },
 });
 
