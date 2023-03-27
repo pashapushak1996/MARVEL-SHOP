@@ -1,22 +1,15 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Container, Grid } from '../../components/layout';
 import { CharacterCard } from '../../components/ui';
 
-import './CharactersListPage.scss';
 import { ICharacter } from '../../types';
-import { useAppDispatch, useAppSelector } from '../../hooks/rtk.hooks';
+import { useAppSelector } from '../../hooks/rtk.hooks';
 import { getCharacters } from '../../features/characters/characters.selector';
-import { fetchAllCharacters } from '../../features/characters/characters.thunk';
+
+import './CharactersListPage.scss';
 
 export const CharactersListPage = () => {
-  const dispatch = useAppDispatch();
-
   const characters = useAppSelector(getCharacters);
-
-  useEffect(() => {
-    dispatch(fetchAllCharacters());
-  }, [dispatch]);
-
 
   const characterCardElements =
     characters.map((character: ICharacter) =>

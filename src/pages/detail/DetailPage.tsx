@@ -3,22 +3,23 @@ import React from 'react';
 import { ComicDetail } from '../../components/ui/comics-detail';
 import { IComic } from '../../types';
 import { ActionBox } from '../../components/ui/action-box';
-
-import './DetailPage.scss';
-
 import { Container, Grid } from '../../components/layout';
 import { ComicCard } from '../../components/ui';
 import { Loader, Typography } from '../../components/shared';
-import { useComics } from '../../hooks/useComics';
+
+import './DetailPage.scss';
+import { useAppSelector } from '../../hooks/rtk.hooks';
+import { getComics } from '../../features/comics/comics.selector';
+
 
 export const DetailPage: React.FC = () => {
-  const { comics, loading } = useComics();
+  const comics = useAppSelector(getComics);
 
   const comicCardComponents = comics.map((comic: IComic) => <Grid key={comic.id} xs={6} md={3} lg={3} item>
     <ComicCard comic={comic} />
   </Grid>);
 
-  if (loading === 'idle') {
+  if (comics.length === 0) {
     return <Loader />;
   }
 

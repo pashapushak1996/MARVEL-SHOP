@@ -38,7 +38,7 @@ export const CalendarCard: React.FC<ICalendarCardProps> = ({
                     color={'white'}
                     weight={700}>{title}</Typography>
         <div className='calendar-card__button'>
-          {/* TODO You have to add link there*/}
+          {/* TODO You have to add configurable-link there*/}
           <Button icon={iconSrc} modifiers={['rounded', 'white', 'link']}
                   to={'#'} iconSize={20} />
         </div>

@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { ICharacter, ICharacterResponse } from '../../types'
-import { fetchAllCharacters } from './characters.thunk'
+import { fetchCharacters } from './characters.thunk'
 import { normalizeCharacter } from '../../helpers/character.helper'
 
 type TypeLoadingState = 'idle' | 'pending' | 'succeeded' | 'failed';
@@ -21,7 +21,7 @@ const charactersSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchAllCharacters.fulfilled, (state, action) => {
+    builder.addCase(fetchCharacters.fulfilled, (state, action) => {
       state.loading = 'succeeded';
 
       const normalizedCharacters = action.payload.map((character: ICharacterResponse): ICharacter => normalizeCharacter(character))

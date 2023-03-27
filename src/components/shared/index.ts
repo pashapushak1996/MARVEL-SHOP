@@ -2,7 +2,7 @@ export * from './badge';
 export * from './box';
 export * from './button';
 export * from './checkbox';
-export * from './link';
+export * from './configurable-link';
 export * from './input';
 export * from './icon';
 export * from './logo';

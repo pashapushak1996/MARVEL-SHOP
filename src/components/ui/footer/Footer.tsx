@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Logo, Link, Typography, Icon } from '../../shared';
+import { Logo, ConfigurableLink, Typography, Icon } from '../../shared';
 import { VerticalLinks } from './vertical-links';
 
 import './Footer.scss';
@@ -14,9 +14,9 @@ export const Footer: React.FC = () => {
   const footerIcons = [instagramIcon, facebookIcon, twitterIcon];
 
   const iconsToRender = footerIcons.map((iconSrc, index) =>
-    <Link key={iconSrc + index} to='#'>
+    <ConfigurableLink key={iconSrc + index} to='#'>
       <Icon iconSrc={iconSrc} width={38} height={38} />
-    </Link>,
+    </ConfigurableLink>,
   );
 
   const listItems = [

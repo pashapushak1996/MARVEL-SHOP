@@ -10,7 +10,7 @@ interface ISliderCardProps {
   /** It's title which will be rendered as a title of card */
   title: string;
 
-  /** It's link for an image */
+  /** It's configurable-link for an image */
   imgSrc: string;
 
   /** It's description which will be rendered as a paragraph */

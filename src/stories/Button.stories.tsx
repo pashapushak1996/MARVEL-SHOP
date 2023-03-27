@@ -51,7 +51,7 @@ export const LinkWithIcon = Template.bind({});
 LinkWithIcon.args = {
   ...Link.args,
   icon: iconSrc,
-  modifiers: ['link', 'link-with-icon'],
+  modifiers: ['link', 'configurable-link-with-icon'],
 };
 
 export const Disabled = Template.bind({});

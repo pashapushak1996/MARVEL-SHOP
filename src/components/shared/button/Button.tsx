@@ -3,7 +3,7 @@ import React from 'react';
 import './Button.scss';
 
 import { Icon } from '../icon';
-import { Link } from '../link';
+import { ConfigurableLink } from '../configurable-link';
 
 interface IButtonProps {
   /** There are modifiers which can be added according to BEM as (button--$modifier) */
@@ -16,7 +16,7 @@ interface IButtonProps {
 
   children?: React.ReactNode;
 
-  /** This is the reference path for button link */
+  /** This is the reference path for button configurable-link */
 
   to?: string;
 
@@ -48,7 +48,7 @@ export const Button: React.FC<IButtonProps> = ({
   const isIconExist = icon && iconSize;
 
   return (
-    <Link {...props} modifiers={modifiers} as='button'>
+    <ConfigurableLink {...props} modifiers={modifiers} as='button'>
       {isIconExist && <div className='button__icon'>
         <Icon iconSrc={icon}
               width={iconSize}
@@ -57,6 +57,6 @@ export const Button: React.FC<IButtonProps> = ({
       <div className='button__text'>
         {children}
       </div>
-    </Link>
+    </ConfigurableLink>
   );
 };

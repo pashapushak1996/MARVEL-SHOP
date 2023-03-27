@@ -1,7 +1,10 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit';
 
-import comicsReducer from '../features/comics/comics.slice'
-import characterReducer from '../features/characters/characters.slice'
+import comicsReducer from '../features/comics/comics.slice';
+import { fetchComics } from '../features/comics/comics.thunk';
+
+import characterReducer from '../features/characters/characters.slice';
+import { fetchCharacters } from '../features/characters/characters.thunk';
 
 
 export const store = configureStore({
@@ -10,6 +13,10 @@ export const store = configureStore({
     characters: characterReducer,
   },
 });
+
+// Initializing store
+store.dispatch(fetchComics());
+store.dispatch(fetchCharacters());
 
 export type AppDispatch = typeof store.dispatch;
 

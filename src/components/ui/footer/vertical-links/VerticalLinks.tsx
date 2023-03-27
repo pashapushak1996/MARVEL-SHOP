@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Typography, Link } from '../../../shared';
+import { Typography, ConfigurableLink } from '../../../shared';
 
 import './VerticalLinks.scss';
 
@@ -19,10 +19,9 @@ interface IVerticalLinksProps {
 }
 
 export const VerticalLinks: React.FC<IVerticalLinksProps> = ({ listTitle, itemsList }) => {
-
   const list = itemsList.map((item, index) =>
     <li key={item.label + index}>
-      <Link to={item.route}>{item.label}</Link>
+      <ConfigurableLink to={item.route}>{item.label}</ConfigurableLink>
     </li>);
 
   return (

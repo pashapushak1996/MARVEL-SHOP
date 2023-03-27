@@ -3,16 +3,18 @@ import React from 'react';
 import { CalendarCard, CharacterCard, ComicCard, Hero } from '../../components/ui';
 import { Grid } from '../../components/layout';
 
-import './HomePage.scss';
-
-import { charactersArray } from '../../examples';
-
 import { IComic } from '../../types';
 import { HomeSection } from './home-section/HomeSection';
-import { useComics } from '../../hooks/useComics';
+
+import { useAppSelector } from '../../hooks/rtk.hooks';
+import { getCharacters } from '../../features/characters/characters.selector';
+import { getComics } from '../../features/comics/comics.selector';
+
+import './HomePage.scss';
 
 export const HomePage: React.FC = () => {
-  const { comics } = useComics();
+  const characters = useAppSelector(getCharacters);
+  const comics = useAppSelector(getComics);
 
   return (
     <div className='home'>
@@ -56,7 +58,7 @@ export const HomePage: React.FC = () => {
           alignItems={'center'}
           justifyContent={'space-between'}
           container>
-          {charactersArray.map((character, index) =>
+          {characters.map((character, index) =>
             <Grid key={character.id + index}
                   item>
               <CharacterCard character={character} />

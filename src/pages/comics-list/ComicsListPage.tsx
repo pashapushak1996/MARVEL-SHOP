@@ -4,13 +4,14 @@ import React from 'react';
 import { Container, Grid } from '../../components/layout';
 import { ComicCard } from '../../components/ui';
 import { Select, Typography } from '../../components/shared';
-import { useComics } from '../../hooks/useComics';
 import { IComic } from '../../types';
 
 import './ComicsListPage.scss';
+import { useAppSelector } from '../../hooks/rtk.hooks';
+import { getComics } from '../../features/comics/comics.selector';
 
 export const ComicsListPage: React.FC = () => {
-  const { comics } = useComics();
+  const comics = useAppSelector(getComics);
 
   const comicCardComponents =
     comics.map((comic: IComic) =>

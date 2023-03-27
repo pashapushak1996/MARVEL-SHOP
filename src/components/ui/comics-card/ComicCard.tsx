@@ -21,7 +21,6 @@ export const ComicCard: React.FC<IComicCardProps> = ({ comic }) => {
 
   const priceBlockContent = price ? ('$' + price) : 'Sold';
 
-
   return (
     <div className='comics-card'>
       <div className='comics-card__cover'>
@@ -39,7 +38,7 @@ export const ComicCard: React.FC<IComicCardProps> = ({ comic }) => {
             {priceBlockContent}
           </div>
           <div className='comics-card__button'>
-            <Button>See details</Button>
+            <Button to={'/comics/:comicId'}>See details</Button>
           </div>
         </div>
       </div>
