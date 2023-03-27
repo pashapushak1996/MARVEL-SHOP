@@ -1,14 +1,13 @@
 import React from 'react';
 
 import { createBrowserRouter } from 'react-router-dom';
-
-import { Root } from './Root';
 import { CharactersListPage, ComicsListPage, DetailPage, HomePage } from '../pages';
+import { AppLayout } from '../components/page-layout';
 
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <Root />,
+    element: <AppLayout />,
     children: [
       {
         index: true,

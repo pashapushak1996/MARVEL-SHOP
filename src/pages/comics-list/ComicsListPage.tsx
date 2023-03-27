@@ -9,7 +9,6 @@ import { IComic } from '../../types';
 
 import './ComicsListPage.scss';
 
-
 export const ComicsListPage: React.FC = () => {
   const { comics } = useComics();
 

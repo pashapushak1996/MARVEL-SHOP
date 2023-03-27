@@ -5,30 +5,18 @@ import { LoginButton } from '../login-button';
 import { Logo } from '../../shared';
 
 import './Header.scss';
-
-
-const navMenuItems = [{
-  label: 'News',
-  route: '',
-  isActive: false,
-}, {
-  label: 'Characters',
-  route: '',
-  isActive: true,
-}, {
-  label: 'Series',
-  route: '',
-  isActive: false,
-}];
+import { Link } from 'react-router-dom';
 
 export const Header: React.FC = () => {
   return (
     <header className='header'>
       <div className='header__logo'>
-        <Logo width={150} />
+        <Link to={'/'}>
+          <Logo width={150} />
+        </Link>
       </div>
       <div className='header__menu'>
-        <NavMenu items={navMenuItems} />
+        <NavMenu />
       </div>
       <div className='header__controls'>
         <LoginButton />

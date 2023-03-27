@@ -22,13 +22,13 @@ const charactersSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchAllCharacters.fulfilled, (state, action) => {
-      state.loading = 'succeeded'
+      state.loading = 'succeeded';
 
       const normalizedCharacters = action.payload.map((character: ICharacterResponse): ICharacter => normalizeCharacter(character))
 
-      state.characters.push(...normalizedCharacters);
+      state.characters = normalizedCharacters;
     });
   },
-})
+});
 
 export default charactersSlice.reducer;

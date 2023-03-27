@@ -15,7 +15,7 @@ export const CharactersListPage = () => {
 
   useEffect(() => {
     dispatch(fetchAllCharacters());
-  }, []);
+  }, [dispatch]);
 
 
   const characterCardElements =
