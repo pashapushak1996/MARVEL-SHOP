@@ -9,17 +9,22 @@ import { Loader, Typography } from '../../components/shared';
 
 import './DetailPage.scss';
 import { useAppSelector } from '../../hooks/rtk.hooks';
-import { getComics } from '../../features/comics/comics.selector';
+import { getComics, getOneComic } from '../../features/comics/comics.selector';
+import { useParams } from 'react-router-dom';
 
 
 export const DetailPage: React.FC = () => {
+  const { comicId } = useParams();
+
   const comics = useAppSelector(getComics);
+  const comic = useAppSelector(getOneComic(Number(comicId)));
 
-  const comicCardComponents = comics.map((comic: IComic) => <Grid key={comic.id} xs={6} md={3} lg={3} item>
-    <ComicCard comic={comic} />
-  </Grid>);
+  const comicCardComponents = comics.map((comic: IComic) =>
+    <Grid key={comic.id} xs={6} md={3} lg={3} item>
+      <ComicCard comic={comic} />
+    </Grid>);
 
-  if (comics.length === 0) {
+  if (comics.length === 0 || !comic) {
     return <Loader />;
   }
 
@@ -28,10 +33,10 @@ export const DetailPage: React.FC = () => {
       <div className='detail'>
         <div className='detail__panel'>
           <div className='detail__comic'>
-            <ComicDetail {...comics[0]} />
+            <ComicDetail {...comic} />
           </div>
           <div className='detail__action-box'>
-            <ActionBox price={comics[0].price} isOnSale={comics[0].price !== 0} />
+            <ActionBox price={comic.price} isOnSale={comics[0].price !== 0} />
           </div>
         </div>
         <div className='detail__grid'>

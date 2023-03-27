@@ -13,6 +13,7 @@ interface IComicCardProps {
 
 export const ComicCard: React.FC<IComicCardProps> = ({ comic }) => {
   const {
+    id,
     description,
     price,
     cover,
@@ -38,7 +39,7 @@ export const ComicCard: React.FC<IComicCardProps> = ({ comic }) => {
             {priceBlockContent}
           </div>
           <div className='comics-card__button'>
-            <Button to={'/comics/:comicId'}>See details</Button>
+            <Button to={`/comics/${id}`}>See details</Button>
           </div>
         </div>
       </div>
