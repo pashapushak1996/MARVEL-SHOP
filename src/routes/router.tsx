@@ -2,28 +2,35 @@ import React from 'react';
 
 import { createBrowserRouter } from 'react-router-dom';
 import { CharactersListPage, ComicsListPage, DetailPage, HomePage } from '../pages';
-import { AppLayout } from '../components/app-layout';
+import { Root } from './Root';
+import { DesktopLayout } from '../components/app-layout';
 
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <AppLayout />,
+    element: <Root />,
     children: [
       {
-        index: true,
-        element: <HomePage />,
-      },
-      {
-        path: '/characters',
-        element: <CharactersListPage />,
-      },
-      {
-        path: '/comics',
-        element: <ComicsListPage />,
-      },
-      {
-        path: '/comics/:comicId',
-        element: <DetailPage />,
+        path: '',
+        element: <DesktopLayout />,
+        children: [
+          {
+            index: true,
+            element: <HomePage />,
+          },
+          {
+            path: '/characters',
+            element: <CharactersListPage />,
+          },
+          {
+            path: '/comics',
+            element: <ComicsListPage />,
+          },
+          {
+            path: '/comics/:comicId',
+            element: <DetailPage />,
+          },
+        ],
       },
     ],
   },

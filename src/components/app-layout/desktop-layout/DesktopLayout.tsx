@@ -1,10 +1,10 @@
 import React from 'react';
 
 import { Outlet } from 'react-router-dom';
-import { Footer, Header } from '../ui';
-import { Container } from '../layout';
+import { Footer, Header } from '../../ui';
+import { Container } from '../../layout';
 
-export const AppLayout = () => {
+export const DesktopLayout = () => {
   return (
     <div className='layout'>
       <header className='layout__header'>
