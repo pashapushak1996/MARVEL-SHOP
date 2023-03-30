@@ -1,10 +1,13 @@
 .sign-up {
-
-
   &__title {
     margin-bottom: 8px;
 
     text-align: center;
+  }
+
+  &__link {
+    color: cornflowerblue;
+    cursor: pointer;
   }
 
   &__question {

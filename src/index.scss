@@ -8,3 +8,8 @@ body, html {
   font-family: 'Roboto', sans-serif;
   height: 100%;
 }
+
+body.lock {
+  overflow-y: hidden;
+  padding-right: 15px;
+}

@@ -9,7 +9,7 @@ export * from './search';
 export * from './footer';
 export * from './slider/slider-card';
 export * from './slider';
-export * from './modal';
+export * from '../shared/modal';
 export * from '../shared/checkbox';
 export * from './nav-menu';
 export * from './login-button';

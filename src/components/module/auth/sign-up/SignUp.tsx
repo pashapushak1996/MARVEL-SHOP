@@ -1,17 +1,22 @@
 import React from 'react';
-import { Button, Checkbox, Input, Link, Typography } from '../../../shared';
+import { Button, Checkbox, Input, ConfigurableLink, Typography } from '../../../shared';
 import './SignUp.scss';
+import { useAppDispatch } from '../../../../hooks/rtk.hooks';
+import { setModalType } from '../../../../features/auth-modal/auth-modal.slice';
 
 export const SignUp = () => {
+  const dispatch = useAppDispatch();
 
+  const onSignInClick = () => dispatch(setModalType('sign-in'));
   return (
     <div className='sign-up'>
-      <Typography className='sign-up__title'
-                  size={36} variant={'h3'}>Signup</Typography>
+      <div className='sign-up__title'>
+        <Typography as={'h3'} variant={'heading-lg'}>Signup</Typography>
+      </div>
       <div className='sign-up__question'>
         Already have an account?
-        <div className='sing-up__link'>
-          <Link to={'#'}>Sign in</Link>
+        <div className='sign-up__link'>
+          <ConfigurableLink onClick={onSignInClick}>Sign in</ConfigurableLink>
         </div>
       </div>
       <form action='#' className='sign-up__form'>
@@ -25,8 +30,8 @@ export const SignUp = () => {
         <Button modifiers={['stretched']}>Register</Button>
         <div className='sign-up__terms'>
           <Checkbox />
-          <Typography size={12}> I have read and agree to the</Typography>
-          <Link to={'#'}>Terms of Service</Link>
+          <Typography variant={'body-sm'}> I have read and agree to the</Typography>
+          <ConfigurableLink>Terms of Service</ConfigurableLink>
         </div>
       </form>
     </div>

@@ -1,9 +1,15 @@
 import React from 'react';
-import { Typography, Link, Input, Button } from '../../../shared';
+import { Typography, ConfigurableLink, Input, Button } from '../../../shared';
 
 import './SignIn.scss';
+import { useAppDispatch } from '../../../../hooks/rtk.hooks';
+import { setModalType } from '../../../../features/auth-modal/auth-modal.slice';
 
 export const SignIn = () => {
+  const dispatch = useAppDispatch();
+
+  const onSignUpClick = () => dispatch(setModalType('sign-up'));
+
   return (
     <div className='sign-in'>
       <div className='sign-in__title'>
@@ -11,8 +17,8 @@ export const SignIn = () => {
       </div>
       <div className='sign-in__question'>
         Already have an account?
-        <div className='sing-in__link'>
-          <Link to={'#'}>Sign up</Link>
+        <div className='sign-in__link'>
+          <ConfigurableLink onClick={onSignUpClick}>Sign up</ConfigurableLink>
         </div>
       </div>
       <form className='sign-in__form'>
