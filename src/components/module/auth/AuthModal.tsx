@@ -8,6 +8,9 @@ import { SignUp } from './sign-up';
 import { useAppDispatch } from '../../../hooks/rtk.hooks';
 import { setIsOpen } from '../../../features/auth-modal/auth-modal.slice';
 import { Overlay } from '../../shared/overlay';
+import { createPortal } from 'react-dom';
+
+import './AuthModal.scss';
 
 export const AuthModal = () => {
   const dispatch = useAppDispatch();
@@ -34,11 +37,15 @@ export const AuthModal = () => {
     : SignUp;
 
   return (
-    <>
-      <Overlay onClick={onOverlayClick} isVisible={isOpen} />
-      <Modal isOpen={isOpen}>
-        <Component />
-      </Modal>
-    </>
+    createPortal(
+      <div className={'auth-modal'}>
+        <Overlay onClick={onOverlayClick} isVisible={isOpen} />
+        <div className='auth-modal__modal'>
+          <Modal isOpen={isOpen}>
+            <Component />
+          </Modal>
+        </div>
+      </div>
+      , document.body)
   );
 };

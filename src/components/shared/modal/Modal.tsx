@@ -1,5 +1,4 @@
 import React from 'react';
-import { createPortal } from 'react-dom';
 import cn from 'classnames';
 
 import './Modal.scss';
@@ -17,12 +16,12 @@ export const Modal: React.FC<IModalProps> = ({ isOpen, children }) => {
     ['custom-modal--is-open']: isOpen,
   });
 
-  return createPortal(
+  return (
     <div className={classNames}>
       <div className='custom-modal__body'>
         {children}
       </div>
-    </div>,
-    document.body,
+    </div>
   );
+
 };
