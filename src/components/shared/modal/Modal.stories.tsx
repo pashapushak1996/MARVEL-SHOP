@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Modal } from '../components/ui';
-import { SignUp } from '../components/module/auth/sign-up';
-import { SignIn } from '../components/module/auth/sign-in';
+import { Modal } from '../../ui';
+import { SignUp } from '../../module/auth/sign-up';
+import { SignIn } from '../../module/auth/sign-in';
 
 export default {
   title: 'Components/Modal',

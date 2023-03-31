@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Slider } from '../components/ui';
+import { Slider } from '../index';
 
-import { arrayOfComics } from '../examples';
+import { arrayOfComics } from '../../../examples';
 
 
 export default {

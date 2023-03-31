@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { ComicDetail } from '../../components/ui/comics-detail';
-import { IComic } from '../../types';
 import { ActionBox } from '../../components/ui/action-box';
 import { Container, Grid } from '../../components/layout';
 import { ComicCard } from '../../components/ui';

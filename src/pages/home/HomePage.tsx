@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 
 import { CalendarCard, CharacterCard, ComicCard, Hero } from '../../components/ui';

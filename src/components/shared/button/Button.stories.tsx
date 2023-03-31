@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Button } from '../components/ui';
+import { Button } from '../../ui';
 
-import iconSrc from '../assets/icons/search-icon.svg';
+import iconSrc from '../../../assets/icons/search-icon.svg';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
