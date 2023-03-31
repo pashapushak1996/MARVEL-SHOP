@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import authModalReducer from '../features/auth-modal/auth-modal.slice';
+import authModalReducer from '../modules/auth-modal/store/auth-modal.slice';
 
 import comicsReducer from '../modules/comics/store/comics.slice';
 import { fetchComics } from '../modules/comics/store/comics.thunk';

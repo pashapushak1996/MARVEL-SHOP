@@ -1,13 +1,13 @@
 // @ts-nocheck
 import React from 'react';
-import { useAppSelector } from '../../app/hooks';
+import { useAppSelector } from '../../../app/hooks';
 
-import { getComics } from './store/comics.selector';
+import { getComics } from '../store/comics.selector';
 import { IComic } from '../../types';
 
-import { Grid } from '../../components/layout';
-import { ComicCard } from '../../components/ui';
-import { Select, Typography } from '../../components/shared';
+import { Grid } from '../../../components/layout';
+import { ComicCard } from '../../../components/ui';
+import { Select, Typography } from '../../../components/shared';
 
 import './ComicsList.scss';
 

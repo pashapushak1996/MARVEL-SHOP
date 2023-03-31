@@ -3,7 +3,7 @@ import { Button } from '../../shared';
 import iconSrc from '../../../assets/icons/spiderman-icon.svg';
 
 import './LoginButton.scss';
-import { setIsOpen, setModalType } from '../../../features/auth-modal/auth-modal.slice';
+import { setIsOpen, setModalType } from '../../../modules/auth-modal/store/auth-modal.slice';
 import { useAppDispatch } from '../../../app/hooks';
 
 export const LoginButton = () => {

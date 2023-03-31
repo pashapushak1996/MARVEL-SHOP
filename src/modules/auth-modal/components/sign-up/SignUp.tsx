@@ -1,7 +1,7 @@
 import React from 'react';
-import { Button, Checkbox, Input, ConfigurableLink, Typography } from '../../../shared';
+import { Button, Checkbox, Input, ConfigurableLink, Typography } from '../../../../components/shared';
 import './SignUp.scss';
-import { setModalType } from '../../../../features/auth-modal/auth-modal.slice';
+import { setModalType } from '../../store/auth-modal.slice';
 import { useAppDispatch } from '../../../../app/hooks';
 
 export const SignUp = () => {

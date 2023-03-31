@@ -1,9 +1,9 @@
 import React from 'react';
-import { Typography, ConfigurableLink, Input, Button } from '../../../shared';
+import { Typography, ConfigurableLink, Input, Button } from '../../../../components/shared';
 
 import './SignIn.scss';
 
-import { setModalType } from '../../../../features/auth-modal/auth-modal.slice';
+import { setModalType } from '../../store/auth-modal.slice';
 import { useAppDispatch } from '../../../../app/hooks';
 
 export const SignIn = () => {
