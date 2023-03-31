@@ -6,9 +6,10 @@ import { ComicCard } from '../../components/ui';
 import { Select, Typography } from '../../components/shared';
 import { IComic } from '../../types';
 
-import './ComicsListPage.scss';
-import { useAppSelector } from '../../hooks/rtk.hooks';
 import { getComics } from '../../features/comics/comics.selector';
+import { useAppSelector } from '../../app/hooks';
+
+import './ComicsListPage.scss';
 
 export const ComicsListPage: React.FC = () => {
   const comics = useAppSelector(getComics);

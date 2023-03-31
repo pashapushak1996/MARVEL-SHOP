@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { createBrowserRouter } from 'react-router-dom';
-import { CharactersListPage, ComicsListPage, DetailPage, HomePage } from '../pages';
+import { CharactersPage, ComicsListPage, DetailPage, HomePage } from '../pages';
 import { Root } from './Root';
 import { DesktopLayout } from '../components/app-layout';
 
@@ -20,7 +20,7 @@ export const router = createBrowserRouter([
           },
           {
             path: '/characters',
-            element: <CharactersListPage />,
+            element: <CharactersPage />,
           },
           {
             path: '/comics',

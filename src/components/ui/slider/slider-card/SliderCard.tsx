@@ -15,17 +15,13 @@ interface ISliderCardProps {
 
   /** It's description which will be rendered as a paragraph */
   description: string;
-
-  /** It's a function which will be called when button is clicked */
-  onClickDetails?: (event: React.MouseEvent) => void;
 }
 
 export const SliderCard: React.FC<ISliderCardProps> = ({
                                                          id,
                                                          title,
                                                          imgSrc,
-                                                         description,
-                                                         onClickDetails,
+                                                         description
                                                        }) => {
   return (
     <div className='slider-card'>
@@ -37,7 +33,7 @@ export const SliderCard: React.FC<ISliderCardProps> = ({
         <div className='slider-card__description'>
           <Typography as={'h3'} variant={'body-md'} weight={'normal'}>{description}</Typography>
         </div>
-        <Button modifiers={['link']} to={`/${id}`} onClick={onClickDetails}>See details</Button>
+        <Button modifiers={['link']} to={`/comics/${id}`}>See details</Button>
       </div>
     </div>);
 };

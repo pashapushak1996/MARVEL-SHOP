@@ -3,8 +3,8 @@ import { Button } from '../../shared';
 import iconSrc from '../../../assets/icons/spiderman-icon.svg';
 
 import './LoginButton.scss';
-import { useAppDispatch } from '../../../hooks/rtk.hooks';
 import { setIsOpen, setModalType } from '../../../features/auth-modal/auth-modal.slice';
+import { useAppDispatch } from '../../../app/hooks';
 
 export const LoginButton = () => {
   const dispatch = useAppDispatch();

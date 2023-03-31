@@ -5,8 +5,8 @@ import authModalReducer from '../features/auth-modal/auth-modal.slice';
 import comicsReducer from '../features/comics/comics.slice';
 import { fetchComics } from '../features/comics/comics.thunk';
 
-import characterReducer from '../features/characters/characters.slice';
-import { fetchCharacters } from '../features/characters/characters.thunk';
+import characterReducer from '../modules/characters/store/characters.slice';
+import { fetchCharacters } from '../modules/characters/store/characters.thunk';
 
 
 export const store = configureStore({

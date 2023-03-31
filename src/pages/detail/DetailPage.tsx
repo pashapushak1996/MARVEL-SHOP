@@ -8,7 +8,7 @@ import { ComicCard } from '../../components/ui';
 import { Loader, Typography } from '../../components/shared';
 
 import './DetailPage.scss';
-import { useAppSelector } from '../../hooks/rtk.hooks';
+import { useAppSelector } from '../../app/hooks';
 import { getComics, getOneComic } from '../../features/comics/comics.selector';
 import { useParams } from 'react-router-dom';
 

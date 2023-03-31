@@ -2,8 +2,9 @@ import React from 'react';
 import { Typography, ConfigurableLink, Input, Button } from '../../../shared';
 
 import './SignIn.scss';
-import { useAppDispatch } from '../../../../hooks/rtk.hooks';
+
 import { setModalType } from '../../../../features/auth-modal/auth-modal.slice';
+import { useAppDispatch } from '../../../../app/hooks';
 
 export const SignIn = () => {
   const dispatch = useAppDispatch();

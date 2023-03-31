@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { getIsOpenModal, getModalType } from '../../../features/auth-modal/auth-modal.selector';
 import { SignIn } from './sign-in';
 import { SignUp } from './sign-up';
-import { useAppDispatch } from '../../../hooks/rtk.hooks';
+import { useAppDispatch } from '../../../app/hooks';
 import { setIsOpen } from '../../../features/auth-modal/auth-modal.slice';
 import { Overlay } from '../../shared/overlay';
 import { createPortal } from 'react-dom';

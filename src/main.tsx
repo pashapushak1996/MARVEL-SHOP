@@ -7,7 +7,7 @@ import { store } from './app';
 import { router } from './routes';
 
 import './index.scss';
-import './theme/reset.css';
+import './reset.css';
 
 
 ReactDOM

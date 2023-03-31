@@ -11,7 +11,7 @@ export const parameters = {
 import React from 'react';
 
 /* It will reset storybook components styles  */
-import '../src/theme/reset.css';
+import '../src/reset.css';
 
 import '../src/index.scss';
 

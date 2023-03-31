@@ -1,6 +1,6 @@
 export * from './avatar';
 export * from './calendar-card';
-export * from './character-card';
+export * from '../../modules/characters/components/character-card';
 export * from './comics-card';
 export * from './header';
 export * from './hero';

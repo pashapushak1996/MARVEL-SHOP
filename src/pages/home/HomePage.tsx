@@ -6,9 +6,9 @@ import { Grid } from '../../components/layout';
 import { IComic } from '../../types';
 import { HomeSection } from './home-section/HomeSection';
 
-import { useAppSelector } from '../../hooks/rtk.hooks';
-import { getCharacters } from '../../features/characters/characters.selector';
+import { getCharacters } from '../../modules/characters/store/characters.selector';
 import { getComics } from '../../features/comics/comics.selector';
+import { useAppSelector } from '../../app/hooks';
 
 import './HomePage.scss';
 

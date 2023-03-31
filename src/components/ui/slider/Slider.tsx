@@ -20,9 +20,6 @@ import { SliderCard } from './slider-card';
 interface ISliderProps {
   /** It will be rendered like a Slide Item */
   items: Array<IComic>;
-
-  /** It's a function which will be called when button is clicked */
-  onClickDetails?: (event: React.MouseEvent) => void;
 }
 
 export const Slider: React.FC<ISliderProps> = ({ items }) => {
