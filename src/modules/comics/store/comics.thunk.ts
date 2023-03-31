@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { getAllComics, getComicById } from '../../api/marvelApi/marvel.api.js';
-import { IComicsResponse } from '../../types';
+import { IComicsResponse } from '../../../types';
+import { getAllComics, getComicById } from '../api/comics.api';
 
 export const fetchComics = createAsyncThunk(
   'comics/fetchComics',

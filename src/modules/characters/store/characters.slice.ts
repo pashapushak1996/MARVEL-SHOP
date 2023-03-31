@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { ICharacter, ICharacterResponse } from '../../../types';
 import { fetchCharacters } from './characters.thunk';
-import { normalizeCharacter } from '../../../helpers/character.helper';
+import { normalizeCharacter } from '../helpers/character.helper';
 
 type TypeLoadingState = 'idle' | 'pending' | 'succeeded' | 'failed';
 

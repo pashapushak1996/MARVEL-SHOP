@@ -7,7 +7,7 @@ import { IComic } from '../../types';
 import { HomeSection } from './home-section/HomeSection';
 
 import { getCharacters } from '../../modules/characters/store/characters.selector';
-import { getComics } from '../../features/comics/comics.selector';
+import { getComics } from '../../modules/comics/store/comics.selector';
 import { useAppSelector } from '../../app/hooks';
 
 import './HomePage.scss';

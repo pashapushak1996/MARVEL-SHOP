@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { createBrowserRouter } from 'react-router-dom';
-import { CharactersPage, ComicsListPage, DetailPage, HomePage } from '../pages';
+import { CharactersPage, ComicsPage, DetailPage, HomePage } from '../pages';
 import { Root } from './Root';
 import { DesktopLayout } from '../components/app-layout';
 
@@ -24,7 +24,7 @@ export const router = createBrowserRouter([
           },
           {
             path: '/comics',
-            element: <ComicsListPage />,
+            element: <ComicsPage />,
           },
           {
             path: '/comics/:comicId',

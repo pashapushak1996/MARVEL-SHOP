@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import { fetchComics } from './comics.thunk';
-import { IComic, IComicsResponse } from '../../types';
-import { normalizeComic } from '../../helpers';
+import { IComic, IComicsResponse } from '../../../types';
+import { normalizeComic } from '../../../helpers';
 
 type TypeLoadingState = 'idle' | 'pending' | 'succeeded' | 'failed';
 

@@ -9,7 +9,7 @@ import { Loader, Typography } from '../../components/shared';
 
 import './DetailPage.scss';
 import { useAppSelector } from '../../app/hooks';
-import { getComics, getOneComic } from '../../features/comics/comics.selector';
+import { getComics, getOneComic } from '../../modules/comics/store/comics.selector';
 import { useParams } from 'react-router-dom';
 
 
