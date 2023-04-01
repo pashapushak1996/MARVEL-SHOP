@@ -21,7 +21,7 @@ export const getAllComics = async (params?: { limit?: number, offset?: number })
  @returns {Array} results - It's array with one comic
  */
 
-export const getComicById = async (id: number) => {
+export const getComicById = async (id: string) => {
   try {
     const res = await marvelApiInstance.get(`/comics/${id}`);
 

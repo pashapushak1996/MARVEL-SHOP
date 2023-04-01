@@ -1,0 +1,8 @@
+.comic-overview {
+  display: flex;
+  justify-content: space-between;
+
+  &__actions {
+    max-width: 221px;
+  }
+}

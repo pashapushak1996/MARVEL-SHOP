@@ -1,18 +1,20 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { fetchComics } from './comics.thunk';
-import { IComic, IComicsResponse } from '../../../types';
+import { fetchComicById, fetchComics } from './comics.thunk';
 import { normalizeComic } from '../../../helpers';
+import { IComic, IComicsResponse } from '../types/IComics';
 
 type TypeLoadingState = 'idle' | 'pending' | 'succeeded' | 'failed';
 
 interface IComicsState {
   comics: Array<IComic>;
+  comic: IComic | null;
   loading: TypeLoadingState;
 }
 
 const initialState = {
   comics: [],
+  comic: null,
   loading: 'idle',
 } as IComicsState;
 
@@ -21,8 +23,7 @@ const comicsSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-
-    // It's when comics promise is fulfilled
+    // Comics list
 
     builder.addCase(
       fetchComics.fulfilled,
@@ -34,11 +35,17 @@ const comicsSlice = createSlice({
         state.comics = normalizedComics;
       });
 
-    // It's when comics promise is rejected
+    // Single comic
 
-    builder.addCase(fetchComics.rejected,
-      (state: IComicsState) => {
-        state.loading = 'failed';
+    builder.addCase(fetchComicById.fulfilled,
+      (state: IComicsState, action) => {
+        state.loading = 'succeeded';
+
+        const comicFromServer = action.payload[0];
+
+        const normalizedComic = normalizeComic(comicFromServer);
+
+        state.comic = normalizedComic;
       });
   },
 });

@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { IComicsResponse } from '../../../types';
 import { getAllComics, getComicById } from '../api/comics.api';
+import { IComicsResponse } from '../types/IComics';
 
 export const fetchComics = createAsyncThunk(
   'comics/fetchComics',
@@ -14,8 +14,8 @@ export const fetchComics = createAsyncThunk(
 
 
 export const fetchComicById = createAsyncThunk('comics/fetchComicById',
-  async (comicId: number, thunkAPI) => {
-    const comic: IComicsResponse = await getComicById(comicId);
+  async (comicId: string, thunkAPI) => {
+    const comic: Array<IComicsResponse> = await getComicById(comicId);
 
     return comic;
   });

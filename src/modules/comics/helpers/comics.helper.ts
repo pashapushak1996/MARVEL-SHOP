@@ -1,9 +1,9 @@
 import moment from 'moment';
 
-import { IComic, IComicsResponse } from '../../../types';
 import { ImageSizesEnum } from '../../../constants/image-sizes.enum';
 
-import { buildImagePath } from '../../../helpers/marvel-api.helper';
+import { buildImagePath } from '../../../helpers';
+import { IComic, IComicsResponse } from '../types/IComics';
 
 /** Function which transforms comicObject */
 
