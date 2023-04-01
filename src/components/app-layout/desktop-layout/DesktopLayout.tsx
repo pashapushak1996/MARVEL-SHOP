@@ -4,6 +4,8 @@ import { Outlet } from 'react-router-dom';
 import { Footer, Header } from '../../ui';
 import { Container } from '../../layout';
 
+import './DesktopLayout.scss';
+
 export const DesktopLayout = () => {
   return (
     <div className='layout'>

@@ -7,7 +7,6 @@ import { IComic } from '../../types';
 
 import { Grid } from '../../../components/layout';
 import { ComicCard } from '../../../components/ui';
-import { Select, Typography } from '../../../components/shared';
 
 import './ComicsList.scss';
 
@@ -21,33 +20,10 @@ export const ComicsList = () => {
       </Grid>);
 
   return (
-    <div className='comics-list'>
-      <div className='comics-list__header'>
-        <div className='comics-list__panel'>
-          <div className='comics-list__panel-title'>
-            <Typography as='h4' variant='body-sm' weight='semi-bold'>Filter by</Typography>
-          </div>
-          <div className='comics-list__grid'>
-            <Select />
-            <Select />
-            <Select />
-            <Select />
-          </div>
-        </div>
-        <div className='comics-list__panel'>
-          <div className='comics-list__panel-title'>
-            <Typography as='h4' variant='body-sm' weight='semi-bold'>Sort by</Typography>
-          </div>
-          <div className='comics-list__grid'>
-            <Select />
-          </div>
-        </div>
-      </div>
       <Grid spacing={'md'}
             justifyContent={'flex-start'}
             container>
         {comicCardComponents}
       </Grid>
-    </div>
   );
 };
