@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import { getHash } from './cryptoMd5.service';
 
-import { MARVEL_BASE_URL, MARVEL_API_KEY, MARVEL_API_PRIVATE_KEY } from './marvelApiConstants';
+import { MARVEL_BASE_URL, MARVEL_API_KEY, MARVEL_API_PRIVATE_KEY } from '../constants/marvel-api.constants';
 
 type TypeMarvelApiParams = {
   apikey: string;

@@ -1,4 +1,4 @@
-export { CharactersPage } from './characters';
-export { ComicsPage } from './comics-list';
-export { HomePage } from './home';
-export { DetailPage } from './detail';
+export { CharactersPage } from './characters-page';
+export { ComicsPage } from './comics-page';
+export { HomePage } from './home-page';
+export { DetailPage } from './detail-page';

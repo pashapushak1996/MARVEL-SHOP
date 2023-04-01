@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { ICharacter, ICharacterResponse } from '../../../types';
 import { fetchCharacters } from './characters.thunk';
 import { normalizeCharacter } from '../helpers/character.helper';
+import { ICharacter, ICharacterResponse } from '../types/ICharacter';
 
 type TypeLoadingState = 'idle' | 'pending' | 'succeeded' | 'failed';
 
@@ -30,4 +30,4 @@ const charactersSlice = createSlice({
   },
 });
 
-export default charactersSlice.reducer;
+export const charactersReducer = charactersSlice.reducer;

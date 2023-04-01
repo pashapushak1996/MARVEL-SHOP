@@ -50,4 +50,4 @@ const comicsSlice = createSlice({
   },
 });
 
-export default comicsSlice.reducer;
+export const comicsReducer = comicsSlice.reducer;
