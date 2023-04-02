@@ -13,23 +13,28 @@ import SwiperCore, {
 
 SwiperCore.use([Pagination]);
 
-import { IComic } from '../../../types';
 import { SliderCard } from './slider-card';
+import { IComic } from '../../types';
+import { Loader } from '../../../../components/shared';
 
 
 interface ISliderProps {
   /** It will be rendered like a Slide Item */
-  items: Array<IComic>;
+  comics: Array<IComic>;
 }
 
-export const Slider: React.FC<ISliderProps> = ({ items }) => {
+export const Slider: React.FC<ISliderProps> = ({ comics }) => {
+  if (!comics.length) {
+    return <Loader />;
+  }
+
   return (
     <Swiper
       spaceBetween={45}
       slidesPerView={1}
       pagination={{ clickable: true }}
     >
-      {items.map((item) =>
+      {comics.map((item) =>
         <SwiperSlide key={item.id}>
           <SliderCard
             id={item.id}

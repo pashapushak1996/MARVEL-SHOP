@@ -18,6 +18,7 @@ export const HomePage: React.FC = () => {
   const comics = useAppSelector(getComics);
 
   const slicedComics = comics.slice(0, 8);
+  const slicedCharacters = characters.slice(0, 5);
 
   return (
     <div className='home'>
@@ -44,7 +45,7 @@ export const HomePage: React.FC = () => {
         </Grid>
       </HomeSection>
       <HomeSection title={'Characters'}>
-        <CharactersList characters={characters} />
+        <CharactersList characters={slicedCharacters} />
       </HomeSection>
     </div>
   );

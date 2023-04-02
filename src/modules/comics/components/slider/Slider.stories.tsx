@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Slider } from '../index';
+import { Slider } from '../../../../components/ui';
 
 import { arrayOfComics } from '../../../examples';
 

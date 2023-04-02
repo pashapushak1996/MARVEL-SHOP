@@ -1,12 +1,11 @@
 import React from 'react';
+
 import { Container } from '../../layout';
+import { HeroWelcome } from './hero-welcome';
+
+import { IComic, Slider } from '../../../modules/comics';
 
 import './Hero.scss';
-import { HeroWelcome } from './hero-welcome';
-import { Slider } from '../slider';
-
-import { IComic } from '../../../types';
-import { Loader } from '../../shared';
 
 interface IHeroProps {
   comics: Array<IComic>;
@@ -21,11 +20,6 @@ const heroWelcomeContent = {
 
 
 export const Hero: React.FC<IHeroProps> = ({ comics }) => {
-  const heroRightContent =
-    comics.length === 0
-      ? <Loader />
-      : <Slider items={comics} />;
-
   return (
     <div className='hero'>
       <Container>
@@ -36,7 +30,7 @@ export const Hero: React.FC<IHeroProps> = ({ comics }) => {
                        quoteAuthor={heroWelcomeContent.quoteAuthor} />
         </div>
         <div className='hero__right-side'>
-          {heroRightContent}
+          <Slider comics={comics} />
         </div>
       </Container>
     </div>

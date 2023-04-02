@@ -1,9 +1,10 @@
 import React from 'react';
 
 import { Search } from '../../search';
+import { Typography } from '../../../shared';
+
 
 import './HeroWelcome.scss';
-import { Typography } from '../../../shared';
 
 interface IHeroWelcomeProps {
   title: string;

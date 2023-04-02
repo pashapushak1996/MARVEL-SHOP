@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
-import { ComicDetail } from '../../../components/ui/comics-detail';
+import { ComicDetail } from '../components/comics-detail';
 import { ActionBox } from '../../../components/ui/action-box';
 import { Loader } from '../../../components/shared';
 
