@@ -2,15 +2,13 @@
 import React from 'react';
 import { useAppSelector } from '../../app/hooks';
 
-import { CalendarCard, CharacterCard, ComicCard, Hero } from '../../components/ui';
+import { CalendarCard, Hero } from '../../components/ui';
 
 import { Grid } from '../../components/layout';
-
-import { IComic } from '../../types';
 import { HomeSection } from './home-section/HomeSection';
 
-import { getCharacters } from '../../modules/characters';
-import { getComics } from '../../modules/comics/';
+import { CharactersList, getCharacters } from '../../modules/characters';
+import { ComicsList, getComics } from '../../modules/comics/';
 
 
 import './HomePage.scss';
@@ -19,25 +17,15 @@ export const HomePage: React.FC = () => {
   const characters = useAppSelector(getCharacters);
   const comics = useAppSelector(getComics);
 
+  const slicedComics = comics.slice(0, 8);
+
   return (
     <div className='home'>
       <div className='home__hero'>
         <Hero comics={comics} />
       </div>
       <HomeSection title={'Latest releases'}>
-        <Grid
-          spacing={'lg'}
-          justifyContent={'flex-start'}
-          container>
-          {comics.slice(0, 4).map((comic: IComic) =>
-            <Grid key={comic.id}
-                  sm={6}
-                  md={4}
-                  lg={3} item>
-              <ComicCard comic={comic} />
-            </Grid>,
-          )}
-        </Grid>
+        <ComicsList comics={slicedComics} />
       </HomeSection>
       <HomeSection>
         <Grid
@@ -56,18 +44,7 @@ export const HomePage: React.FC = () => {
         </Grid>
       </HomeSection>
       <HomeSection title={'Characters'}>
-        <Grid
-          spacing={'md'}
-          alignItems={'center'}
-          justifyContent={'space-between'}
-          container>
-          {characters.map((character, index) =>
-            <Grid key={character.id + index}
-                  item>
-              <CharacterCard character={character} />
-            </Grid>,
-          )}
-        </Grid>
+        <CharactersList characters={characters} />
       </HomeSection>
     </div>
   );

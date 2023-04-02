@@ -1,16 +1,15 @@
 import React from 'react';
 
-import { useAppSelector } from '../../app/hooks';
-
 import { Grid } from '../../components/layout';
-
-import { getCharacters } from './store';
 import { ICharacter } from './types';
 import { CharacterCard } from './components';
 
-export const CharactersList = () => {
-  const characters = useAppSelector(getCharacters);
+interface ICharactersListProps {
+  /** Array of characters */
+  characters: Array<ICharacter>;
+}
 
+export const CharactersList: React.FC<ICharactersListProps> = ({ characters }) => {
   const characterCardElements =
     characters.map((character: ICharacter) =>
       <Grid key={character.id} item>
