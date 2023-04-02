@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Button, Typography } from '../../../../components/shared';
-import { CardCover } from '../../../../components/ui/card-cover';
+import { Button, Typography } from '@/components/shared';
+import { CardCover } from '@/components/shared/card-cover';
 import { IComic } from '../../types';
 
 import './ComicCard.scss';

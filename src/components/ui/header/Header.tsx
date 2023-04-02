@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { NavMenu } from '../nav-menu';
-import { LoginButton } from '../login-button';
+import { LoginButton } from '../../../modules/auth/login-button';
 import { Logo } from '../../shared';
 
 import './Header.scss';

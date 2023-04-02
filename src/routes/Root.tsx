@@ -1,6 +1,6 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import { AuthModal } from '../modules/auth-modal';
+import { AuthModal } from '../modules/auth';
 
 export const Root = () => {
   return (

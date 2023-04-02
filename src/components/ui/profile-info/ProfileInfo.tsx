@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Button, Typography } from '../../shared';
-import { Avatar } from '../avatar';
+import { Avatar } from '../../shared/avatar';
 import { IUser } from '../../../types';
 
 import './ProfileInfo.scss';

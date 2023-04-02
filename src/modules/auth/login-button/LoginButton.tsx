@@ -1,10 +1,13 @@
 import React from 'react';
-import { Button } from '../../shared';
-import iconSrc from '../../../assets/icons/spiderman-icon.svg';
+
+import { Button } from '@/components/shared';
+import iconSrc from '@/assets/icons/spiderman-icon.svg';
+
+import { setIsOpen, setModalType } from '@/modules/auth/store/auth-modal.slice';
+import { useAppDispatch } from '@/app/hooks';
+
 
 import './LoginButton.scss';
-import { setIsOpen, setModalType } from '../../../modules/auth-modal/store/auth-modal.slice';
-import { useAppDispatch } from '../../../app/hooks';
 
 export const LoginButton = () => {
   const dispatch = useAppDispatch();

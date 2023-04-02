@@ -1,23 +1,23 @@
 import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { useSelector } from 'react-redux';
-import { useAppDispatch } from '../../app/hooks';
+
+import { useAppDispatch,useAppSelector } from '@/app/hooks';
 
 
-import { Modal } from '../../components/ui';
-import { Overlay } from '../../components/shared/overlay';
+import { Modal } from '../../../components/ui';
+import { Overlay } from '@/components/shared';
 
 
-import { getIsOpenModal, getModalType, setIsOpen } from './store';
-import { SignIn, SignUp } from './components';
+import { getIsOpenModal, getModalType, setIsOpen } from '../store';
+import { SignIn, SignUp } from '../components';
 
 
 import './AuthModal.scss';
 
 export const AuthModal = () => {
   const dispatch = useAppDispatch();
-  const modalType = useSelector(getModalType);
-  const isOpen = useSelector(getIsOpenModal);
+  const modalType = useAppSelector(getModalType);
+  const isOpen = useAppSelector(getIsOpenModal);
 
   const onOverlayClick = () => {
     dispatch(setIsOpen(false));

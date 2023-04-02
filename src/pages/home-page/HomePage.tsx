@@ -1,10 +1,10 @@
 // @ts-nocheck
 import React from 'react';
-import { useAppSelector } from '../../app/hooks';
+import { useAppSelector } from '@/app/hooks';
 
-import { CalendarCard, Hero } from '../../components/ui';
+import { CalendarCard, Hero } from '@/components/ui';
 
-import { Grid } from '../../components/layout';
+import { Grid } from '@/components/layout';
 import { HomeSection } from './home-section/HomeSection';
 
 import { CharactersList, getCharacters } from '../../modules/characters';

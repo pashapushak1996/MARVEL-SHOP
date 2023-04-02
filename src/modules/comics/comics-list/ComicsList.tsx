@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React from 'react';
 
-import { Grid } from '../../../components/layout';
+import { Grid } from '@/components/layout';
 
 import { ComicCard } from '../components/comics-card';
 import { IComic } from '../types';

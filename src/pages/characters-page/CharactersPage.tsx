@@ -1,14 +1,17 @@
 import React from 'react';
 
 import './CharactersPage.scss';
-import { CharactersList } from '../../modules/characters';
-import { Container } from '../../components/layout';
+import { CharactersList, getCharacters } from '@/modules/characters';
+import { Container } from '@/components/layout';
+import { useAppSelector } from '@/app/hooks';
 
 export const CharactersPage = () => {
+  const characters = useAppSelector(getCharacters);
+
   return (
     <div className='characters-page'>
       <Container>
-        <CharactersList />
+        <CharactersList characters={characters} />
       </Container>
     </div>
   );

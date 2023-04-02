@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 import { ComicDetail } from '../components/comics-detail';
-import { ActionBox } from '../../../components/ui/action-box';
+import { ActionBox } from '../../../components/shared/action-box';
 import { Loader } from '../../../components/shared';
 
 import { fetchComicById, getComic } from '../store';

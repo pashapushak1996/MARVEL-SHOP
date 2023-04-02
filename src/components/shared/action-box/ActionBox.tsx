@@ -2,7 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 
 import './ActionBox.scss';
-import { Button, Typography, Box } from '../../shared';
+import { Button, Typography, Box } from '../index';
 
 interface IOrderBoxProps {
   /** Price of item*/

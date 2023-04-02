@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { ComicsList, getComics } from '../../modules/comics';
-import { Container } from '../../components/layout';
+import { ComicsList, getComics } from '@/modules/comics';
+import { Container } from '@/components/layout';
 
 import './ComicsPage.scss';
 

@@ -9,3 +9,5 @@ export * from './logo';
 export * from './select';
 export * from './typography';
 export * from './loader';
+export * from './card-cover';
+export * from './overlay';
