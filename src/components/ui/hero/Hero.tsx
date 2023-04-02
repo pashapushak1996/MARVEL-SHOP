@@ -3,7 +3,7 @@ import React from 'react';
 import { Container } from '../../layout';
 import { HeroWelcome } from './hero-welcome';
 
-import { IComic, Slider } from '../../../modules/comics';
+import { IComic, Slider } from '@/modules/comics';
 
 import './Hero.scss';
 

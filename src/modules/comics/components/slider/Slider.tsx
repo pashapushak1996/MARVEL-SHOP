@@ -15,7 +15,7 @@ SwiperCore.use([Pagination]);
 
 import { SliderCard } from './slider-card';
 import { IComic } from '../../types';
-import { Loader } from '../../../../components/shared';
+import { Loader } from '@/components/shared';
 
 
 interface ISliderProps {
