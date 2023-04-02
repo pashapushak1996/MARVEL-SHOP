@@ -2,9 +2,8 @@ import React, { useEffect } from 'react';
 import { ComicDetail } from '../../../components/ui/comics-detail';
 import { ActionBox } from '../../../components/ui/action-box';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
-import { getComic } from '../store/comics.selector';
+import { fetchComicById, getComic } from '../store';
 import { Loader } from '../../../components/shared';
-import { fetchComicById } from '../store/comics.thunk';
 
 import './ComicOverview.scss';
 
@@ -21,7 +20,7 @@ export const ComicOverview: React.FC<IComicOverviewProps> = ({ comicId }) => {
     dispatch(fetchComicById(comicId));
   }, [comicId]);
 
-  if (!comic) {
+  if (!comic || comic.id !== Number(comicId)) {
     return <Loader />;
   }
 

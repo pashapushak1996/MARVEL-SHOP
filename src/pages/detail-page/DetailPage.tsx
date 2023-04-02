@@ -4,12 +4,16 @@ import { Typography } from '../../components/shared';
 
 import './DetailPage.scss';
 import { redirect, useParams } from 'react-router-dom';
-import { ComicOverview } from '../../modules/comics/comic-overview/ComicOverview';
-import { ComicsList } from '../../modules/comics';
+import { ComicOverview, ComicsList, getComics } from '../../modules/comics';
+import { useSelector } from 'react-redux';
 
 
 export const DetailPage = () => {
   const { comicId } = useParams();
+
+  const comics = useSelector(getComics);
+
+  const slicedComics = comics.slice(0, 4);
 
   if (!comicId) {
     return redirect('/comics');
@@ -25,7 +29,7 @@ export const DetailPage = () => {
           <Typography as={'h3'} variant={'heading-lg'}>More Comics</Typography>
         </div>
         <div className='detail-page__comics-list'>
-          <ComicsList />
+          <ComicsList comics={slicedComics} />
         </div>
       </div>
     </Container>
