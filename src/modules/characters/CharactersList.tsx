@@ -1,9 +1,12 @@
 import React from 'react';
+
 import { useAppSelector } from '../../app/hooks';
-import { getCharacters } from './store/characters.selector';
+
 import { Grid } from '../../components/layout';
-import { CharacterCard } from '../../components/ui';
-import { ICharacter } from './types/ICharacter';
+
+import { getCharacters } from './store';
+import { ICharacter } from './types';
+import { CharacterCard } from './components';
 
 export const CharactersList = () => {
   const characters = useAppSelector(getCharacters);

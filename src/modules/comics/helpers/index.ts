@@ -1,0 +1,1 @@
+export { normalizeComic } from './comics.helper';

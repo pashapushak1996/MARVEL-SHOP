@@ -1,7 +1,8 @@
 import { ImageSizesEnum } from '../../../constants/image-sizes.enum';
 
-import { buildImagePath } from '../../../helpers/marvel-api.helper';
-import { ICharacter, ICharacterResponse } from '../../../types';
+import { buildImagePath } from '../../../helpers';
+
+import { ICharacter, ICharacterResponse } from '../types';
 
 /** Function which transforms characterObject */
 

@@ -1,11 +1,10 @@
 // @ts-nocheck
 import React from 'react';
-import { IComic } from '../../types';
 
 import { Grid } from '../../../components/layout';
-import { ComicCard } from '../../../components/ui';
 
-import './ComicsList.scss';
+import { ComicCard } from '../components/comics-card';
+import { IComic } from '../types';
 
 interface IComicsListProps {
   /** Comics array which will be rendered*/

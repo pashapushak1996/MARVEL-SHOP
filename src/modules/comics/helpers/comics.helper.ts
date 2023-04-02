@@ -3,7 +3,7 @@ import moment from 'moment';
 import { ImageSizesEnum } from '../../../constants/image-sizes.enum';
 
 import { buildImagePath } from '../../../helpers';
-import { IComic, IComicsResponse } from '../types/IComics';
+import { IComic, IComicsResponse } from '../types';
 
 /** Function which transforms comicObject */
 

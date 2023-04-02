@@ -1,10 +1,10 @@
+import { marvelApiInstance } from '../../../api/marvel.api';
+
 /** It's function which gets all comics
  @param {limit:number} params - limit is the quantity of comics
  @param {offset:number} params - offset is how many comics should be skip
  @returns {Array} results - It's array with comics
  */
-import { marvelApiInstance } from '../../../api/marvel.api';
-
 
 export const getAllComics = async (params?: { limit?: number, offset?: number }) => {
   try {

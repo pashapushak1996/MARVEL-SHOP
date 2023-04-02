@@ -1,0 +1,1 @@
+export { getAllComics, getComicById } from './comics.api';

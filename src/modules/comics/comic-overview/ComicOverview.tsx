@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
+
+import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 import { ComicDetail } from '../../../components/ui/comics-detail';
 import { ActionBox } from '../../../components/ui/action-box';
-import { useAppDispatch, useAppSelector } from '../../../app/hooks';
-import { fetchComicById, getComic } from '../store';
 import { Loader } from '../../../components/shared';
+
+import { fetchComicById, getComic } from '../store';
 
 import './ComicOverview.scss';
 

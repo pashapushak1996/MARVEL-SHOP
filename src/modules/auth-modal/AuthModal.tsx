@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react';
+import { createPortal } from 'react-dom';
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from '../../app/hooks';
+
 
 import { Modal } from '../../components/ui';
-import { useSelector } from 'react-redux';
-import { getIsOpenModal, getModalType } from './store/auth-modal.selector';
-import { SignIn } from './components/sign-in';
-import { SignUp } from './components/sign-up';
-import { useAppDispatch } from '../../app/hooks';
-import { setIsOpen } from './store/auth-modal.slice';
 import { Overlay } from '../../components/shared/overlay';
-import { createPortal } from 'react-dom';
+
+
+import { getIsOpenModal, getModalType, setIsOpen } from './store';
+import { SignIn, SignUp } from './components';
+
 
 import './AuthModal.scss';
 
