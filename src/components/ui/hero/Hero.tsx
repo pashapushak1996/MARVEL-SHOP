@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 
 import { Container } from '../../layout';
 import { HeroWelcome } from './hero-welcome';
