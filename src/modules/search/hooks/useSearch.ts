@@ -1,14 +1,19 @@
+import { ChangeEvent, useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
 import { getSearchValue, setSearchValue } from '@/modules/search';
-import { ChangeEvent, useEffect } from 'react';
 
 export const useSearch = () => {
   const dispatch = useAppDispatch();
+  const [localSearchValue, setLocalSearchValue] = useState('');
   const searchValue = useAppSelector(getSearchValue);
 
   const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    dispatch(setSearchValue(value));
+    setLocalSearchValue(value);
+  };
+
+  const onClickSearch = () => {
+    dispatch(setSearchValue(localSearchValue));
   };
 
   useEffect(() => {
@@ -17,5 +22,5 @@ export const useSearch = () => {
     };
   }, []);
 
-  return { searchValue, handleSearchChange };
+  return { searchValue, localSearchValue, handleSearchChange, onClickSearch };
 };

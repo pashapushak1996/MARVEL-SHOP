@@ -12,9 +12,6 @@ interface IIntroductionPanelProps {
   description: string;
   quote: string;
   quoteAuthor: string;
-  searchValue?: string;
-  onInput?: () => void;
-  onClickSearch?: () => void;
 }
 
 export const IntroductionPanel: React.FC<IIntroductionPanelProps> = (props) => {
@@ -23,10 +20,9 @@ export const IntroductionPanel: React.FC<IIntroductionPanelProps> = (props) => {
     quote,
     description,
     quoteAuthor,
-    onClickSearch,
   } = props;
 
-  const { searchValue, handleSearchChange } = useSearch();
+  const { handleSearchChange, localSearchValue, onClickSearch } = useSearch();
 
   return (
     <div className='introduction-panel'>
@@ -38,7 +34,7 @@ export const IntroductionPanel: React.FC<IIntroductionPanelProps> = (props) => {
       </div>
       <div className='introduction-panel__search'>
         <Search placeholder='Find comics'
-                value={searchValue}
+                value={localSearchValue}
                 onChange={handleSearchChange}
                 onClick={onClickSearch} />
       </div>

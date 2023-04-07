@@ -4,18 +4,26 @@ import { useAppSelector } from '@/app/hooks';
 import { Hero } from '@/components/ui';
 import { HomeSection } from './home-section/HomeSection';
 
-import { CharactersList, getCharacters } from '../../modules/characters';
-import { ComicsList, getComics, getComicsByParam } from '../../modules/comics/';
-
+import { CharactersList, getCharacters } from '@/modules/characters';
+import { ComicsList, getComics, getComicsByParam } from '@/modules/comics';
+import { getSearchValue } from '@/modules/search';
 
 import './HomePage.scss';
-import { getSearchValue } from '@/modules/search';
 
 export const HomePage: React.FC = () => {
   const searchValue = useAppSelector(getSearchValue);
-  const comicsSelector = searchValue ? getComicsByParam('title', searchValue) : getComics;
   const characters = useAppSelector(getCharacters);
-  const comics = useAppSelector(comicsSelector);
+  const comics = useAppSelector(getComics);
+  const filteredComics = useAppSelector(getComicsByParam('title', searchValue));
+
+  const comicsSection =
+    searchValue
+      ? <HomeSection title={'Results'}>
+        <ComicsList comics={filteredComics} />
+      </HomeSection>
+      : <HomeSection title={'Latest releases'}>
+        <ComicsList comics={comics} />
+      </HomeSection>;
 
   const slicedCharacters = characters.slice(0, 5);
   return (
@@ -23,9 +31,7 @@ export const HomePage: React.FC = () => {
       <div className='home__hero'>
         <Hero comics={comics} />
       </div>
-      <HomeSection title={'Latest releases'}>
-        <ComicsList comics={comics} />
-      </HomeSection>
+      {comicsSection}
       {/* <HomeSection> */}
       {/*  <Grid*/}
       {/*    spacing={'lg'}*/}
