@@ -1,11 +1,12 @@
 import React, { ChangeEvent } from 'react';
 
-import { Container } from '../../layout';
-import { HeroWelcome } from './hero-welcome';
+import { Container } from '../../../components/layout';
+import { HeroWelcome } from './introduction-panel';
 
 import { IComic, Slider } from '@/modules/comics';
 
 import './Hero.scss';
+import { IntroductionPanel } from '@/pages/home-page/hero/introduction-panel/IntroductionPanel';
 
 interface IHeroProps {
   comics: Array<IComic>;
@@ -24,10 +25,10 @@ export const Hero: React.FC<IHeroProps> = ({ comics }) => {
     <div className='hero'>
       <Container>
         <div className='hero__left-side'>
-          <HeroWelcome title={heroWelcomeContent.title}
-                       description={heroWelcomeContent.description}
-                       quote={heroWelcomeContent.quote}
-                       quoteAuthor={heroWelcomeContent.quoteAuthor} />
+          <IntroductionPanel title={heroWelcomeContent.title}
+                             description={heroWelcomeContent.description}
+                             quote={heroWelcomeContent.quote}
+                             quoteAuthor={heroWelcomeContent.quoteAuthor} />
         </div>
         <div className='hero__right-side'>
           <Slider comics={comics} />

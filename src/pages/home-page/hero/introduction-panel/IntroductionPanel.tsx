@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { Search } from '../../search';
-import { Typography } from '../../../shared';
+import { Search } from '../../../../components/ui/search';
+import { Typography } from '../../../../components/shared';
 
 
-import './HeroWelcome.scss';
+import './IntroductionPanel.scss';
 import { useSearch } from '@/modules/search/hooks/useSearch';
 
-interface IHeroWelcomeProps {
+interface IIntroductionPanelProps {
   title: string;
   description: string;
   quote: string;
@@ -17,7 +17,7 @@ interface IHeroWelcomeProps {
   onClickSearch?: () => void;
 }
 
-export const HeroWelcome: React.FC<IHeroWelcomeProps> = (props) => {
+export const IntroductionPanel: React.FC<IIntroductionPanelProps> = (props) => {
   const {
     title,
     quote,
@@ -29,23 +29,23 @@ export const HeroWelcome: React.FC<IHeroWelcomeProps> = (props) => {
   const { searchValue, handleSearchChange } = useSearch();
 
   return (
-    <div className='hero-welcome'>
-      <div className='hero-welcome__title'>
+    <div className='introduction-panel'>
+      <div className='introduction-panel__title'>
         <Typography as={'h1'} variant={'heading-xl'}>{title}</Typography>
       </div>
-      <div className='hero-welcome__description'>
+      <div className='introduction-panel__description'>
         <Typography as={'p'} variant={'body-md'}>{description}</Typography>
       </div>
-      <div className='hero-welcome__search'>
+      <div className='introduction-panel__search'>
         <Search placeholder='Find comics'
                 value={searchValue}
                 onChange={handleSearchChange}
                 onClick={onClickSearch} />
       </div>
-      <div className='hero-welcome__quote'>
+      <div className='introduction-panel__quote'>
         <Typography as={'h4'} variant={'heading-md'}>{quote}</Typography>
       </div>
-      <span className='hero-welcome__quote-author'>
+      <span className='introduction-panel__quote-author'>
           {quoteAuthor}
       </span>
     </div>
