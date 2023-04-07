@@ -1,9 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useAppSelector } from '@/app/hooks';
 
-import { CalendarCard, Hero } from '@/components/ui';
-
-import { Grid } from '@/components/layout';
+import { Hero } from '@/components/ui';
 import { HomeSection } from './home-section/HomeSection';
 
 import { CharactersList, getCharacters } from '../../modules/characters';
@@ -11,7 +9,6 @@ import { ComicsList, getComics } from '../../modules/comics/';
 
 
 import './HomePage.scss';
-import { useSearch } from '@/modules/search/hooks/useSearch';
 
 export const HomePage: React.FC = () => {
   const characters = useAppSelector(getCharacters);

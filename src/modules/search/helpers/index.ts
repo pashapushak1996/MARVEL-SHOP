@@ -1,1 +1,0 @@
-export { getSearchResults } from './search.helpers';
