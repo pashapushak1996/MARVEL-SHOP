@@ -1,10 +1,11 @@
-import React, { ChangeEvent } from 'react';
+import React from 'react';
 
 import { Search } from '../../search';
 import { Typography } from '../../../shared';
 
 
 import './HeroWelcome.scss';
+import { useSearch } from '@/modules/search/hooks/useSearch';
 
 interface IHeroWelcomeProps {
   title: string;
@@ -22,10 +23,10 @@ export const HeroWelcome: React.FC<IHeroWelcomeProps> = (props) => {
     quote,
     description,
     quoteAuthor,
-    searchValue,
-    onInput,
     onClickSearch,
   } = props;
+
+  const { searchValue, handleSearchChange } = useSearch();
 
   return (
     <div className='hero-welcome'>
@@ -38,7 +39,7 @@ export const HeroWelcome: React.FC<IHeroWelcomeProps> = (props) => {
       <div className='hero-welcome__search'>
         <Search placeholder='Find comics'
                 value={searchValue}
-                onChange={onInput}
+                onChange={handleSearchChange}
                 onClick={onClickSearch} />
       </div>
       <div className='hero-welcome__quote'>
