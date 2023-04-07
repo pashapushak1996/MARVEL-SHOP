@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 
 import { Search } from '../../search';
 import { Typography } from '../../../shared';
