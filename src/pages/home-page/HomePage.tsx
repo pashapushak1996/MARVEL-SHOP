@@ -10,14 +10,20 @@ import { ComicsList, useComics } from '@/modules/comics';
 import { getSearchValue } from '@/modules/search';
 
 import './HomePage.scss';
+import { Loader } from '@/components/shared';
 
 export const HomePage: React.FC = () => {
   const searchValue = useAppSelector(getSearchValue);
   const characters = useAppSelector(getCharacters);
   const navigate = useNavigate();
-  const { comics } = useComics({ dateDescriptor: 'lastWeek' });
+  const { comics, loading } = useComics({ dateDescriptor: 'lastWeek' });
 
   const slicedCharacters = characters.slice(0, 5);
+
+  const comicsListSection =
+    loading === 'idle'
+      ? <Loader />
+      : <ComicsList comics={comics} />;
 
   useEffect(() => {
     if (searchValue) {
@@ -31,7 +37,7 @@ export const HomePage: React.FC = () => {
         <Hero comics={comics} />
       </div>
       <HomeSection title={'Latest releases'}>
-        <ComicsList comics={comics} />
+        {comicsListSection}
       </HomeSection>
       {/* <HomeSection> */}
       {/*  <Grid*/}

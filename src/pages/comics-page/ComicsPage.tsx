@@ -5,12 +5,16 @@ import { Container } from '@/components/layout';
 
 import './ComicsPage.scss';
 import { useLocation } from 'react-router-dom';
-import { Typography } from '@/components/shared';
+import { Loader, Typography } from '@/components/shared';
 
 export const ComicsPage: React.FC = () => {
   const { state: searchValue } = useLocation();
 
-  const { comics } = useComics({ titleStartsWith: searchValue });
+  const { comics, loading } = useComics({ titleStartsWith: searchValue });
+
+  if (loading !== 'succeeded') {
+    return <Loader />;
+  }
 
   return (
     <div className='comics-page'>

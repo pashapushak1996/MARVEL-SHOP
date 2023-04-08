@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { fetchComicById, fetchComics } from './comics.thunk';
 import { normalizeComic } from '../../../helpers';
@@ -21,7 +21,11 @@ const initialState = {
 const comicsSlice = createSlice({
   name: 'comics',
   initialState,
-  reducers: {},
+  reducers: {
+    setLoading: (state, action: PayloadAction<TypeLoadingState>) => {
+      state.loading = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     // Comics list
 
@@ -49,5 +53,7 @@ const comicsSlice = createSlice({
       });
   },
 });
+
+export const { setLoading } = comicsSlice.actions;
 
 export const comicsReducer = comicsSlice.reducer;
