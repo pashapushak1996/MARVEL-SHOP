@@ -19,7 +19,6 @@ export const store = configureStore({
 });
 
 // Initializing store
-store.dispatch(fetchComics());
 store.dispatch(fetchCharacters());
 
 export type AppDispatch = typeof store.dispatch;

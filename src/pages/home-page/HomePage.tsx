@@ -1,37 +1,38 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useAppSelector } from '@/app/hooks';
 
 import { Hero } from '@/components/ui';
 import { HomeSection } from './home-section/HomeSection';
 
 import { CharactersList, getCharacters } from '@/modules/characters';
-import { ComicsList, getComics, getComicsByParam } from '@/modules/comics';
+import { ComicsList, useComics } from '@/modules/comics';
 import { getSearchValue } from '@/modules/search';
 
 import './HomePage.scss';
+import { useNavigate } from 'react-router-dom';
 
 export const HomePage: React.FC = () => {
   const searchValue = useAppSelector(getSearchValue);
   const characters = useAppSelector(getCharacters);
-  const comics = useAppSelector(getComics);
-  const filteredComics = useAppSelector(getComicsByParam('title', searchValue));
-
-  const comicsSection =
-    searchValue
-      ? <HomeSection title={'Results'}>
-        <ComicsList comics={filteredComics} />
-      </HomeSection>
-      : <HomeSection title={'Latest releases'}>
-        <ComicsList comics={comics} />
-      </HomeSection>;
+  const navigateFunction = useNavigate();
+  const { comics } = useComics({ dateDescriptor: 'lastWeek' });
 
   const slicedCharacters = characters.slice(0, 5);
+
+  useEffect(() => {
+    if (searchValue) {
+      navigateFunction({ pathname: '/comics' });
+    }
+  }, [searchValue]);
+
   return (
     <div className='home'>
       <div className='home__hero'>
         <Hero comics={comics} />
       </div>
-      {comicsSection}
+      <HomeSection title={'Latest releases'}>
+        <ComicsList comics={comics} />
+      </HomeSection>
       {/* <HomeSection> */}
       {/*  <Grid*/}
       {/*    spacing={'lg'}*/}

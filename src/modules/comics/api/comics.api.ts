@@ -1,4 +1,4 @@
-import { marvelApiInstance } from '../../../api/marvel.api';
+import { marvelApiInstance } from '@/api/marvel.api';
 
 /** It's function which gets all comics
  @param {limit:number} params - limit is the quantity of comics
@@ -9,7 +9,6 @@ import { marvelApiInstance } from '../../../api/marvel.api';
 export const getAllComics = async (params?: { limit?: number, offset?: number }) => {
   try {
     const res = await marvelApiInstance.get('/comics', { params });
-
     return res.data.data.results;
   } catch (e) {
     throw new Error('error');
