@@ -1,7 +1,7 @@
 import React from 'react';
-import { redirect, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
-import { useAppSelector } from '@/app/hooks'
+import { useAppSelector } from '@/app/hooks';
 
 import { Container } from '@/components/layout';
 import { Typography } from '@/components/shared';
@@ -11,15 +11,11 @@ import './DetailPage.scss';
 
 
 export const DetailPage = () => {
-  const { comicId } = useParams();
+  const { comicId = '' } = useParams();
 
   const comics = useAppSelector(getComics);
 
   const slicedComics = comics.slice(0, 4);
-
-  if (!comicId) {
-    return redirect('/comics');
-  }
 
   return (
     <Container>

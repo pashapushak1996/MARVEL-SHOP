@@ -7,10 +7,11 @@ export const useComics = (params?: IComicsRequestParams) => {
   const dispatch = useAppDispatch();
   const comics = useAppSelector(getComics);
 
+  const searchValue = params?.titleStartsWith;
 
   useEffect(() => {
     dispatch(fetchComics(params));
-  }, [dispatch, params?.titleStartsWith]);
+  }, [dispatch, searchValue]);
 
   return { comics };
 };

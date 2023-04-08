@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useAppSelector } from '@/app/hooks';
+import { useNavigate } from 'react-router-dom';
 
 import { Hero } from '@/components/ui';
 import { HomeSection } from './home-section/HomeSection';
@@ -9,19 +10,18 @@ import { ComicsList, useComics } from '@/modules/comics';
 import { getSearchValue } from '@/modules/search';
 
 import './HomePage.scss';
-import { useNavigate } from 'react-router-dom';
 
 export const HomePage: React.FC = () => {
   const searchValue = useAppSelector(getSearchValue);
   const characters = useAppSelector(getCharacters);
-  const navigateFunction = useNavigate();
+  const navigate = useNavigate();
   const { comics } = useComics({ dateDescriptor: 'lastWeek' });
 
   const slicedCharacters = characters.slice(0, 5);
 
   useEffect(() => {
     if (searchValue) {
-      navigateFunction({ pathname: '/comics' });
+      navigate('/comics', { state: searchValue });
     }
   }, [searchValue]);
 
