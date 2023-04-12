@@ -1,2 +1,2 @@
-export * from '../modules/comics/helpers/comics.helper';
+export * from './query-params.helper';
 export * from './marvel-api.helper';

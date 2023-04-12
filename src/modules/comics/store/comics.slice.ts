@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { fetchComicById, fetchComics } from './comics.thunk';
-import { normalizeComic } from '../../../helpers';
 import { IComic, IComicsResponse } from '../types/IComics';
+import { normalizeComic } from '../helpers';
 
 type TypeLoadingState = 'idle' | 'pending' | 'succeeded' | 'failed';
 

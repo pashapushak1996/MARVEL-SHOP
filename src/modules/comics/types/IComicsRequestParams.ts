@@ -3,7 +3,7 @@ export type TypeDateDescriptor = 'lastWeek' | 'thisWeek' | 'nextWeek' | 'thisMon
 export interface IComicsRequestParams {
   limit?: number,
   offset?: number,
-  startYear?: number,
   titleStartsWith?: string,
   dateDescriptor?: TypeDateDescriptor
+  dateRange?: string
 }

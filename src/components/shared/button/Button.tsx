@@ -3,7 +3,7 @@ import React from 'react';
 import './Button.scss';
 
 import { Icon } from '../icon';
-import { ConfigurableLink } from '../configurable-link';
+import { ConfigurableLink } from '@/components/shared/configurable-link';
 
 interface IButtonProps {
   /** There are modifiers which can be added according to BEM as (button--$modifier) */

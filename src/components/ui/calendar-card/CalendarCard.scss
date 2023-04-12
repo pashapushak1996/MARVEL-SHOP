@@ -20,6 +20,12 @@
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.44) 0%, #41A545 100%);
   }
 
+  &__title {
+    color: #FFFFFF;
+
+    transform: translateY(5px);
+  }
+
   &__cover {
     position: absolute;
     top: 0;

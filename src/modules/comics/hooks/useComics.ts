@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
 import { IComicsRequestParams } from '@/modules/comics/types';
 import { fetchComics, getComics, getLoading } from '@/modules/comics/store';

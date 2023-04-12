@@ -11,6 +11,8 @@ import { getSearchValue } from '@/modules/search';
 
 import './HomePage.scss';
 import { Loader } from '@/components/shared';
+import CalendarList from '@/modules/comics/comics-calendar/CalendarList';
+import { buildQueryString } from '@/helpers';
 
 export const HomePage: React.FC = () => {
   const searchValue = useAppSelector(getSearchValue);
@@ -27,7 +29,10 @@ export const HomePage: React.FC = () => {
 
   useEffect(() => {
     if (searchValue) {
-      navigate('/comics', { state: searchValue });
+      navigate({
+        pathname: '/comics',
+        search: buildQueryString({ titleStartsWith: searchValue }),
+      });
     }
   }, [searchValue]);
 
@@ -39,22 +44,9 @@ export const HomePage: React.FC = () => {
       <HomeSection title={'Latest releases'}>
         {comicsListSection}
       </HomeSection>
-      {/* <HomeSection> */}
-      {/*  <Grid*/}
-      {/*    spacing={'lg'}*/}
-      {/*    alignItems={'flex-start'}*/}
-      {/*    justifyContent={'flex-start'}*/}
-      {/*    container>*/}
-      {/*    {[1, 2, 3].map(element =>*/}
-      {/*      <Grid key={element}*/}
-      {/*            sm={2}*/}
-      {/*            md={4}*/}
-      {/*            lg={4} item>*/}
-      {/*        <CalendarCard title={'February 2022'} variant={'red'} />*/}
-      {/*      </Grid>,*/}
-      {/*    )}*/}
-      {/*  </Grid>*/}
-      {/* </HomeSection> */}
+      <HomeSection>
+        <CalendarList monthQty={3} />
+      </HomeSection>
       <HomeSection title={'Characters'}>
         <CharactersList characters={slicedCharacters} />
       </HomeSection>

@@ -1,16 +1,20 @@
 import React from 'react';
-
-import { ComicsList, useComics } from '@/modules/comics';
-import { Container } from '@/components/layout';
-
-import './ComicsPage.scss';
 import { useLocation } from 'react-router-dom';
+
+import { Container } from '@/components/layout';
 import { Loader, Typography } from '@/components/shared';
 
-export const ComicsPage: React.FC = () => {
-  const { state: searchValue } = useLocation();
+import { ComicsList, useComics } from '@/modules/comics';
 
-  const { comics, loading } = useComics({ titleStartsWith: searchValue });
+import './ComicsPage.scss';
+import { queryStringToObject } from '@/helpers';
+
+export const ComicsPage: React.FC = () => {
+  const { search } = useLocation();
+
+  const params = queryStringToObject(search);
+
+  const { comics, loading } = useComics(params);
 
   if (loading !== 'succeeded') {
     return <Loader />;
