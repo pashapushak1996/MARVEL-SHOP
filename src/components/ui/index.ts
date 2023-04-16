@@ -2,7 +2,6 @@ export * from '../shared/avatar';
 export * from './header';
 export * from '../../pages/home-page/hero';
 export * from './profile-info';
-export * from './search';
 export * from './footer';
 export * from '@/modules/comics/components/comics-slider/slider-card';
 export * from '../../modules/comics/components/comics-slider';

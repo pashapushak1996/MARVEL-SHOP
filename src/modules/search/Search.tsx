@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { Button, Icon, Input } from '../../shared';
+import { Button, Icon, Input } from '../../components/shared';
 
 import './Search.scss';
 
-import searchIcon from '../../../assets/icons/search-icon.svg';
+import searchIcon from '../../assets/icons/search-icon.svg';
 
 interface ISearchProps {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;

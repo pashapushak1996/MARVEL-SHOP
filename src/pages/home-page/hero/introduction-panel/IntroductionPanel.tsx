@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { Search } from '../../../../components/ui/search';
-import { Typography } from '../../../../components/shared';
+import { Typography } from '@/components/shared';
 
 
 import './IntroductionPanel.scss';
 import { useSearch } from '@/modules/search/hooks/useSearch';
+import { Search } from '@/modules/search';
 
 interface IIntroductionPanelProps {
   title: string;
