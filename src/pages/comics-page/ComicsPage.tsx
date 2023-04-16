@@ -3,11 +3,11 @@ import { useLocation } from 'react-router-dom';
 
 import { Container } from '@/components/layout';
 import { Loader, Typography } from '@/components/shared';
+import { queryStringToObject } from '@/helpers';
 
 import { ComicsList, useComics } from '@/modules/comics';
 
 import './ComicsPage.scss';
-import { queryStringToObject } from '@/helpers';
 
 export const ComicsPage: React.FC = () => {
   const { search } = useLocation();

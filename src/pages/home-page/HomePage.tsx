@@ -6,13 +6,13 @@ import { Hero } from '@/components/ui';
 import { HomeSection } from './home-section/HomeSection';
 
 import { CharactersList, getCharacters } from '@/modules/characters';
-import { ComicsList, useComics } from '@/modules/comics';
+import { CalendarList, ComicsList, useComics } from '@/modules/comics';
 import { getSearchValue } from '@/modules/search';
 
-import './HomePage.scss';
 import { Loader } from '@/components/shared';
-import CalendarList from '@/modules/comics/comics-calendar/CalendarList';
 import { buildQueryString } from '@/helpers';
+
+import './HomePage.scss';
 
 export const HomePage: React.FC = () => {
   const searchValue = useAppSelector(getSearchValue);

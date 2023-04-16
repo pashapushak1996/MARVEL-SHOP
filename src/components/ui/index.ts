@@ -1,5 +1,4 @@
 export * from '../shared/avatar';
-export * from './calendar-card';
 export * from './header';
 export * from '../../pages/home-page/hero';
 export * from './profile-info';

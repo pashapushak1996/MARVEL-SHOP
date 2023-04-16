@@ -1,15 +1,14 @@
-import React, { useRef, MouseEvent } from 'react';
+import React, { MouseEvent, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Grid } from '@/components/layout';
-import { CalendarCard } from '@/components/ui';
+import { CalendarCard } from './calendar-card';
 import { getDateRange, subtractMonthsFromDate, TypeMonths } from '@/modules/comics/helpers';
-import { TypeCalendarCardVariants } from '@/components/ui/calendar-card/CalendarCard';
+import { buildQueryString } from '@/helpers';
+import { TypeCalendarCardVariants } from '@/modules/comics/comics-calendar/calendar-card/CalendarCard';
 
 import calendarPictureOne from '@/assets/calendar-picture-1.jpg';
 import calendarPictureTwo from '@/assets/calendar-picture-2.jpg';
 import calendarPictureThree from '@/assets/calendar-picture-3.jpg';
-import { useNavigate } from 'react-router-dom';
-import { IComicsRequestParams } from '@/modules/comics/types';
-import { buildQueryString } from '@/helpers';
 
 
 interface ICalendarListProps {
@@ -21,8 +20,7 @@ interface ICalendarCardVariant {
   color: TypeCalendarCardVariants;
 }
 
-
-const CalendarList: React.FC<ICalendarListProps> = ({ monthQty }) => {
+export const CalendarList: React.FC<ICalendarListProps> = ({ monthQty }) => {
   const { arrayOfDates } = subtractMonthsFromDate(monthQty);
   const navigate = useNavigate();
 
@@ -40,6 +38,10 @@ const CalendarList: React.FC<ICalendarListProps> = ({ monthQty }) => {
 
   const currentVariant = useRef(0);
 
+  const handleCalendarCardClick = (dateRange: string) => (event: MouseEvent<HTMLElement>) => {
+    navigate({ pathname: '/comics', search: buildQueryString({ dateRange }) });
+  };
+
   return (
     <Grid
       spacing={'lg'}
@@ -54,9 +56,6 @@ const CalendarList: React.FC<ICalendarListProps> = ({ monthQty }) => {
 
           const dateRange = `${startDate},${endDate}`;
 
-          const handleCalendarCardClick = (event: MouseEvent<HTMLElement>) => {
-            navigate({ pathname: '/comics', search: buildQueryString({ dateRange }) });
-          };
           return (
             <Grid key={date}
                   sm={2}
@@ -65,7 +64,7 @@ const CalendarList: React.FC<ICalendarListProps> = ({ monthQty }) => {
               <CalendarCard date={date}
                             variant={variants[currentVariant.current].color}
                             cover={variants[currentVariant.current].background}
-                            onClick={handleCalendarCardClick} />
+                            onClick={handleCalendarCardClick(dateRange)} />
             </Grid>
           );
         },
@@ -73,5 +72,3 @@ const CalendarList: React.FC<ICalendarListProps> = ({ monthQty }) => {
     </Grid>
   );
 };
-
-export default CalendarList;

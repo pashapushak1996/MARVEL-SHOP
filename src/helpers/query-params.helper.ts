@@ -2,5 +2,5 @@ export const queryStringToObject = (queryString: string) => Object.fromEntries(n
 
 export const buildQueryString = (params: Record<string, any>): string => {
   const urlSearchParams = new URLSearchParams(params);
-  return urlSearchParams.toString().replace(/\+/g, '%20').replace(/%40/g, '@').replace(/%2F/g, '/');
+  return urlSearchParams.toString()
 };
