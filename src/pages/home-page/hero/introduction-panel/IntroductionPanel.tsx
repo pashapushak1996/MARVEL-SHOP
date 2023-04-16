@@ -22,7 +22,7 @@ export const IntroductionPanel: React.FC<IIntroductionPanelProps> = (props) => {
     quoteAuthor,
   } = props;
 
-  const { handleSearchChange, localSearchValue, onClickSearch } = useSearch();
+  const { handleSearchChange, searchValue, onClickSearch } = useSearch('/comics', 'titleStartsWith');
 
   return (
     <div className='introduction-panel'>
@@ -34,7 +34,7 @@ export const IntroductionPanel: React.FC<IIntroductionPanelProps> = (props) => {
       </div>
       <div className='introduction-panel__search'>
         <Search placeholder='Find comics'
-                value={localSearchValue}
+                value={searchValue}
                 onChange={handleSearchChange}
                 onClick={onClickSearch} />
       </div>

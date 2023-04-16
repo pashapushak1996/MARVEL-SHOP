@@ -39,12 +39,12 @@ export const ConfigurableLink: React.FC<ILinkProps> = ({
 
   const classNames = modifiers?.map(modifier => `${className}--${modifier}`);
 
-  if (!to) {
-    return <a className={cn(className, classNames)} {...props}>{children}</a>;
-  }
-
   if (href) {
     return <a href={href} className={cn(className, classNames)} {...props}>{children}</a>;
+  }
+
+  if (!to) {
+    return <a className={cn(className, classNames)} {...props}>{children}</a>;
   }
 
   return <Link to={to} className={cn(className, classNames)} {...props}>{children}</Link>;

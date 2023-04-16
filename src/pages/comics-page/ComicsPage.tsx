@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 
 import { Container } from '@/components/layout';
 import { Loader, Typography } from '@/components/shared';
@@ -11,6 +11,9 @@ import './ComicsPage.scss';
 
 export const ComicsPage: React.FC = () => {
   const { search } = useLocation();
+
+  let [sea,setUrl] = useSearchParams();
+
 
   const params = queryStringToObject(search);
 

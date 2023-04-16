@@ -1,26 +1,23 @@
-import { ChangeEvent, useEffect, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '@/app/hooks';
-import { getSearchValue, setSearchValue } from '@/modules/search';
+import { ChangeEvent, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { buildQueryString } from '@/helpers';
 
-export const useSearch = () => {
-  const dispatch = useAppDispatch();
-  const [localSearchValue, setLocalSearchValue] = useState('');
-  const searchValue = useAppSelector(getSearchValue);
+export const useSearch = (pathname: string, searchParam: string) => {
+  const navigate = useNavigate();
+  const [searchValue, setSearchValue] = useState('');
 
   const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    setLocalSearchValue(value);
+    setSearchValue(value);
   };
 
   const onClickSearch = () => {
-    dispatch(setSearchValue(localSearchValue));
+    navigate({
+      pathname,
+      search: buildQueryString({ [searchParam]: searchValue }),
+    });
   };
 
-  useEffect(() => {
-    return () => {
-      dispatch(setSearchValue(''));
-    };
-  }, []);
 
-  return { searchValue, localSearchValue, handleSearchChange, onClickSearch };
+  return { searchValue, handleSearchChange, onClickSearch };
 };
