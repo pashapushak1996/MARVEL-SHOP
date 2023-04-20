@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
-import { useAppDispatch,useAppSelector } from '@/app/hooks';
+import { useAppDispatch, useAppSelector } from '@/app/hooks';
 
 
 import { Modal } from '../../../components/ui';
 import { Overlay } from '@/components/shared';
 
 
-import { getIsOpenModal, getModalType, setIsOpen } from '../store';
+import { getIsOpenModal, getModalType, setIsOpen, setModalType } from '../store';
 import { SignIn, SignUp } from '../components';
 
 
@@ -25,11 +25,13 @@ export const AuthModal = () => {
 
   useEffect(() => {
     if (isOpen) {
+      dispatch(setModalType('sign-in'));
       document.body.classList.add('lock');
     }
 
     return () => {
       document.body.classList.remove('lock');
+      dispatch(setModalType(null));
     };
   }, [isOpen]);
 
@@ -44,7 +46,7 @@ export const AuthModal = () => {
         <Overlay onClick={onOverlayClick} isVisible={isOpen} />
         <div className='auth-modal__modal'>
           <Modal isOpen={isOpen}>
-            <Component />
+            {modalType !== null && <Component />}
           </Modal>
         </div>
       </div>

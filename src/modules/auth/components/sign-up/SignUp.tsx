@@ -1,8 +1,12 @@
 import React from 'react';
-import { Button, Checkbox, Input, ConfigurableLink, Typography } from '../../../../components/shared';
+
+import { Button, Checkbox, Input, ConfigurableLink, Typography } from '@/components/shared';
+import { setModalType } from '../../store';
+import { useAppDispatch } from '@/app/hooks';
+
 import './SignUp.scss';
-import { setModalType } from '../../store/auth-modal.slice';
-import { useAppDispatch } from '../../../../app/hooks';
+import { Field, Form } from 'react-final-form';
+
 
 export const SignUp = () => {
   const dispatch = useAppDispatch();
@@ -19,21 +23,55 @@ export const SignUp = () => {
           <ConfigurableLink onClick={onSignInClick}>Sign in</ConfigurableLink>
         </div>
       </div>
-      <form action='#' className='sign-up__form'>
-        <Input placeholder='Username' inputVariants={['white']} />
-        <div className='sign-up__rounded-inputs'>
-          <Input placeholder='First name' inputVariants={['left-rounded']} />
-          <Input placeholder='Last name' inputVariants={['right-rounded']} />
-        </div>
-        <Input placeholder='E-mail' />
-        <Input placeholder='Password' type={'password'} />
-        <Button modifiers={['stretched']}>Register</Button>
-        <div className='sign-up__terms'>
-          <Checkbox />
-          <Typography variant={'body-sm'}> I have read and agree to the</Typography>
-          <ConfigurableLink>Terms of Service</ConfigurableLink>
-        </div>
-      </form>
+      <Form onSubmit={(values) => {
+        console.log(values);
+      }} render={({ handleSubmit, form }) => (
+        <form onSubmit={handleSubmit} className='sign-up__form'>
+          <Field name={'username'} render={({ input }) => (
+            <Input onChange={input.onChange} value={input.value} placeholder='Username' inputVariants={['white']} />
+          )} />
+          <div className='sign-up__rounded-inputs'>
+            <Field name={'firstName'} render={({ input }) => (
+              <Input placeholder='First name'
+                     value={input.value}
+                     onChange={input.onChange}
+                     inputVariants={['left-rounded']} />
+            )} />
+            <Field name={'lastName'} render={({ input }) => (
+              <Input placeholder='Last name'
+                     value={input.value}
+                     onChange={input.onChange}
+                     inputVariants={['right-rounded']} />
+            )} />
+          </div>
+          <Field name={'email'} render={({ input }) => (
+            <Input
+              placeholder='E-mail'
+              value={input.value}
+              onChange={input.onChange} />
+          )} />
+          <Field name={'password'} type={'password'} render={({ input }) => (
+            <Input
+              placeholder='Password'
+              type={'password'}
+              value={input.value}
+              onChange={input.onChange} />
+          )} />
+
+          <Button modifiers={['stretched']} onClick={form.submit}>Register</Button>
+          <div className='sign-up__terms'>
+            <Field name={'terms'}
+                   type={'checkbox'}
+                   render={({ input }) =>
+                     (
+                       <Checkbox isChecked={input.cshecked} onChange={input.onChange} />
+                     )} />
+            <Typography variant={'body-sm'}> I have read and agree to the</Typography>
+            <ConfigurableLink>Terms of Service</ConfigurableLink>
+          </div>
+        </form>
+      )
+      } />
     </div>
   );
 };

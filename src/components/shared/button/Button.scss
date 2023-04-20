@@ -36,6 +36,7 @@
 
 .button--disabled {
   background-color: lighten(#EE171F, 20%);
+  pointer-events: none;
 
   &:hover {
     background-color: lighten(#EE171F, 20%);
