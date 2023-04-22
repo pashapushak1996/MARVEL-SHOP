@@ -21,17 +21,16 @@ export const AuthModal = () => {
 
   const onOverlayClick = () => {
     dispatch(setIsOpen(false));
+    dispatch(setModalType(null));
   };
 
   useEffect(() => {
     if (isOpen) {
-      dispatch(setModalType('sign-in'));
       document.body.classList.add('lock');
     }
 
     return () => {
       document.body.classList.remove('lock');
-      dispatch(setModalType(null));
     };
   }, [isOpen]);
 
