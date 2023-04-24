@@ -11,7 +11,7 @@ interface IFieldErrorProps {
   errorMessage: string;
 
   /** It's describe if error will be rendered */
-  isVisible: boolean;
+  isVisible?: boolean;
 }
 
 export const FieldError: React.FC<IFieldErrorProps> = ({ isVisible, errorMessage, className }) => {

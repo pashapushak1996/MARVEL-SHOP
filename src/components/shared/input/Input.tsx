@@ -4,6 +4,7 @@ import cn from 'classnames';
 import './Input.scss';
 
 interface IInputProps {
+  id?: string;
   children?: React.ReactNode;
   inputVariants?: Array<string>;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -13,12 +14,13 @@ interface IInputProps {
 }
 
 export const Input: React.FC<IInputProps> = (props) => {
-  const { inputVariants, value, onChange, placeholder, type = 'text' } = props;
+  const { inputVariants, value, onChange, placeholder, id, type = 'text' } = props;
 
   const inputClasses = inputVariants?.map((inputClass: string) => `input--${inputClass}`);
 
   return (
     <input
+      id={id}
       type={type}
       value={value}
       onChange={onChange}
