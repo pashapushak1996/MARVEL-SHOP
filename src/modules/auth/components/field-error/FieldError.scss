@@ -1,3 +1,9 @@
 .field-error {
+  display: none;
+
   color: #EE171F;
+
+  &--is-visible {
+    display: block;
+  }
 }

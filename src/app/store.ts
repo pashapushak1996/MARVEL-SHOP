@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import { authModalReducer } from '@/modules/auth';
+import { authModalReducer, authReducer } from '@/modules/auth';
 import { comicsReducer } from '@/modules/comics';
 import { charactersReducer } from '@/modules/characters';
 
@@ -9,6 +9,7 @@ import { fetchCharacters } from '@/modules/characters/store/characters.thunk';
 
 export const store = configureStore({
   reducer: {
+    auth: authReducer,
     authModal: authModalReducer,
     comics: comicsReducer,
     characters: charactersReducer,
