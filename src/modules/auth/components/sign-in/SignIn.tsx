@@ -2,13 +2,14 @@ import React from 'react';
 import { useFormik } from 'formik';
 
 import { Button, ConfigurableLink, Input, Typography } from '@/components/shared';
+import { loginUser } from '@/modules/auth/store/auth.actions';
 import { signInValidationSchema as validationSchema } from '../../helpers';
 import { setModalType } from '../../store/';
 import { useAppDispatch } from '@/app/hooks';
 
 import { FieldError } from '@/modules/auth/components/field-error';
 
-import './SignIn.scss';
+import './SignIn.scss'
 
 export const SignIn = () => {
   const dispatch = useAppDispatch();
@@ -16,13 +17,13 @@ export const SignIn = () => {
   const { handleSubmit, handleChange, values, resetForm, submitForm, errors }
     = useFormik({
     initialValues: {
-      username: '',
+      email: '',
       password: '',
     },
     validationSchema,
     validateOnChange: false,
     onSubmit: (values) => {
-      // There will be a submit logic
+      dispatch(loginUser(values));
       resetForm();
     },
   });
@@ -43,12 +44,12 @@ export const SignIn = () => {
       </div>
       <form className='sign-in__form' onSubmit={handleSubmit}>
         <Input
-          id={'username'}
-          value={values.username}
+          id={'email'}
+          value={values.email}
           onChange={handleChange}
           inputVariants={['white']}
           placeholder='Username' />
-        <FieldError errorMessage={errors.username || ''} isVisible={!!errors.username} />
+        <FieldError errorMessage={errors.email || ''} isVisible={!!errors.email} />
         <Input
           id={'password'}
           value={values.password}
