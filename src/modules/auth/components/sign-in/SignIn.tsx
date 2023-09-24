@@ -2,9 +2,9 @@ import React from 'react';
 import { useFormik } from 'formik';
 
 import { Button, ConfigurableLink, Input, Typography } from '@/components/shared';
-import { loginUser } from '@/modules/auth/store/auth.actions';
+import authThunks from '@/modules/auth/store/auth.actions';
 import { signInValidationSchema as validationSchema } from '../../helpers';
-import { setModalType } from '../../store/';
+import { setIsOpen, setModalType } from '../../store/';
 import { useAppDispatch } from '@/app/hooks';
 
 import { FieldError } from '@/modules/auth/components/field-error';
@@ -23,7 +23,8 @@ export const SignIn = () => {
     validationSchema,
     validateOnChange: false,
     onSubmit: (values) => {
-      dispatch(loginUser(values));
+      dispatch(authThunks.loginUser(values));
+      dispatch(setIsOpen(false));
       resetForm();
     },
   });

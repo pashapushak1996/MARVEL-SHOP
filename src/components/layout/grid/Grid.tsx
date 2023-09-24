@@ -30,6 +30,9 @@ interface IGridProps {
   /** How much space grid-item needs for large screens */
   lg?: Cols;
 
+  /** How much space grid-item needs for xtra-large screens */
+  xlg?: Cols;
+
   /** This is property for gap spacing */
   spacing?: Spacing;
 
@@ -48,6 +51,7 @@ export const Grid: React.FC<IGridProps> = ({
                                              sm,
                                              md,
                                              lg,
+                                             xlg,
                                              spacing,
                                              justifyContent,
                                              alignItems,
@@ -60,6 +64,7 @@ export const Grid: React.FC<IGridProps> = ({
     [`Grid_sm_${sm}`]: sm,
     [`Grid_md_${md}`]: md,
     [`Grid_lg_${lg}`]: lg,
+    [`Grid_xlg_${xlg}`]: xlg,
     [`Grid_spacing_${spacing}`]: spacing,
     [`Grid_justifyContent_${justifyContent}`]: justifyContent,
     [`Grid_alignItems_${alignItems}`]: alignItems,

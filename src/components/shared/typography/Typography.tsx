@@ -15,7 +15,8 @@ type TypeTypographyVariant =
 type TypeTypographyWeights =
   'normal' |
   'semi-bold' |
-  'bold';
+  'bold' |
+  'black';
 
 type TypeTypographyVariants =
   'body-sm' |

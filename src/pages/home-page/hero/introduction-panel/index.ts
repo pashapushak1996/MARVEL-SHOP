@@ -1,1 +1,1 @@
-export { HeroWelcome } from './IntroductionPanel';
+export { IntroductionPanel } from './IntroductionPanel';

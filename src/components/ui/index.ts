@@ -8,4 +8,4 @@ export * from '../../modules/comics/components/comics-slider';
 export * from '../shared/modal';
 export * from '../shared/checkbox';
 export * from './nav-menu';
-export * from '../../modules/auth/login-button';
+export * from '../../modules/auth/components/login-button';

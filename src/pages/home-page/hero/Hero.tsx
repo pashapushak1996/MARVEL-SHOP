@@ -1,12 +1,11 @@
 import React, { ChangeEvent } from 'react';
 
 import { Container } from '../../../components/layout';
-import { HeroWelcome } from './introduction-panel';
+import { IntroductionPanel } from './introduction-panel';
 
 import { IComic, Slider } from '@/modules/comics';
 
 import './Hero.scss';
-import { IntroductionPanel } from '@/pages/home-page/hero/introduction-panel/IntroductionPanel';
 
 interface IHeroProps {
   comics: Array<IComic>;

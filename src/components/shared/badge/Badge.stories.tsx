@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Badge } from '../../ui';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Badge } from '@/components/shared';
 
 export default {
   title: 'Components/Badge',

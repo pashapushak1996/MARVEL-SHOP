@@ -12,22 +12,15 @@ import './ComicsPage.scss';
 export const ComicsPage: React.FC = () => {
   const { search } = useLocation();
 
-  let [sea,setUrl] = useSearchParams();
-
-
   const params = queryStringToObject(search);
 
   const { comics, loading } = useComics(params);
-
-  if (loading !== 'succeeded') {
-    return <Loader />;
-  }
 
   return (
     <div className='comics-page'>
       {comics.length === 0 && <Typography variant='heading-md'>There are no results</Typography>}
       <Container>
-        <ComicsList comics={comics} />
+        <ComicsList comics={comics} loading={loading !== 'succeeded'} />
       </Container>
     </div>
   );

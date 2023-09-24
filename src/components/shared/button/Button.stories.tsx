@@ -1,10 +1,10 @@
 import React from 'react';
-
-import { Button } from '../../ui';
+;
 
 import iconSrc from '../../../assets/icons/search-icon.svg';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Button } from '@/components/shared';
 
 export default {
   title: 'Components/Button',

@@ -8,7 +8,7 @@ import { Modal } from '../../../components/ui';
 import { Overlay } from '@/components/shared';
 
 
-import { getIsOpenModal, getModalType, setIsOpen, setModalType } from '../store';
+import {authModalSelectors, setIsOpen, setModalType } from '../store';
 import { SignIn, SignUp } from '../components';
 
 
@@ -16,8 +16,8 @@ import './AuthModal.scss';
 
 export const AuthModal = () => {
   const dispatch = useAppDispatch();
-  const modalType = useAppSelector(getModalType);
-  const isOpen = useAppSelector(getIsOpenModal);
+  const modalType = useAppSelector(authModalSelectors.getModalType);
+  const isOpen = useAppSelector(authModalSelectors.getIsOpenModal);
 
   const onOverlayClick = () => {
     dispatch(setIsOpen(false));

@@ -1,19 +1,25 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
-import { useAppSelector } from '@/app/hooks';
+import { useAppDispatch, useAppSelector } from '@/app/hooks';
 
 import { Container } from '@/components/layout';
 import { Typography } from '@/components/shared';
 import { ComicOverview, ComicsList, getComics } from '@/modules/comics';
 
 import './DetailPage.scss';
+import { fetchComics } from '@/modules/comics/store';
 
 
 export const DetailPage = () => {
   const { comicId = '' } = useParams();
+  const dispatch = useAppDispatch();
 
   const comics = useAppSelector(getComics);
+
+  if (!comics.length){
+    dispatch(fetchComics());
+  }
 
   const slicedComics = comics.slice(0, 4);
 
@@ -27,7 +33,7 @@ export const DetailPage = () => {
           <Typography as={'h3'} variant={'heading-lg'}>More Comics</Typography>
         </div>
         <div className='detail-page__comics-list'>
-          <ComicsList comics={slicedComics} />
+          <ComicsList comics={slicedComics} loading={!slicedComics.length} />
         </div>
       </div>
     </Container>

@@ -17,7 +17,9 @@
   }
 
   &__price {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     margin-left: auto;
-    align-self: center;
   }
 }

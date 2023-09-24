@@ -17,10 +17,7 @@ export const HomePage: React.FC = () => {
 
   const slicedCharacters = characters.slice(0, 5);
 
-  const comicsListSection =
-    loading === 'idle'
-      ? <Loader />
-      : <ComicsList comics={comics} />;
+  const comicsListSection = <ComicsList comics={comics} loading={loading === 'idle'}/>;
 
 
   return (

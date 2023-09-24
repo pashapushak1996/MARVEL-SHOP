@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ICharacterResponse } from '../../../types';
 import { getAllCharacters } from '../api/characters.api';
+import { ICharacterResponse } from '@/modules/characters/types';
 
 
 export const fetchCharacters = createAsyncThunk(

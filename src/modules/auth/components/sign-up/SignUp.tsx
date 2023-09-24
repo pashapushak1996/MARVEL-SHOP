@@ -2,12 +2,13 @@ import React from 'react';
 import { useFormik } from 'formik';
 
 import { Button, ConfigurableLink, Input, Typography } from '@/components/shared';
-import { setModalType } from '../../store';
-import { useAppDispatch } from '@/app/hooks';
+import { setIsOpen, setModalType } from '@/modules/auth/store';
 import { FieldError } from '@/modules/auth/components/field-error';
+import { useAppDispatch } from '@/app/hooks';
 import { signUpValidationSchema as validationSchema } from '../../helpers';
 
 import './SignUp.scss';
+import authThunks from '@/modules/auth/store/auth.actions';
 
 
 export const SignUp = () => {
@@ -22,12 +23,21 @@ export const SignUp = () => {
     email: '',
   };
 
-  const { handleSubmit, handleChange, values, resetForm, submitForm, errors, touched }
+  const {
+    handleSubmit,
+    handleChange,
+    values,
+    resetForm,
+    submitForm,
+    errors,
+    touched,
+  }
     = useFormik({
     initialValues,
     validationSchema,
     onSubmit: (values) => {
-      // There will be a submit logic
+      dispatch(authThunks.registerUser(values));
+      dispatch(setIsOpen(false));
       resetForm();
     },
   });
@@ -50,20 +60,23 @@ export const SignUp = () => {
           onChange={handleChange}
           placeholder='Username'
           inputVariants={['white']} />
-        <FieldError errorMessage={errors.username || ''} isVisible={touched.username && !!errors.username} />
+        <FieldError errorMessage={errors.username || ''}
+                    isVisible={touched.username && !!errors.username} />
         <Input
           id='email'
           value={values.email}
           onChange={handleChange}
           placeholder='E-mail' />
-        <FieldError errorMessage={errors.email || ''} isVisible={touched.email && !!errors.email} />
+        <FieldError errorMessage={errors.email || ''}
+                    isVisible={touched.email && !!errors.email} />
         <Input
           id='password'
           value={values.password}
           onChange={handleChange}
           placeholder='Password'
           type={'password'} />
-        <FieldError errorMessage={errors.password || ''} isVisible={touched.password && !!errors.password} />
+        <FieldError errorMessage={errors.password || ''}
+                    isVisible={touched.password && !!errors.password} />
         <Input
           id='confirmPassword'
           value={values.confirmPassword}

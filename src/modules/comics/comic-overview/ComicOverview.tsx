@@ -2,12 +2,13 @@ import React, { useEffect } from 'react';
 
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 import { ComicDetail } from '../components/comics-detail';
-import { ActionBox } from '../../../components/shared/action-box';
-import { Loader } from '../../../components/shared';
+import { ActionBox } from '@/components/shared/action-box';
 
 import { fetchComicById, getComic } from '../store';
 
 import './ComicOverview.scss';
+import { cartActions } from '@/modules/cart';
+import { ComicDetailLoader } from '@/modules/comics/components/comics-detail/ComicDetailLoader';
 
 interface IComicOverviewProps {
   /** It's id of comic*/
@@ -22,8 +23,13 @@ export const ComicOverview: React.FC<IComicOverviewProps> = ({ comicId }) => {
     dispatch(fetchComicById(comicId));
   }, [comicId]);
 
-  if (!comic || comic.id !== Number(comicId)) {
-    return <Loader />;
+  const onClickAddToCart = () => {
+    dispatch(cartActions.addToCart(comic));
+  };
+
+
+  if (!comic || comic.id.toString() !== comicId) {
+    return <ComicDetailLoader />;
   }
 
   return (
@@ -32,7 +38,9 @@ export const ComicOverview: React.FC<IComicOverviewProps> = ({ comicId }) => {
         <ComicDetail {...comic} />
       </div>
       <div className='comic-overview__actions'>
-        <ActionBox price={comic.price} isOnSale={comic.price !== 0} />
+        <ActionBox price={comic.price}
+                   isOnSale={comic.price !== 0}
+                   onClickAddToCart={() => onClickAddToCart()} />
       </div>
     </div>
   );

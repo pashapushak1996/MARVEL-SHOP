@@ -8,6 +8,7 @@ $breakpoints: (
         "sm": 600px,
         "md": 960px,
         "lg": 1280px,
+        "xlg":1440px,
 );
 
 $justifyContent: (flex-start, flex-end, center, space-between);
@@ -66,6 +67,14 @@ $alignItems: (flex-start, flex-end, center, stretch);
   @include breakpoint("lg") {
     @for $i from 1 to 13 {
       &_lg_#{$i} {
+        flex-basis: calc($i/12) * 100%;
+      }
+    }
+  }
+
+  @include breakpoint("xlg") {
+    @for $i from 1 to 13 {
+      &_xlg_#{$i} {
         flex-basis: calc($i/12) * 100%;
       }
     }

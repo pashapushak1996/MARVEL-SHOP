@@ -1,13 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { loginUser } from '@/modules/auth/store/auth.actions';
-import { UserData } from '@/types';
 
+import authThunks from '@/modules/auth/store/auth.actions';
+import { UserData } from '@/types';
 
 interface InitialState {
   authenticated: boolean,
   loading: boolean,
-  error: null | string,
-  user: null | UserData;
+  error: string | null,
+  user: UserData | null;
 }
 
 const initialState: InitialState = {
@@ -17,11 +17,18 @@ const initialState: InitialState = {
   error: null,
 };
 
+const { loginUser, logoutUser, registerUser } = authThunks;
+
 
 const authSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {},
+  reducers: {
+    setUser: (state, action) => {
+      state.user =  action.payload.user;
+      state.authenticated = action.payload.user !== null;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(loginUser.fulfilled, (state, { payload }) => {
@@ -31,8 +38,18 @@ const authSlice = createSlice({
       })
       .addCase(loginUser.pending, (state, { payload }) => {
         state.loading = true;
+      })
+      .addCase(registerUser.fulfilled, (state, { payload }) => {
+        state.authenticated = true;
+        state.error = null;
+        state.user = payload;
+      })
+      .addCase(logoutUser.fulfilled, (state, _) => {
+        state.authenticated = false;
+        state.user = null;
       });
   },
 });
 
 export const authReducer = authSlice.reducer;
+export const { setUser } = authSlice.actions;

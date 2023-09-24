@@ -4,6 +4,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import { CharactersPage, ComicsPage, DetailPage, HomePage } from '../pages';
 import { Root } from './Root';
 import { DesktopLayout } from '../components/app-layout';
+import { CartPage } from '@/pages/cart-page';
 
 export const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ export const router = createBrowserRouter([
           {
             path: '/comics/:comicId',
             element: <DetailPage />,
+          },
+          {
+            path: '/cart',
+            element: <CartPage />,
           },
         ],
       },

@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { ICharacter } from '../../../../types';
 import { Typography } from '../../../../components/shared';
 
 import './CharacterCard.scss';
+import { ICharacter } from '@/modules/characters/types';
 
 interface ICharacterCard {
   character: ICharacter;

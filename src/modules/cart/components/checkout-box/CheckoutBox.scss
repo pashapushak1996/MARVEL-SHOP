@@ -1,0 +1,13 @@
+.checkout-box {
+  display: inline-flex;
+  flex-direction: column;
+  width: 100%;
+
+  &__title{
+    margin-bottom: 30px;
+  }
+
+  &__button {
+    align-self: center;
+  }
+}

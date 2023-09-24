@@ -32,6 +32,12 @@
   &__controls {
     display: flex;
     justify-content: flex-end;
+
+   &-user{
+     display: flex;
+     align-items: center;
+     gap:15px;
+   }
   }
 }
 

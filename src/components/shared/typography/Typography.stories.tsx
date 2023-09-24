@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Typography } from '../../ui';
+import { Typography } from '@/components/shared';
 
 export default {
   title: 'Components/Typography',
